@@ -38,7 +38,7 @@ export default function GameShowcase() {
                 </div>
                 <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-center loki-text">Strategic Tic Tac Toe</h3>
                 <p className="text-sm sm:text-base mb-6">
-                  My version of Tic Tac Toe transforms the classic game with innovative rules that enhance strategic depth. I've redesigned the gameplay to reduce the likelihood of draws and create more decisive outcomes. Players must think several moves ahead as each placement affects the entire board dynamics. The game features a sleek, modern interface with intuitive controls, making it accessible yet challenging for players of all skill levels. Try it out and experience how a simple concept can become an engaging battle of wits!
+                  Experience Tic Tac Toe like never before with multiple exciting game modes! Challenge yourself in Classic mode for the traditional experience, test your skills against an AI opponent, or invite a friend for local multiplayer matches. Each mode offers a unique twist on the classic game, making it more engaging and strategic. The game features a modern design, smooth animations, and an intuitive interface that makes it easy to jump right in and start playing.
                 </p>
                 <div className="mt-auto text-center">
                   <Button 
