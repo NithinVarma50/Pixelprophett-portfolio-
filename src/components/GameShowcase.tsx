@@ -38,7 +38,7 @@ export default function GameShowcase() {
                 </div>
                 <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-center loki-text">Strategic Tic Tac Toe</h3>
                 <p className="text-sm sm:text-base mb-6">
-                  Tic Tac Toe is usually known as a simple game that often ends in a tie. But I challenged that norm by redesigning the game to be more competitive and less predictable. I added new rules that make it harder to draw and more likely for one player to win. In my version, strategic thinking is more important, and matches rarely end in a tie—someone almost always wins or loses. It's the same game at its core, but with a twist that makes it much more exciting and challenging!
+                  My version of Tic Tac Toe transforms the classic game with innovative rules that enhance strategic depth. I've redesigned the gameplay to reduce the likelihood of draws and create more decisive outcomes. Players must think several moves ahead as each placement affects the entire board dynamics. The game features a sleek, modern interface with intuitive controls, making it accessible yet challenging for players of all skill levels. Try it out and experience how a simple concept can become an engaging battle of wits!
                 </p>
                 <div className="mt-auto text-center">
                   <Button 
@@ -47,7 +47,7 @@ export default function GameShowcase() {
                     asChild
                   >
                     <a 
-                      href="https://tic-tac-toe-by-nithinvarma.tiiny.site" 
+                      href="https://nithinvarma-tic-tac-toe.vercel.app/" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="relative z-10"
