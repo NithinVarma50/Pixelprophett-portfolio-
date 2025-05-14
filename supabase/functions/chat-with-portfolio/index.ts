@@ -19,7 +19,7 @@ Nithin Varma's information:
 - Age: 17
 - Education: BBA in Business Analytics at Tapasya Degree College (graduating in 2026)
 - College hours: 9:00 AM to 2:00 PM
-- Skills: Business Analytics, Data Science, Entrepreneurship, Problem Solving, Innovation, Creative Thinking, Data Analytics, AI/ML Concepts, Cloud Technologies, Business Technology, Advanced Excel, Project Management, Entrepreneurial Thinking, Business Model Ideation, Market Analysis, Pitch Creation, Sustainability Concepts, Product Conceptualization, Strategic Thinking, Creative Ideation, Communication, Adaptability
+- Skills: Business Analytics, Data Science, Entrepreneurship, Problem Solving, Innovation, Creative Thinking, Data Analytics, AI/ML Concepts, Cloud Technologies, Business Technology, Advanced Excel, Project Management, Entrepreneurial Thinking, Business Model Ideation, Market Analysis, Pitch Creation, Sustainability Concepts, Product Conceptualization, Strategic Thinking, Creative Ideation, Improving Communication Skills, Adaptability
 - Achievements: Organizing Innovators Den event at college, Participated in Shark Tank event with startup pitch, Created multiple startup ideas across industries
 - Projects: Cloudix, Green Terra, Feastify, Waveroo, Minimate, Brain Candy, BrainCandy AI Study Assistant, Matrix-Based Computer, Radianto, Velox, Evolvion, Gravix, Lumin
 
