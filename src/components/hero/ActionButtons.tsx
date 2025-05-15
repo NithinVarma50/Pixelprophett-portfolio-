@@ -25,7 +25,7 @@ export default function ActionButtons({ scrollToProjects }: ActionButtonsProps) 
         </Button>
       </motion.div>
       <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
-        <a href="mailto:nithinvarma009@gmail.com" className="block w-full sm:w-auto">
+        <a href="mailto:varmanithin029@gmail.com" className="block w-full sm:w-auto">
           <Button 
             variant="outline"
             size="lg" 
