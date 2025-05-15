@@ -1,7 +1,3 @@
-
-
----
-
 # 🚀 PixelProphett Portfolio
 
 Welcome to my digital playground! I'm Nithinvarma, an aspiring entrepreneur and perpetual innovator. This portfolio is a reflection of my journey, showcasing projects that aim to disrupt the norm and redefine possibilities.
