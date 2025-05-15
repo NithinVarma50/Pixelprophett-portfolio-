@@ -6,7 +6,7 @@ export const personalInfo: PersonalInfo = {
     name: "Nithin Varma",
     age: "17",
     birthDate: "May 4, 2007",
-    email: "nv787265@gmail.com",
+    email: "varmanithin029@gmail.com",
     phone: "9381904726",
     location: "India"
   },

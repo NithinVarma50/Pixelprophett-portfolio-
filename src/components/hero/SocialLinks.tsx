@@ -21,7 +21,7 @@ export default function SocialLinks() {
         <Instagram className="w-6 h-6" />
       </motion.a>
       <motion.a 
-        href="https://discord.gg/xW8fEam2" 
+        href="https://discord.gg/F6YUK89C" 
         target="_blank" 
         rel="noopener noreferrer"
         className="hover:text-primary transition-colors p-2 rounded-full hover:bg-foreground/5"
@@ -54,7 +54,7 @@ export default function SocialLinks() {
         </svg>
       </motion.a>
       <motion.a 
-        href="https://github.com/nithinvarma009" 
+        href="https://github.com/NithinVarma50" 
         target="_blank" 
         rel="noopener noreferrer"
         className="hover:text-primary transition-colors p-2 rounded-full hover:bg-foreground/5"
