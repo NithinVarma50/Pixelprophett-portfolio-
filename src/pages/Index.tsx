@@ -1,3 +1,4 @@
+
 import { useEffect, useState, useRef, lazy, Suspense } from "react";
 import Hero from "@/components/Hero";
 import { motion, useScroll, useSpring } from "framer-motion";
@@ -8,6 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 const About = lazy(() => import("@/components/About"));
 const Skills = lazy(() => import("@/components/Skills"));
 const Projects = lazy(() => import("@/components/Projects"));
+const QuickFix = lazy(() => import("@/components/QuickFix"));
 const GameShowcase = lazy(() => import("@/components/GameShowcase"));
 const Achievements = lazy(() => import("@/components/Achievements"));
 const Conclusion = lazy(() => import("@/components/Conclusion"));
@@ -99,6 +101,10 @@ const Index = () => {
       
       <Suspense fallback={<SectionLoader />}>
         <Projects />
+      </Suspense>
+      
+      <Suspense fallback={<SectionLoader />}>
+        <QuickFix />
       </Suspense>
       
       <Suspense fallback={<SectionLoader />}>
