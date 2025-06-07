@@ -1,9 +1,9 @@
-
 import { useEffect, useState, useRef, lazy, Suspense } from "react";
 import Hero from "@/components/Hero";
 import { motion, useScroll, useSpring } from "framer-motion";
 import LokiEffects from "@/components/effects/LokiEffects";
 import { Skeleton } from "@/components/ui/skeleton";
+import HiddenReward from "@/components/HiddenReward";
 
 // Lazy load non-critical components
 const About = lazy(() => import("@/components/About"));
@@ -136,6 +136,9 @@ const Index = () => {
           </svg>
         </motion.button>
       )}
+      
+      {/* Hidden reward component */}
+      <HiddenReward />
     </main>
   );
 };
