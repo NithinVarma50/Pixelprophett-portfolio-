@@ -1,4 +1,3 @@
-
 import { useEffect, useState, useRef, lazy, Suspense } from "react";
 import Hero from "@/components/Hero";
 import { motion, useScroll, useSpring } from "framer-motion";
@@ -8,6 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 // Lazy load non-critical components
 const About = lazy(() => import("@/components/About"));
 const Skills = lazy(() => import("@/components/Skills"));
+const QuickFixAnalysis = lazy(() => import("@/components/QuickFixAnalysis"));
 const Projects = lazy(() => import("@/components/Projects"));
 const QuickFix = lazy(() => import("@/components/QuickFix"));
 const GameShowcase = lazy(() => import("@/components/GameShowcase"));
@@ -97,6 +97,10 @@ const Index = () => {
       
       <Suspense fallback={<SectionLoader />}>
         <Skills />
+      </Suspense>
+      
+      <Suspense fallback={<SectionLoader />}>
+        <QuickFixAnalysis />
       </Suspense>
       
       <Suspense fallback={<SectionLoader />}>
