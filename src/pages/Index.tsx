@@ -7,9 +7,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 // Lazy load non-critical components
 const About = lazy(() => import("@/components/About"));
 const Skills = lazy(() => import("@/components/Skills"));
-const QuickFixAnalysis = lazy(() => import("@/components/QuickFixAnalysis"));
 const Projects = lazy(() => import("@/components/Projects"));
 const QuickFix = lazy(() => import("@/components/QuickFix"));
+const QuickFixAnalysis = lazy(() => import("@/components/QuickFixAnalysis"));
 const GameShowcase = lazy(() => import("@/components/GameShowcase"));
 const Achievements = lazy(() => import("@/components/Achievements"));
 const Conclusion = lazy(() => import("@/components/Conclusion"));
@@ -100,15 +100,15 @@ const Index = () => {
       </Suspense>
       
       <Suspense fallback={<SectionLoader />}>
-        <QuickFixAnalysis />
-      </Suspense>
-      
-      <Suspense fallback={<SectionLoader />}>
         <Projects />
       </Suspense>
       
       <Suspense fallback={<SectionLoader />}>
         <QuickFix />
+      </Suspense>
+      
+      <Suspense fallback={<SectionLoader />}>
+        <QuickFixAnalysis />
       </Suspense>
       
       <Suspense fallback={<SectionLoader />}>
