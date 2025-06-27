@@ -1,14 +1,19 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
-import { ExternalLink, Wrench, Zap, TrendingUp, Target } from "lucide-react";
+import { ExternalLink, Wrench, Zap, TrendingUp, Target, Bot } from "lucide-react";
 
 export default function QuickFix() {
   const features = [
     {
       icon: <Wrench className="w-6 h-6 text-primary/70" />,
       title: "Built & deployed the entire website",
-      description: "Frontend, UI/UX, deployment from scratch"
+      description: "Full-stack development: Frontend, backend, UI/UX, deployment"
+    },
+    {
+      icon: <Bot className="w-6 h-6 text-primary/70" />,
+      title: "AI Assistant (QuickFix AI)",
+      description: "Designed & integrated intelligent assistant with natural language processing"
     },
     {
       icon: <TrendingUp className="w-6 h-6 text-primary/70" />,
@@ -77,7 +82,7 @@ export default function QuickFix() {
                   We're building a smart, dispatch-on-demand system that connects users with mechanics — fast, simple, and fully digital.
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                   {features.map((feature, index) => (
                     <motion.div
                       key={feature.title}
@@ -96,6 +101,18 @@ export default function QuickFix() {
                       </div>
                     </motion.div>
                   ))}
+                </div>
+
+                <div className="border border-primary/20 rounded-lg p-4 mb-6 bg-primary/5">
+                  <h4 className="flex items-center gap-2 font-semibold text-sm mb-2 text-primary">
+                    <Bot className="w-4 h-4" />
+                    🛠️ AI Assistant (QuickFix AI)
+                  </h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Designed & integrated an intelligent assistant that interprets user vehicle issues using natural language 
+                    and recommends DIY solutions or instant bookings. Built complete full-stack solution including backend APIs 
+                    and frontend integration.
+                  </p>
                 </div>
 
                 <div className="border-t border-border pt-4">
