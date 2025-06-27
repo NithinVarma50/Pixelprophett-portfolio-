@@ -10,7 +10,8 @@ const skillCategories = [
       { name: "Generative AI (Gen AI)", icon: "✨" },
       { name: "Cloud Technologies", icon: "☁️" },
       { name: "Business Technology", icon: "💻" },
-      { name: "Advanced Excel", icon: "📈" }
+      { name: "Advanced Excel", icon: "📈" },
+      { name: "Project Management", icon: "📋" }
     ]
   },
   {
