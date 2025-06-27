@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
 
@@ -11,8 +10,7 @@ const skillCategories = [
       { name: "Generative AI (Gen AI)", icon: "✨" },
       { name: "Cloud Technologies", icon: "☁️" },
       { name: "Business Technology", icon: "💻" },
-      { name: "Advanced Excel", icon: "📈" },
-      { name: "Project Management", icon: "📋" }
+      { name: "Advanced Excel", icon: "📈" }
     ]
   },
   {
@@ -22,7 +20,7 @@ const skillCategories = [
       { name: "Business Model Ideation", icon: "🎯" },
       { name: "Market Analysis", icon: "📊" },
       { name: "Pitch Creation", icon: "🎤" },
-      { name: "Project Management", icon: "📋" },
+      { name: "Product Management", icon: "📦" },
       { name: "Sustainability Concepts", icon: "🌱" },
       { name: "Product Conceptualization", icon: "⚡" }
     ]
