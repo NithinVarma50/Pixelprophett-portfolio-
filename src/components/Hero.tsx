@@ -5,7 +5,6 @@ import SocialLinks from "./hero/SocialLinks";
 import ActionButtons from "./hero/ActionButtons";
 import BackgroundEffects from "./hero/BackgroundEffects";
 import { SplineScene } from "./ui/splite";
-import { Spotlight } from "./ui/spotlight";
 
 export default function Hero() {
   const scrollToProjects = () => {
@@ -15,17 +14,6 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen flex flex-col lg:flex-row justify-center items-center section-padding text-center lg:text-left relative overflow-hidden pt-16 sm:pt-0">
-      {/* Spotlight effect */}
-      <Spotlight
-        className="-top-40 left-0 md:left-60 md:-top-20"
-        size={600}
-        springOptions={{ 
-          stiffness: 400, 
-          damping: 30, 
-          mass: 0.5 
-        }}
-      />
-
       {/* Left side - Content */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
