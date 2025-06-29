@@ -44,12 +44,9 @@ export default function Hero() {
           className="w-full h-[400px] lg:h-[500px] relative group cursor-pointer transform-gpu"
           whileHover={{ 
             scale: 1.02,
-            rotateY: 5,
-            rotateX: 2
           }}
           whileTap={{ 
             scale: 0.98,
-            rotateY: -2 
           }}
           transition={{ 
             type: "spring", 
@@ -83,24 +80,27 @@ export default function Hero() {
               damping: 20
             }}
             animate={{
-              y: [0, -2, 0],
+              y: [0, -2],
             }}
-            whileHover={{
-              scale: 1.05,
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut"
             }}
           >
             Interactive ✨
           </motion.div>
 
-          {/* Main 3D scene container with enhanced styling */}
+          {/* Main 3D scene container with enhanced styling - ensuring full interaction */}
           <div className="relative w-full h-full rounded-xl overflow-hidden border border-white/5 group-hover:border-primary/30 transition-all duration-500 shadow-lg group-hover:shadow-primary/20">
             <SplineScene 
               scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-              className="w-full h-full transform-gpu"
+              className="w-full h-full transform-gpu pointer-events-auto"
             />
             
-            {/* Enhanced overlay for better integration */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent pointer-events-none" />
+            {/* Minimal overlay for better integration without blocking interaction */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent pointer-events-none" />
             
             {/* Rim light effect */}
             <div className="absolute inset-0 rounded-xl border-2 border-primary/0 group-hover:border-primary/40 transition-all duration-700 pointer-events-none" />
@@ -117,14 +117,15 @@ export default function Hero() {
                   top: `${25 + i * 15}%`,
                 }}
                 animate={{
-                  y: [-15, 15, -15],
-                  x: [-5, 5, -5],
-                  opacity: [0.3, 0.9, 0.3],
-                  scale: [0.8, 1.2, 0.8],
+                  y: [-15, 15],
+                  x: [-5, 5],
+                  opacity: [0.3, 0.9],
+                  scale: [0.8, 1.2],
                 }}
                 transition={{
                   duration: 4 + i * 0.5,
                   repeat: Infinity,
+                  repeatType: "reverse",
                   ease: "easeInOut",
                   delay: i * 0.3,
                 }}
@@ -134,14 +135,15 @@ export default function Hero() {
 
           {/* Pulse ring effect */}
           <motion.div
-            className="absolute inset-0 rounded-xl border border-primary/20 opacity-0 group-hover:opacity-100"
+            className="absolute inset-0 rounded-xl border border-primary/20 opacity-0 group-hover:opacity-100 pointer-events-none"
             animate={{
-              scale: [1, 1.05, 1],
-              opacity: [0, 0.5, 0],
+              scale: [1, 1.05],
+              opacity: [0, 0.5],
             }}
             transition={{
               duration: 3,
               repeat: Infinity,
+              repeatType: "reverse",
               ease: "easeInOut",
             }}
           />
