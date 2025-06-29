@@ -143,6 +143,10 @@ export default {
                 "text-shimmer": {
                     "0%": { backgroundPosition: "200% 0" },
                     "100%": { backgroundPosition: "-200% 0" }
+                },
+                "spotlight": {
+                    "0%": { opacity: "0", transform: "scale(0.8)" },
+                    "100%": { opacity: "1", transform: "scale(1)" }
                 }
 			},
 			animation: {
@@ -160,7 +164,8 @@ export default {
                 "zoom-in": "zoom-in 0.7s ease-out",
                 "bounce-light": "bounce-light 3s ease-in-out infinite",
                 "text-focus-in": "text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530)",
-                "text-shimmer": "text-shimmer 3s infinite linear"
+                "text-shimmer": "text-shimmer 3s infinite linear",
+                "spotlight": "spotlight 2s ease-out"
 			}
 		}
 	},
