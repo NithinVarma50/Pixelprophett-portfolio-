@@ -1,3 +1,4 @@
+
 import { useEffect, useState, useRef, lazy, Suspense } from "react";
 import Hero from "@/components/Hero";
 import { motion, useScroll, useSpring } from "framer-motion";
@@ -14,9 +15,14 @@ const GameShowcase = lazy(() => import("@/components/GameShowcase"));
 const Achievements = lazy(() => import("@/components/Achievements"));
 const Conclusion = lazy(() => import("@/components/Conclusion"));
 
-// Simple loading component for lazy-loaded sections
+// Enhanced loading component for lazy-loaded sections
 const SectionLoader = () => (
-  <div className="py-16 px-4">
+  <motion.div 
+    className="py-16 px-4"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.3 }}
+  >
     <Skeleton className="h-8 w-1/3 mx-auto mb-8" />
     <Skeleton className="h-4 w-2/3 mx-auto mb-4" />
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
@@ -25,36 +31,46 @@ const SectionLoader = () => (
       <Skeleton className="h-32 rounded-md" />
       <Skeleton className="h-32 rounded-md" />
     </div>
-  </div>
+  </motion.div>
 );
 
 const Index = () => {
-  // Performance-optimized scroll tracking
+  // Ultra-smooth scroll tracking with optimized performance
   const { scrollYProgress } = useScroll({
     offset: ["start start", "end end"]
   });
   
-  // More responsive spring physics
+  // Enhanced spring physics for buttery smooth movement
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-    mass: 0.5 // Further reduced mass for even more responsive movement
+    stiffness: 200,
+    damping: 35,
+    restDelta: 0.0001,
+    mass: 0.3
   });
   
   const [showScrollButton, setShowScrollButton] = useState(false);
   const scrollingRef = useRef(false);
   const progressBarRef = useRef<HTMLDivElement>(null);
+  const ticking = useRef(false);
 
   useEffect(() => {
-    // Optimized scroll handler with passive event listener
+    // Ultra-optimized scroll handler with RAF throttling
     const handleScroll = () => {
-      if (!scrollingRef.current) {
-        setShowScrollButton(window.scrollY > window.innerHeight * 0.5);
+      if (!ticking.current) {
+        requestAnimationFrame(() => {
+          if (!scrollingRef.current) {
+            setShowScrollButton(window.scrollY > window.innerHeight * 0.4);
+          }
+          ticking.current = false;
+        });
+        ticking.current = true;
       }
     };
     
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { 
+      passive: true,
+      capture: false 
+    });
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -70,15 +86,15 @@ const Index = () => {
     
     setTimeout(() => {
       scrollingRef.current = false;
-    }, 1000);
+    }, 1200);
   };
 
   return (
-    <main className="min-h-screen relative">
-      {/* Highly optimized progress bar */}
+    <main className="min-h-screen relative will-change-scroll">
+      {/* Ultra-smooth progress bar with enhanced styling */}
       <motion.div 
         ref={progressBarRef}
-        className="fixed top-0 left-0 right-0 h-1 bg-primary z-[100] transform-gpu"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary/80 to-primary z-[100] transform-gpu shadow-sm shadow-primary/50"
         style={{ 
           scaleX,
           transformOrigin: "left"
@@ -86,11 +102,11 @@ const Index = () => {
         aria-hidden="true"
       />
       
-      {/* Reduced initial render load - load only what's visible */}
+      {/* Optimized initial render */}
       <LokiEffects />
       <Hero />
       
-      {/* Lazy-loaded sections with suspense fallbacks */}
+      {/* Enhanced lazy-loaded sections with better transitions */}
       <Suspense fallback={<SectionLoader />}>
         <About />
       </Suspense>
@@ -123,21 +139,50 @@ const Index = () => {
         <Conclusion />
       </Suspense>
       
-      {/* Optimized button with GPU acceleration */}
+      {/* Enhanced scroll-to-top button with smoother animations */}
       {showScrollButton && (
         <motion.button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 rounded-full bg-primary/80 hover:bg-primary text-white shadow-lg z-40 transition-colors transform-gpu"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          className="fixed bottom-8 right-8 p-4 rounded-full bg-primary/90 hover:bg-primary text-white shadow-xl shadow-primary/25 z-40 transition-all duration-300 transform-gpu backdrop-blur-sm border border-primary/20"
+          initial={{ opacity: 0, y: 20, scale: 0.8 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 20, scale: 0.8 }}
+          transition={{ 
+            type: "spring",
+            stiffness: 300,
+            damping: 25,
+            mass: 0.8
+          }}
+          whileHover={{ 
+            scale: 1.1,
+            boxShadow: "0 0 25px rgba(57, 255, 20, 0.4)"
+          }}
+          whileTap={{ 
+            scale: 0.95,
+            transition: { duration: 0.1 }
+          }}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <motion.svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+            animate={{
+              y: [0, -2, 0],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
             <polyline points="18 15 12 9 6 15"></polyline>
-          </svg>
+          </motion.svg>
         </motion.button>
       )}
     </main>
