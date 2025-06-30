@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Loader from "@/components/ui/3d-box-loader-animation";
 
 // Lazy load pages for optimal code-splitting
 const Index = lazy(() => import("./pages/Index"));
@@ -21,7 +22,7 @@ const queryClient = new QueryClient({
   },
 });
 
-// Enhanced loading component with Loki-inspired effects
+// Enhanced loading component with 3D box loader and Loki-inspired effects
 const LoadingFallback = () => {
   // Mark document as ready once loaded for better UX
   useEffect(() => {
@@ -155,8 +156,18 @@ const LoadingFallback = () => {
         />
       ))}
       
-      {/* Main content */}
+      {/* Main content with 3D Box Loader */}
       <div className="z-10 flex flex-col items-center">
+        {/* 3D Box Loader */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="mb-8"
+        >
+          <Loader />
+        </motion.div>
+        
         <motion.div
           initial={{ opacity: 0.5, scale: 0.98 }}
           animate={{ 
