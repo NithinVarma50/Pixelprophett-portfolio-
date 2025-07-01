@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -21,135 +20,82 @@ const queryClient = new QueryClient({
   },
 });
 
-// Enhanced loading component with Loki-inspired effects
+// Simplified loading component for better performance
 const LoadingFallback = () => {
-  // Mark document as ready once loaded for better UX
   useEffect(() => {
     document.documentElement.dataset.loaded = "true";
   }, []);
 
   const [loadingProgress, setLoadingProgress] = useState(0);
 
-  // Simulate loading progress
   useEffect(() => {
     const interval = setInterval(() => {
       setLoadingProgress(prev => {
-        const newProgress = prev + Math.random() * 10;
+        const newProgress = prev + Math.random() * 15;
         return newProgress >= 100 ? 100 : newProgress;
       });
-    }, 200);
+    }, 100);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-center bg-background relative overflow-hidden">
-      {/* Background glow effect */}
+      {/* Simplified background effect */}
       <motion.div 
-        className="absolute w-[50vw] h-[50vh] rounded-full bg-primary/5 filter blur-[100px]"
+        className="absolute w-[30vw] h-[30vh] rounded-full bg-primary/10 filter blur-[80px]"
         animate={{
-          scale: [1, 1.2, 1],
+          scale: [1, 1.1, 1],
           opacity: [0.3, 0.5, 0.3],
         }}
         transition={{
-          duration: 4,
+          duration: 3,
           repeat: Infinity,
           ease: "easeInOut",
         }}
         style={{
-          top: "25%",
-          left: "25%",
+          top: "35%",
+          left: "35%",
         }}
       />
       
-      {/* Timeline effect */}
+      {/* Simplified rune circle */}
       <motion.div
-        className="absolute w-full h-[1px] bg-primary/30"
-        style={{ top: "50%" }}
-        animate={{
-          scaleX: [0, 1],
-          opacity: [0.2, 0.4, 0.2],
-        }}
-        transition={{
-          scaleX: {
-            duration: 2,
-            ease: "easeInOut",
-          },
-          opacity: {
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }
-        }}
-      />
-      
-      {/* TVA-like circular rune */}
-      <motion.div
-        className="absolute w-[300px] h-[300px] rounded-full border border-primary/20"
-        style={{
-          top: "calc(50% - 150px)",
-          left: "calc(50% - 150px)",
-        }}
-        animate={{
-          rotate: [0, 360],
-          borderColor: ["rgba(57, 255, 20, 0.2)", "rgba(57, 255, 20, 0.4)", "rgba(57, 255, 20, 0.2)"]
-        }}
-        transition={{
-          rotate: {
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-          },
-          borderColor: {
-            duration: 4, 
-            repeat: Infinity,
-            ease: "easeInOut",
-          }
-        }}
-      />
-      
-      <motion.div
-        className="absolute w-[200px] h-[200px] rounded-full border border-primary/30"
+        className="absolute w-[200px] h-[200px] rounded-full border border-primary/20"
         style={{
           top: "calc(50% - 100px)",
           left: "calc(50% - 100px)",
         }}
         animate={{
-          rotate: [360, 0],
-          borderColor: ["rgba(57, 255, 20, 0.3)", "rgba(57, 255, 20, 0.5)", "rgba(57, 255, 20, 0.3)"]
+          rotate: [0, 360],
         }}
         transition={{
           rotate: {
             duration: 15,
             repeat: Infinity,
             ease: "linear",
-          },
-          borderColor: {
-            duration: 4, 
-            repeat: Infinity,
-            ease: "easeInOut",
           }
         }}
       />
       
-      {/* Magic particles */}
-      {[...Array(8)].map((_, i) => (
+      {/* Reduced particles */}
+      {[...Array(3)].map((_, i) => (
         <motion.div
           key={`particle-${i}`}
           className="absolute w-1 h-1 bg-primary rounded-full"
           initial={{ 
-            x: Math.random() * 400 - 200,
-            y: Math.random() * 400 - 200,
+            x: Math.random() * 300 - 150,
+            y: Math.random() * 300 - 150,
             opacity: 0 
           }}
           animate={{
             opacity: [0, 1, 0],
-            scale: [0, 1.5, 0],
+            scale: [0, 1, 0],
           }}
           transition={{
-            duration: 2 + Math.random() * 2,
+            duration: 2,
             repeat: Infinity,
-            delay: Math.random() * 2,
+            delay: i * 0.5,
             ease: "easeInOut",
           }}
         />
@@ -158,23 +104,16 @@ const LoadingFallback = () => {
       {/* Main content */}
       <div className="z-10 flex flex-col items-center">
         <motion.div
-          initial={{ opacity: 0.5, scale: 0.98 }}
+          initial={{ opacity: 0.5 }}
           animate={{ 
             opacity: [0.5, 1, 0.5],
-            scale: [0.98, 1, 0.98],
-            textShadow: [
-              "0 0 5px rgba(57, 255, 20, 0.3)",
-              "0 0 15px rgba(57, 255, 20, 0.5)",
-              "0 0 5px rgba(57, 255, 20, 0.3)"
-            ]
           }}
           transition={{ 
             repeat: Infinity, 
             duration: 2,
             ease: "easeInOut",
-            repeatType: "mirror"
           }}
-          className="text-3xl md:text-4xl font-bold playfair mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary transform-gpu"
+          className="text-3xl md:text-4xl font-bold playfair mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary"
         >
           Nithin Varma
         </motion.div>
@@ -182,13 +121,14 @@ const LoadingFallback = () => {
         {/* Progress Bar */}
         <div className="w-48 h-1 bg-primary/10 rounded-full overflow-hidden mb-2">
           <motion.div 
-            className="h-full bg-primary origin-left transform-gpu"
+            className="h-full bg-primary origin-left"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: loadingProgress / 100 }}
             transition={{ 
-              duration: 0.3,
+              duration: 0.2,
               ease: "easeOut"
             }}
+            style={{ willChange: "transform" }}
           />
         </div>
         

@@ -14,50 +14,66 @@ const GameShowcase = lazy(() => import("@/components/GameShowcase"));
 const Achievements = lazy(() => import("@/components/Achievements"));
 const Conclusion = lazy(() => import("@/components/Conclusion"));
 
-// Simple loading component for lazy-loaded sections
+// Optimized loading component
 const SectionLoader = () => (
   <div className="py-16 px-4">
     <Skeleton className="h-8 w-1/3 mx-auto mb-8" />
     <Skeleton className="h-4 w-2/3 mx-auto mb-4" />
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
-      <Skeleton className="h-32 rounded-md" />
-      <Skeleton className="h-32 rounded-md" />
-      <Skeleton className="h-32 rounded-md" />
-      <Skeleton className="h-32 rounded-md" />
+      <Skeleton className="h-24 rounded-md" />
+      <Skeleton className="h-24 rounded-md" />
     </div>
   </div>
 );
 
 const Index = () => {
-  // Performance-optimized scroll tracking
+  // Optimized scroll tracking with reduced updates
   const { scrollYProgress } = useScroll({
     offset: ["start start", "end end"]
   });
   
-  // More responsive spring physics
+  // More responsive spring physics with reduced calculations
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
+    stiffness: 200,
+    damping: 40,
     restDelta: 0.001,
-    mass: 0.5 // Further reduced mass for even more responsive movement
+    mass: 0.3
   });
   
   const [showScrollButton, setShowScrollButton] = useState(false);
   const scrollingRef = useRef(false);
-  const progressBarRef = useRef<HTMLDivElement>(null);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    // Optimized scroll handler with passive event listener
+    // Throttled scroll handler for better performance
     const handleScroll = () => {
-      if (!scrollingRef.current) {
-        setShowScrollButton(window.scrollY > window.innerHeight * 0.5);
+      const currentScrollY = window.scrollY;
+      
+      // Only update if scroll difference is significant
+      if (Math.abs(currentScrollY - lastScrollY.current) > 50) {
+        if (!scrollingRef.current) {
+          setShowScrollButton(currentScrollY > window.innerHeight * 0.3);
+        }
+        lastScrollY.current = currentScrollY;
       }
     };
     
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Use passive listener and throttle updates
+    let ticking = false;
+    const throttledScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    
+    window.addEventListener('scroll', throttledScroll, { passive: true });
     
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', throttledScroll);
     };
   }, []);
   
@@ -70,23 +86,23 @@ const Index = () => {
     
     setTimeout(() => {
       scrollingRef.current = false;
-    }, 1000);
+    }, 800);
   };
 
   return (
     <main className="min-h-screen relative">
-      {/* Highly optimized progress bar */}
+      {/* Optimized progress bar */}
       <motion.div 
-        ref={progressBarRef}
-        className="fixed top-0 left-0 right-0 h-1 bg-primary z-[100] transform-gpu"
+        className="fixed top-0 left-0 right-0 h-1 bg-primary z-[100]"
         style={{ 
           scaleX,
-          transformOrigin: "left"
+          transformOrigin: "left",
+          willChange: "transform"
         }}
         aria-hidden="true"
       />
       
-      {/* Reduced initial render load - load only what's visible */}
+      {/* Load effects and hero immediately */}
       <LokiEffects />
       <Hero />
       
@@ -123,17 +139,18 @@ const Index = () => {
         <Conclusion />
       </Suspense>
       
-      {/* Optimized button with GPU acceleration */}
+      {/* Optimized scroll button */}
       {showScrollButton && (
         <motion.button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 rounded-full bg-primary/80 hover:bg-primary text-white shadow-lg z-40 transition-colors transform-gpu"
+          className="fixed bottom-8 right-8 p-3 rounded-full bg-primary/80 hover:bg-primary text-white shadow-lg z-40 transition-colors"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          style={{ willChange: "transform" }}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="18 15 12 9 6 15"></polyline>
