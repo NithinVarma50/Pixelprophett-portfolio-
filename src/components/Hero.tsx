@@ -4,7 +4,7 @@ import PersonalInfo from "./hero/PersonalInfo";
 import SocialLinks from "./hero/SocialLinks";
 import ActionButtons from "./hero/ActionButtons";
 import BackgroundEffects from "./hero/BackgroundEffects";
-import { SplineScene } from "./ui/splite";
+import { InteractiveRobot } from "./ui/interactive-robot";
 
 export default function Hero() {
   const scrollToProjects = () => {
@@ -60,15 +60,12 @@ export default function Hero() {
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ delay: 1 }}
           >
-            Interactive ✨
+            Gyroscope Ready 🤖
           </motion.div>
 
-          {/* Main 3D scene container */}
+          {/* Interactive Robot Container */}
           <div className="relative w-full h-full rounded-xl overflow-hidden border border-white/5 group-hover:border-primary/20 transition-colors duration-300">
-            <SplineScene 
-              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-              className="w-full h-full"
-            />
+            <InteractiveRobot className="w-full h-full" />
             
             {/* Subtle overlay for better integration */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
