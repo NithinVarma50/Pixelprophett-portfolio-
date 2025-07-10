@@ -1,257 +1,134 @@
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
 const LokiEffects = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [viewportDimensions, setViewportDimensions] = useState({ 
-    width: typeof window !== 'undefined' ? window.innerWidth : 0, 
-    height: typeof window !== 'undefined' ? window.innerHeight : 0 
-  });
+  const [isMobile, setIsMobile] = useState(false);
+  const mousePosition = useRef({ x: 0, y: 0 });
+  const animationFrame = useRef<number>();
 
   useEffect(() => {
-    // Handle mouse movement for interactive effects
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+    // Detect mobile devices for performance optimization
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
     };
 
-    // Handle viewport resizing
-    const handleResize = () => {
-      setViewportDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight
+    // Throttled mouse movement handler for better performance
+    const handleMouseMove = (e: MouseEvent) => {
+      if (animationFrame.current) {
+        cancelAnimationFrame(animationFrame.current);
+      }
+      
+      animationFrame.current = requestAnimationFrame(() => {
+        mousePosition.current = { x: e.clientX, y: e.clientY };
       });
     };
 
-    // Add event listeners
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('resize', handleResize);
-
-    // Initial setup
-    handleResize();
+    // Add event listeners with passive option for better scrolling performance
+    checkMobile();
+    if (!isMobile) {
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    }
+    window.addEventListener('resize', checkMobile, { passive: true });
 
     // Cleanup
     return () => {
+      if (animationFrame.current) {
+        cancelAnimationFrame(animationFrame.current);
+      }
       window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', checkMobile);
     };
-  }, []);
-
-  // Calculate positions for the effects based on mouse movement
-  const xFactor = mousePosition.x / viewportDimensions.width;
-  const yFactor = mousePosition.y / viewportDimensions.height;
-
-  // Create trailing effects for mouse cursor
-  const cursorTrailPositions = Array.from({ length: 5 }).map((_, i) => ({
-    delay: i * 0.1,
-    scale: 1 - (i * 0.15)
-  }));
+  }, [isMobile]);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
-      {/* Main Loki magic green glow effect */}
-      <motion.div 
-        className="absolute w-[50vw] h-[50vh] rounded-full"
-        animate={{
-          x: xFactor * 30 - 15,
-          y: yFactor * 30 - 15,
-          scale: [1, 1.1, 1],
-          background: [
-            "radial-gradient(circle, rgba(57, 255, 20, 0.25) 0%, rgba(0, 0, 0, 0) 70%)",
-            "radial-gradient(circle, rgba(57, 255, 20, 0.35) 0%, rgba(0, 0, 0, 0) 70%)",
-            "radial-gradient(circle, rgba(57, 255, 20, 0.25) 0%, rgba(0, 0, 0, 0) 70%)",
-          ]
-        }}
-        transition={{
-          x: { duration: 1.5, ease: "easeOut" },
-          y: { duration: 1.5, ease: "easeOut" },
-          scale: { duration: 8, repeat: Infinity, ease: "easeInOut" },
-          background: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-        }}
+    <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden hw-accelerated">
+      {/* Simplified mobile-optimized background glow */}
+      <div 
+        className="absolute w-full h-full animate-loki-pulse"
         style={{
-          left: "30%",
-          top: "20%",
-          filter: "blur(50px)"
+          background: "radial-gradient(circle at 30% 20%, rgba(57, 255, 20, 0.15) 0%, rgba(0, 0, 0, 0) 50%)",
+          filter: "blur(40px)",
+          willChange: "opacity, transform"
         }}
       />
       
-      {/* Loki staff magical energy effect */}
-      <motion.div 
-        className="absolute w-[40vw] h-[40vh] rounded-full"
-        animate={{
-          x: -xFactor * 25,
-          y: -yFactor * 25,
-          scale: [1, 1.15, 1],
-          background: [
-            "radial-gradient(circle, rgba(18, 110, 10, 0.35) 0%, rgba(0, 0, 0, 0) 70%)",
-            "radial-gradient(circle, rgba(57, 255, 20, 0.45) 0%, rgba(0, 0, 0, 0) 70%)",
-            "radial-gradient(circle, rgba(18, 110, 10, 0.35) 0%, rgba(0, 0, 0, 0) 70%)",
-          ]
-        }}
-        transition={{
-          x: { duration: 2, ease: "easeOut" },
-          y: { duration: 2, ease: "easeOut" },
-          scale: { duration: 10, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" },
-          background: { duration: 5, repeat: Infinity, ease: "easeInOut" }
-        }}
+      {/* Secondary glow effect */}
+      <div 
+        className="absolute w-full h-full animate-magic-flicker"
         style={{
-          right: "20%",
-          bottom: "30%",
-          filter: "blur(40px)"
+          background: "radial-gradient(circle at 70% 80%, rgba(57, 255, 20, 0.1) 0%, rgba(0, 0, 0, 0) 40%)",
+          filter: "blur(30px)",
+          willChange: "opacity"
         }}
       />
       
-      {/* TVA timeline effect */}
-      <motion.div 
-        className="absolute w-[100%] h-[2px]"
+      {/* CSS-based timeline effect for better performance */}
+      <div 
+        className="absolute w-full h-[2px] top-1/2 animate-timeline-branch"
         style={{
-          top: "50%",
-          backgroundImage: "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(57,255,20,0.8) 50%, rgba(0,0,0,0) 100%)",
-          boxShadow: "0 0 20px rgba(57,255,20,0.6)",
-        }}
-        animate={{
-          scaleX: [0.8, 1, 0.8],
-          opacity: [0.4, 0.8, 0.4],
-          y: yFactor * 50 - 25
-        }}
-        transition={{
-          scaleX: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-          opacity: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-          y: { duration: 2, ease: "easeOut" }
+          background: "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(57,255,20,0.6) 50%, rgba(0,0,0,0) 100%)",
+          boxShadow: "0 0 15px rgba(57,255,20,0.4)",
+          willChange: "transform, opacity"
         }}
       />
       
-      {/* Timeline branch lines */}
-      {[...Array(6)].map((_, i) => (
-        <motion.div
+      {/* Reduced number of timeline branch lines for mobile */}
+      {!isMobile && [...Array(3)].map((_, i) => (
+        <div
           key={`timeline-${i}`}
-          className="absolute h-[1px]"
+          className="absolute h-[1px] w-full animate-timeline-branch"
           style={{
-            top: `${10 + i * 16}%`,
-            width: "100%",
-            backgroundImage: "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(57,255,20,0.5) 50%, rgba(0,0,0,0) 100%)",
-            boxShadow: "0 0 8px rgba(57,255,20,0.4)",
-          }}
-          animate={{
-            opacity: [0.1, 0.4, 0.1],
-            scaleX: [0.9, 1, 0.9],
-            x: (i % 2 === 0 ? 1 : -1) * (xFactor * 20 - 10)
-          }}
-          transition={{
-            opacity: { duration: 4 + i, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" },
-            scaleX: { duration: 5 + i, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" },
-            x: { duration: 2, ease: "easeOut" }
+            top: `${20 + i * 30}%`,
+            background: "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(57,255,20,0.4) 50%, rgba(0,0,0,0) 100%)",
+            boxShadow: "0 0 6px rgba(57,255,20,0.3)",
+            animationDelay: `${i * 0.5}s`,
+            willChange: "transform, opacity"
           }}
         />
       ))}
       
-      {/* Loki-inspired glowing runes */}
-      {[...Array(15)].map((_, i) => (
-        <motion.div
+      {/* Reduced number of glowing runes for better performance */}
+      {[...Array(isMobile ? 3 : 6)].map((_, i) => (
+        <div
           key={`rune-${i}`}
-          className="absolute rounded-full bg-[#39ff14]"
+          className="absolute rounded-full bg-primary animate-magic-flicker"
           style={{
-            width: Math.random() * 8 + 2,
-            height: Math.random() * 8 + 2,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            boxShadow: "0 0 10px rgba(57,255,20,0.8), 0 0 20px rgba(57,255,20,0.4)",
-            filter: "blur(1px)"
-          }}
-          animate={{
-            opacity: [0, 1, 0],
-            scale: [0, 1.5, 0],
-          }}
-          transition={{
-            duration: Math.random() * 4 + 3,
-            repeat: Infinity,
-            delay: Math.random() * 5,
-            ease: "easeInOut"
+            width: isMobile ? 3 : 5,
+            height: isMobile ? 3 : 5,
+            left: `${20 + i * 15}%`,
+            top: `${30 + (i % 2) * 40}%`,
+            boxShadow: isMobile ? "0 0 5px rgba(57,255,20,0.6)" : "0 0 8px rgba(57,255,20,0.8)",
+            animationDelay: `${i * 0.8}s`,
+            willChange: "opacity, transform"
           }}
         />
       ))}
 
-      {/* Mouse cursor magical effect */}
-      {cursorTrailPositions.map((trail, i) => (
-        <motion.div
-          key={`cursor-trail-${i}`}
-          className="absolute w-[40px] h-[40px] rounded-full"
-          style={{
-            background: "radial-gradient(circle, rgba(57,255,20,0.5) 0%, rgba(0,0,0,0) 70%)",
-            boxShadow: "0 0 15px rgba(57,255,20,0.3)",
-            filter: "blur(2px)",
-          }}
-          animate={{
-            x: mousePosition.x - 20,
-            y: mousePosition.y - 20,
-            scale: trail.scale,
-            opacity: [0.8, 0]
-          }}
-          transition={{
-            x: {
-              duration: 0.5,
-              ease: "linear",
-              delay: trail.delay
-            },
-            y: {
-              duration: 0.5,
-              ease: "linear",
-              delay: trail.delay
-            },
-            opacity: {
-              duration: 0.5,
-              ease: "easeOut"
-            }
-          }}
-        />
-      ))}
-
-      {/* Sacred timeline "prune" effect - appears occasionally */}
-      <motion.div
-        className="absolute w-full h-[2px] left-0 origin-left"
-        style={{ 
-          top: "50%", 
-          background: "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(255,140,0,0.8) 50%, rgba(0,0,0,0) 100%)",
-          boxShadow: "0 0 30px rgba(255,140,0,0.8)"
-        }}
-        initial={{ scaleX: 0, opacity: 0 }}
-        animate={{
-          scaleX: [0, 1, 0],
-          opacity: [0, 0.9, 0]
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          repeatDelay: 10,
-          ease: "easeInOut"
+      {/* CSS-based rune circle for better performance */}
+      <div
+        className="absolute w-[150px] h-[150px] md:w-[200px] md:h-[200px] rounded-full border border-primary/30 animate-rune-rotate"
+        style={{
+          left: "calc(50% - 75px)",
+          top: "calc(40% - 75px)",
+          boxShadow: "inset 0 0 15px rgba(57,255,20,0.1), 0 0 15px rgba(57,255,20,0.2)",
+          willChange: "transform"
         }}
       />
       
-      {/* TVA logo effect - creates a mysterious rune-like shape */}
-      <motion.div
-        className="absolute w-[200px] h-[200px]"
-        style={{
-          left: "calc(50% - 100px)",
-          top: "calc(30% - 100px)",
-          borderRadius: "50%",
-          border: "1px solid rgba(57,255,20,0.3)",
-          boxShadow: "inset 0 0 20px rgba(57,255,20,0.1), 0 0 20px rgba(57,255,20,0.2)"
-        }}
-        animate={{
-          rotate: [0, 360],
-          borderColor: ["rgba(57,255,20,0.3)", "rgba(57,255,20,0.7)", "rgba(57,255,20,0.3)"],
-          boxShadow: [
-            "inset 0 0 20px rgba(57,255,20,0.1), 0 0 20px rgba(57,255,20,0.2)",
-            "inset 0 0 40px rgba(57,255,20,0.3), 0 0 40px rgba(57,255,20,0.4)",
-            "inset 0 0 20px rgba(57,255,20,0.1), 0 0 20px rgba(57,255,20,0.2)"
-          ]
-        }}
-        transition={{
-          rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-          borderColor: { duration: 5, repeat: Infinity, ease: "easeInOut" },
-          boxShadow: { duration: 5, repeat: Infinity, ease: "easeInOut" }
-        }}
-      />
+      {/* Mobile-optimized prune effect */}
+      {!isMobile && (
+        <div
+          className="absolute w-full h-[2px] left-0 top-1/2"
+          style={{ 
+            background: "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(255,140,0,0.6) 50%, rgba(0,0,0,0) 100%)",
+            boxShadow: "0 0 20px rgba(255,140,0,0.6)",
+            animation: "timeline-branch 12s infinite ease-in-out",
+            animationDelay: "5s",
+            willChange: "transform, opacity"
+          }}
+        />
+      )}
     </div>
   );
 };
