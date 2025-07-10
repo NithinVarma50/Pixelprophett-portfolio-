@@ -43,17 +43,13 @@
   body {
     @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
-    /* Mobile-optimized performance settings */
+    /* Improve paint performance */
     transform: translateZ(0);
     backface-visibility: hidden;
     perspective: 1000;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    -webkit-transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    background-color: #000000;
-    /* Force hardware acceleration on mobile */
-    will-change: scroll-position;
+    background-color: #000000; /* Ensure deep black background */
   }
 
   .playfair {
@@ -89,15 +85,12 @@
     @apply px-4 py-12 sm:px-6 sm:py-16 md:px-12 md:py-20 lg:px-24;
   }
   
-  /* Hardware-accelerated animations with mobile optimization */
+  /* Hardware-accelerated animations */
   .hw-accelerated {
     transform: translateZ(0);
     backface-visibility: hidden;
     perspective: 1000;
     will-change: transform, opacity;
-    -webkit-transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    contain: layout style paint;
   }
   
   /* Loki-themed animation classes with more subtle effects */
@@ -169,32 +162,13 @@
 }
 
 @keyframes pulse-subtle {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.02); }
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.5; }
 }
 
 @keyframes text-shimmer {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
-}
-
-/* Mobile-optimized faster animations */
-@media (max-width: 768px) {
-  .animate-loki-pulse {
-    animation-duration: 2s;
-  }
-  
-  .animate-timeline-branch {
-    animation-duration: 4s;
-  }
-  
-  .animate-magic-flicker {
-    animation-duration: 2s;
-  }
-  
-  .animate-rune-rotate {
-    animation-duration: 10s;
-  }
 }
 
 .animate-loki-fade {
