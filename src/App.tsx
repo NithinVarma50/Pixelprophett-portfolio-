@@ -6,7 +6,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import VaporizeTextCycle, { Tag } from "@/components/ui/vapour-text-effect";
 
 // Lazy load pages for optimal code-splitting
 const Index = lazy(() => import("./pages/Index"));
@@ -158,28 +157,30 @@ const LoadingFallback = () => {
       
       {/* Main content */}
       <div className="z-10 flex flex-col items-center">
-        <VaporizeTextCycle
-          texts={["PixelProphett:", "Unveiling", "Digital", "Visions..."]}
-          font={{
-            fontFamily: "Playfair Display, serif",
-            fontSize: "48px",
-            fontWeight: 600
+        <motion.div
+          initial={{ opacity: 0.5, scale: 0.98 }}
+          animate={{ 
+            opacity: [0.5, 1, 0.5],
+            scale: [0.98, 1, 0.98],
+            textShadow: [
+              "0 0 5px rgba(57, 255, 20, 0.3)",
+              "0 0 15px rgba(57, 255, 20, 0.5)",
+              "0 0 5px rgba(57, 255, 20, 0.3)"
+            ]
           }}
-          color="hsl(120, 50%, 50%)"
-          spread={3}
-          density={6}
-          animation={{
-            vaporizeDuration: 1.5,
-            fadeInDuration: 0.8,
-            waitDuration: 0.3
+          transition={{ 
+            repeat: Infinity, 
+            duration: 2,
+            ease: "easeInOut",
+            repeatType: "mirror"
           }}
-          direction="left-to-right"
-          alignment="center"
-          tag={Tag.H1}
-        />
+          className="text-3xl md:text-4xl font-bold playfair mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary transform-gpu"
+        >
+          Nithin Varma
+        </motion.div>
         
         {/* Progress Bar */}
-        <div className="w-48 h-1 bg-primary/10 rounded-full overflow-hidden mb-2 mt-8">
+        <div className="w-48 h-1 bg-primary/10 rounded-full overflow-hidden mb-2">
           <motion.div 
             className="h-full bg-primary origin-left transform-gpu"
             initial={{ scaleX: 0 }}
