@@ -3,9 +3,6 @@ import Hero from "@/components/Hero";
 import { motion, useScroll, useSpring } from "framer-motion";
 import LokiEffects from "@/components/effects/LokiEffects";
 import { Skeleton } from "@/components/ui/skeleton";
-import { SmartPreloader } from "@/components/ai/SmartPreloader";
-import { PerformanceChatbot } from "@/components/ai/PerformanceChatbot";
-import { SmartCache } from "@/components/ai/SmartCache";
 
 // Lazy load non-critical components
 const About = lazy(() => import("@/components/About"));
@@ -78,11 +75,6 @@ const Index = () => {
 
   return (
     <main className="min-h-screen relative">
-      {/* AI-powered optimization components */}
-      <SmartPreloader />
-      <SmartCache />
-      <PerformanceChatbot />
-      
       {/* Highly optimized progress bar */}
       <motion.div 
         ref={progressBarRef}
@@ -96,9 +88,7 @@ const Index = () => {
       
       {/* Reduced initial render load - load only what's visible */}
       <LokiEffects />
-      <div data-section="hero">
-        <Hero />
-      </div>
+      <Hero />
       
       {/* Lazy-loaded sections with suspense fallbacks */}
       <Suspense fallback={<SectionLoader />}>
