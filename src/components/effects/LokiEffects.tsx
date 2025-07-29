@@ -12,6 +12,14 @@ const LokiEffects = () => {
   const scrollTimeoutRef = useRef<NodeJS.Timeout>();
   const mouseThrottleRef = useRef<NodeJS.Timeout>();
 
+  // Handle viewport resizing - useCallback at component level
+  const handleResize = useCallback(() => {
+    setViewportDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight
+    });
+  }, []);
+
   useEffect(() => {
     // Throttled mouse movement for better performance
     const handleMouseMove = (e: MouseEvent) => {
@@ -35,14 +43,6 @@ const LokiEffects = () => {
       }, 150);
     };
 
-    // Handle viewport resizing
-    const handleResize = useCallback(() => {
-      setViewportDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight
-      });
-    }, []);
-
     // Add event listeners with passive options for better performance
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -63,7 +63,7 @@ const LokiEffects = () => {
         clearTimeout(mouseThrottleRef.current);
       }
     };
-  }, [isScrolling]);
+  }, [handleResize, isScrolling]);
 
   // Calculate positions for the effects based on mouse movement
   const xFactor = mousePosition.x / viewportDimensions.width;
