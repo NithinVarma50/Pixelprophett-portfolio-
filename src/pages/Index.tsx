@@ -34,12 +34,12 @@ const Index = () => {
     offset: ["start start", "end end"]
   });
   
-  // More responsive spring physics
+  // Optimized spring physics for smoother performance
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
+    stiffness: 200,
+    damping: 40,
     restDelta: 0.001,
-    mass: 0.5 // Further reduced mass for even more responsive movement
+    mass: 0.3 // Reduced mass for more responsive movement
   });
   
   const [showScrollButton, setShowScrollButton] = useState(false);
@@ -47,10 +47,16 @@ const Index = () => {
   const progressBarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Optimized scroll handler with passive event listener
+    let ticking = false;
+    
+    // Throttled scroll handler for better performance
     const handleScroll = () => {
-      if (!scrollingRef.current) {
-        setShowScrollButton(window.scrollY > window.innerHeight * 0.5);
+      if (!ticking && !scrollingRef.current) {
+        requestAnimationFrame(() => {
+          setShowScrollButton(window.scrollY > window.innerHeight * 0.5);
+          ticking = false;
+        });
+        ticking = true;
       }
     };
     

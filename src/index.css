@@ -89,8 +89,21 @@
   .hw-accelerated {
     transform: translateZ(0);
     backface-visibility: hidden;
-    perspective: 1000;
+    perspective: 1000px;
     will-change: transform, opacity;
+    contain: layout style paint;
+  }
+  
+  /* Smooth scrolling optimization */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Performance optimizations */
+  .gpu-layer {
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
   }
   
   /* Loki-themed animation classes with more subtle effects */
