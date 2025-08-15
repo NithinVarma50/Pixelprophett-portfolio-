@@ -5,6 +5,11 @@ import { Trophy, Award, Star, Users } from "lucide-react";
 
 const achievements = [
   {
+    title: "AI Community Founder",
+    description: "Founded and manage 'Ignition in AI Era' - a 300+ member community for AI enthusiasts, engineers, and entrepreneurs",
+    icon: <Users className="w-8 h-8 text-blue-500" />
+  },
+  {
     title: "Shark Tank Event Finalist",
     description: "Successfully pitched innovative startup ideas at college-level competition",
     icon: <Trophy className="w-8 h-8 text-yellow-500" />
@@ -17,7 +22,7 @@ const achievements = [
   {
     title: "Community Leadership",
     description: "Active participant in entrepreneurship communities and tech meetups",
-    icon: <Users className="w-8 h-8 text-yellow-500" />
+    icon: <Award className="w-8 h-8 text-green-500" />
   }
 ];
 
@@ -38,7 +43,7 @@ export default function Achievements() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
           {achievements.map((achievement, index) => (
             <motion.div
               key={achievement.title}
