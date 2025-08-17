@@ -12,14 +12,12 @@ export default function About() {
   ];
 
   return (
-    <section className="section-padding bg-secondary/20" id="about">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="max-w-4xl mx-auto"
-      >
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
         <div className="text-center mb-6 sm:mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold playfair mb-3 sm:mb-6">About Me</h2>
           <p className="text-lg sm:text-xl text-primary font-medium">A Polymath's Journey</p>
@@ -65,7 +63,6 @@ export default function About() {
             meaningful impact through entrepreneurial ventures.
           </p>
         </div>
-      </motion.div>
-    </section>
+    </motion.div>
   );
 }

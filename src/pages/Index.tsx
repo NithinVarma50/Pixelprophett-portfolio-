@@ -100,15 +100,26 @@ const Index = () => {
       <Hero />
       
       {/* Lazy-loaded sections with suspense fallbacks */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-7xl mx-auto">
-          <div className="order-2 lg:order-1">
+      <div className="section-padding bg-secondary/20" id="about">
+        <div className="max-w-4xl mx-auto">
+          {/* Mobile: Card stacks above text */}
+          <div className="block lg:hidden mb-8 flex justify-center">
+            <PersonalCard />
+          </div>
+          
+          {/* Desktop: Text wraps around floating card */}
+          <div className="relative">
+            {/* Floating card on desktop */}
+            <div className="hidden lg:block float-left mr-8 mb-6" style={{shapeOutside: 'margin-box'}}>
+              <PersonalCard />
+            </div>
+            
             <Suspense fallback={<SectionLoader />}>
               <About />
             </Suspense>
-          </div>
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <PersonalCard />
+            
+            {/* Clear float */}
+            <div className="clear-both"></div>
           </div>
         </div>
       </div>
