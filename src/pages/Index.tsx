@@ -101,14 +101,22 @@ const Index = () => {
       
       {/* Lazy-loaded sections with suspense fallbacks */}
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-7xl mx-auto">
-          <div className="order-2 lg:order-1">
-            <Suspense fallback={<SectionLoader />}>
-              <About />
-            </Suspense>
-          </div>
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+        <div className="max-w-7xl mx-auto">
+          {/* Mobile-first: card stacks above text */}
+          <div className="block lg:hidden mb-8 flex justify-center">
             <PersonalCard />
+          </div>
+          
+          {/* Desktop: text wraps around floating card */}
+          <div className="relative">
+            <div className="hidden lg:block float-left mr-8 mb-6">
+              <PersonalCard />
+            </div>
+            <div className="lg:overflow-hidden">
+              <Suspense fallback={<SectionLoader />}>
+                <About />
+              </Suspense>
+            </div>
           </div>
         </div>
       </div>
