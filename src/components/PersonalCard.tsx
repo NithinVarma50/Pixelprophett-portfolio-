@@ -1,0 +1,38 @@
+import { TiltedCard } from "./ui/tilted-card";
+
+export default function PersonalCard() {
+  const overlayContent = (
+    <div className="absolute inset-0 flex flex-col justify-end p-4 
+                    bg-gradient-to-t from-background/90 to-transparent 
+                    rounded-b-[15px]"> 
+      <p className="text-lg font-semibold text-foreground drop-shadow-sm">
+        Nithin Varma
+      </p>
+      <p className="text-sm text-muted-foreground drop-shadow-sm">
+        Polymath & Innovator
+      </p>
+    </div>
+  );
+
+  return (
+    <div className="flex justify-center items-center">
+      <TiltedCard
+        imageSrc="/lovable-uploads/80eac0b4-ce4d-4247-be37-fa3a67b39177.png"
+        altText="Nithin Varma"
+        captionText="Nithin Varma - Polymath & Innovator"
+        containerHeight="350px"
+        containerWidth="280px"
+        imageHeight="100%"
+        imageWidth="100%"
+        rotateAmplitude={12}
+        scaleOnHover={1.05}
+        showMobileWarning={false}
+        showTooltip={true}
+        displayOverlayContent={true}
+        overlayContent={overlayContent}
+        tooltipClassName="bg-background border border-border text-foreground shadow-lg"
+        className="mx-auto"
+      />
+    </div>
+  );
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef, lazy, Suspense } from "react";
 import Hero from "@/components/Hero";
+import PersonalCard from "@/components/PersonalCard";
 import { motion, useScroll, useSpring } from "framer-motion";
 import LokiEffects from "@/components/effects/LokiEffects";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -99,9 +100,18 @@ const Index = () => {
       <Hero />
       
       {/* Lazy-loaded sections with suspense fallbacks */}
-      <Suspense fallback={<SectionLoader />}>
-        <About />
-      </Suspense>
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-7xl mx-auto">
+          <div className="order-2 lg:order-1">
+            <Suspense fallback={<SectionLoader />}>
+              <About />
+            </Suspense>
+          </div>
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+            <PersonalCard />
+          </div>
+        </div>
+      </div>
       
       <Suspense fallback={<SectionLoader />}>
         <Skills />
