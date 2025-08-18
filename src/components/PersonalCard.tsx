@@ -24,8 +24,8 @@ export default function PersonalCard() {
         containerWidth="280px"
         imageHeight="100%"
         imageWidth="100%"
-        rotateAmplitude={6}
-        scaleOnHover={1.02}
+        rotateAmplitude={12}
+        scaleOnHover={1.05}
         showMobileWarning={false}
         showTooltip={true}
         displayOverlayContent={true}
