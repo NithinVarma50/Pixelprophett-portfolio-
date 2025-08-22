@@ -109,8 +109,8 @@ const Index = () => {
           
           {/* Desktop: Text wraps around floating card */}
           <div className="relative">
-            {/* Floating card on desktop - positioned much lower to allow more text above */}
-            <div className="hidden lg:block float-right mt-32 ml-8 mb-8 mr-6" style={{shapeOutside: 'margin-box'}}>
+            {/* Floating card on desktop - positioned slightly lower with margins for tilt animation */}
+            <div className="hidden lg:block float-right mt-20 ml-8 mb-6 mr-4" style={{shapeOutside: 'margin-box'}}>
               <PersonalCard />
             </div>
             
