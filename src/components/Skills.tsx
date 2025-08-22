@@ -5,6 +5,7 @@ const skillCategories = [
   {
     title: "Technical Skills",
     skills: [
+      { name: "Python", icon: "🐍" },
       { name: "Data Analytics", icon: "📊" },
       { name: "AI/ML Concepts", icon: "🤖" },
       { name: "Generative AI (Gen AI)", icon: "✨" },

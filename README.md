@@ -47,3 +47,4 @@ To run this project locally:
 
 I'm always open to collaboration and fresh ideas. If you're passionate about innovation and have suggestions or improvements, feel free to fork the repository and submit a pull request.
 
+
