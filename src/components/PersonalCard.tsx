@@ -17,9 +17,9 @@ export default function PersonalCard() {
   return (
     <div className="flex justify-center items-center">
       <TiltedCard
-        imageSrc="/eaf0580b-d38a-4fa4-b83b-78db14148205.png"
-        altText="Courier Team"
-        captionText="SS Courier Team - Professional Logistics"
+        imageSrc="/lovable-uploads/80eac0b4-ce4d-4247-be37-fa3a67b39177.png"
+        altText="Nithin Varma"
+        captionText="Nithin Varma - Polymath & Innovator"
         containerHeight="350px"
         containerWidth="280px"
         imageHeight="100%"
