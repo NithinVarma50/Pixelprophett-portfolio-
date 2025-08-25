@@ -9,7 +9,7 @@ export default function PersonalCard() {
         Nithin Varma
       </p>
       <p className="text-sm text-muted-foreground drop-shadow-sm">
-        Polymath & Innovator
+        Aspiring Entrepreneur
       </p>
     </div>
   );
