@@ -5,6 +5,11 @@ import { Trophy, Award, Star, Users } from "lucide-react";
 
 const achievements = [
   {
+    title: "Algovision Hackathon Participant",
+    description: "Participated in Algovision hackathon at Aurora University's AVISHKRUTI fest, presenting 'The Decentralized AI Marketplace' project",
+    icon: <Trophy className="w-8 h-8 text-purple-500" />
+  },
+  {
     title: "AI Community Founder",
     description: "Founded and manage 'Ignition in AI Era' - a 300+ member community for AI enthusiasts, engineers, and entrepreneurs",
     icon: <Users className="w-8 h-8 text-blue-500" />
