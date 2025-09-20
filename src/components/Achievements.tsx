@@ -1,9 +1,8 @@
 
-import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
-import { Trophy, Award, Star, Users, Eye, FileText } from "lucide-react";
+import { Trophy, Award, Star, Users, FileText } from "lucide-react";
 
 const achievements = [
   {
@@ -38,13 +37,7 @@ const achievements = [
 export default function Achievements() {
   return (
     <section className="section-padding bg-secondary/20" id="achievements">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="max-w-7xl mx-auto"
-      >
+      <div className="max-w-7xl mx-auto animate-fade-in">
         <div className="text-center mb-8 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold playfair mb-3 sm:mb-4">Achievements</h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-2">
@@ -54,13 +47,7 @@ export default function Achievements() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
           {achievements.map((achievement, index) => (
-            <motion.div
-              key={achievement.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
+            <div key={achievement.title} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                 <Card className="hover-card glass h-full">
                   <CardContent className="p-4 sm:p-6">
                     <div className="flex items-start space-x-3 sm:space-x-4">
@@ -193,10 +180,10 @@ export default function Achievements() {
                     </div>
                   </CardContent>
                 </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
