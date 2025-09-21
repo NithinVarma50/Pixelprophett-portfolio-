@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Github, Instagram } from "lucide-react";
+import { Github, Instagram, Linkedin } from "lucide-react";
 
 export default function SocialLinks() {
   return (
@@ -45,6 +45,16 @@ export default function SocialLinks() {
         whileTap={{ scale: 0.9 }}
       >
         <Github className="w-6 h-6" />
+      </motion.a>
+      <motion.a 
+        href="https://www.linkedin.com/in/nithin-varma-" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="hover:text-primary transition-colors p-2 rounded-full hover:bg-foreground/5"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <Linkedin className="w-6 h-6" />
       </motion.a>
     </motion.div>
   );
