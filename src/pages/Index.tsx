@@ -125,6 +125,11 @@ const Index = () => {
         </div>
       </div>
       
+      {/* Digital Studio Section */}
+      <Suspense fallback={<SectionLoader />}>
+        <Room3D />
+      </Suspense>
+      
       <Suspense fallback={<SectionLoader />}>
         <Skills />
       </Suspense>
@@ -147,10 +152,6 @@ const Index = () => {
       
       <Suspense fallback={<SectionLoader />}>
         <Community />
-      </Suspense>
-      
-      <Suspense fallback={<SectionLoader />}>
-        <Room3D />
       </Suspense>
       
       <Suspense fallback={<SectionLoader />}>

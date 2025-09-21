@@ -193,11 +193,11 @@ const Room3D = () => {
           className="text-center mb-12"
         >
           <h2 className="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
-            My 3D Room
+            PixelProphett Digital Studio
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Explore my interactive 3D workspace built with Three.js and React Three Fiber.
-            Click and drag to orbit around the room, scroll to zoom in and out.
+            Welcome to my interactive 3D workspace. This showcases my expertise in modern web 3D technologies,
+            built with Three.js and React Three Fiber. Click and drag to explore the studio environment.
           </p>
         </motion.div>
 
