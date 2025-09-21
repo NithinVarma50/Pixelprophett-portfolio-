@@ -13,6 +13,7 @@ const QuickFix = lazy(() => import("@/components/QuickFix"));
 const QuickFixAnalysis = lazy(() => import("@/components/QuickFixAnalysis"));
 const FreelanceProject = lazy(() => import("@/components/FreelanceProject"));
 const Community = lazy(() => import("@/components/Community"));
+const Room3D = lazy(() => import("@/components/Room3D"));
 const GameShowcase = lazy(() => import("@/components/GameShowcase"));
 const Achievements = lazy(() => import("@/components/Achievements"));
 const Conclusion = lazy(() => import("@/components/Conclusion"));
@@ -146,6 +147,10 @@ const Index = () => {
       
       <Suspense fallback={<SectionLoader />}>
         <Community />
+      </Suspense>
+      
+      <Suspense fallback={<SectionLoader />}>
+        <Room3D />
       </Suspense>
       
       <Suspense fallback={<SectionLoader />}>
