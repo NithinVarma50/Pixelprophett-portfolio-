@@ -48,10 +48,10 @@ export default function DigitalStudio() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-            My Virtual Workspace
+            Digital Studio
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Experience an immersive 3D environment where innovation comes to life - my digital creative studio
+            Step into my immersive 3D workspace - a virtual environment where creativity meets technology
           </p>
         </motion.div>
 
@@ -67,12 +67,12 @@ export default function DigitalStudio() {
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>
                 <h3 className="text-3xl font-bold mb-4 text-foreground">
-                  Interactive 3D Workspace
+                  PixelProphett 3D Room
                 </h3>
                 <p className="text-muted-foreground text-lg mb-6">
-                  A cutting-edge virtual environment showcasing advanced web technologies. 
-                  Features real-time lighting controls, photorealistic materials, and fluid 
-                  interactions that bring digital creativity to life.
+                  An interactive 3D workspace environment built with modern web technologies. 
+                  Experience a fully customizable digital studio with dynamic lighting, 
+                  realistic materials, and smooth animations.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Button asChild className="bg-primary hover:bg-primary/90">
@@ -83,7 +83,7 @@ export default function DigitalStudio() {
                       className="inline-flex items-center gap-2"
                     >
                       <ExternalLink className="w-4 h-4" />
-                      Explore Workspace
+                      Visit Live Studio
                     </a>
                   </Button>
                 </div>
@@ -114,7 +114,7 @@ export default function DigitalStudio() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mb-16"
         >
-          <h3 className="text-2xl font-bold text-center mb-8">Technical Highlights</h3>
+          <h3 className="text-2xl font-bold text-center mb-8">Key Features</h3>
           <div className="grid md:grid-cols-3 gap-6">
             {features.map((feature, index) => (
               <motion.div
@@ -142,7 +142,7 @@ export default function DigitalStudio() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <h3 className="text-2xl font-bold text-center mb-8">Visual Showcase</h3>
+          <h3 className="text-2xl font-bold text-center mb-8">Gallery</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {screenshots.slice(1).map((screenshot, index) => (
               <motion.div
