@@ -7,6 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 // Lazy load non-critical components
 const About = lazy(() => import("@/components/About"));
+const DigitalStudio = lazy(() => import("@/components/DigitalStudio"));
 const Skills = lazy(() => import("@/components/Skills"));
 const Projects = lazy(() => import("@/components/Projects"));
 const QuickFix = lazy(() => import("@/components/QuickFix"));
@@ -123,6 +124,10 @@ const Index = () => {
           </div>
         </div>
       </div>
+      
+      <Suspense fallback={<SectionLoader />}>
+        <DigitalStudio />
+      </Suspense>
       
       <Suspense fallback={<SectionLoader />}>
         <Skills />
