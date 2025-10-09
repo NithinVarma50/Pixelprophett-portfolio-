@@ -47,7 +47,7 @@ export default function SocialLinks() {
         <Github className="w-6 h-6" />
       </motion.a>
       <motion.a 
-        href="https://www.linkedin.com/in/nithin-varma-" 
+        href="https://www.linkedin.com/in/nithin-varma-801227318" 
         target="_blank" 
         rel="noopener noreferrer"
         className="hover:text-primary transition-colors p-2 rounded-full hover:bg-foreground/5"
