@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
+import deskImage from "@/assets/desk-setup-new.jpg";
 
 const DeskSetup = () => {
   return (
@@ -86,7 +87,7 @@ const DeskSetup = () => {
                   >
                     <div className="border-2 border-primary/20 rounded-lg p-2 bg-background/50 hover:border-primary/40 transition-all duration-300">
                       <img
-                        src="C:\\Users\\Dell\\Downloads\\WhatsApp Image 2025-10-22 at 12.32.44 PM.jpeg"
+                        src={deskImage}
                         alt="My desk setup - a compact workspace with laptop, keyboard, and tech accessories"
                         className="w-full h-auto rounded-md shadow-lg object-cover"
                         style={{ aspectRatio: '16/9', objectFit: 'cover' }}
