@@ -126,11 +126,11 @@ const Index = () => {
       </div>
       
       <Suspense fallback={<SectionLoader />}>
-        <FitForge />
+        <Skills />
       </Suspense>
       
       <Suspense fallback={<SectionLoader />}>
-        <Skills />
+        <FitForge />
       </Suspense>
       
       <Suspense fallback={<SectionLoader />}>
