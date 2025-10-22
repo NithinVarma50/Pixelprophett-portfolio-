@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import deskImage from "@/assets/desk-setup.png";
+import { ArticleCard } from "@/components/ui/card-23";
 
 const DeskSetup = () => {
   return (
@@ -107,6 +108,19 @@ const DeskSetup = () => {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+
+        {/* Highlight card using the same image, preserving context */}
+        <div className="mt-14 flex w-full items-center justify-center">
+          <ArticleCard
+            tag="Command Center"
+            date={{ month: "JAN", day: 25 }}
+            title="My Desk Setup"
+            description="This is my little command center — where ideas turn into small projects, late-night learning sessions happen, and every bit of progress begins."
+            imageUrl={deskImage}
+            imageAlt="My desk setup - a wooden desk with laptop, keyboard, mouse, and accessories"
+            location={{ city: "Home", country: "Workspace" }}
+          />
         </div>
       </div>
     </section>
