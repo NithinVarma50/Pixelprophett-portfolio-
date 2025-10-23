@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
-import { Trophy, Award, Star, Users } from "lucide-react";
+import { Trophy, Award, Star, Users, GraduationCap, BookOpen } from "lucide-react";
 
 const achievements = [
   {
@@ -28,6 +28,16 @@ const achievements = [
     title: "Community Leadership",
     description: "Active participant in entrepreneurship communities and tech meetups",
     icon: <Award className="w-8 h-8 text-green-500" />
+  },
+  {
+    title: "Outskill Gen AI Course Completion",
+    description: "Successfully completed the comprehensive Outskill Gen AI course, mastering advanced AI concepts and applications",
+    icon: <GraduationCap className="w-8 h-8 text-indigo-500" />
+  },
+  {
+    title: "Outskill Workshop Mastery",
+    description: "Completed all workshops in the Outskill Gen AI program, gaining hands-on experience with cutting-edge AI technologies",
+    icon: <BookOpen className="w-8 h-8 text-purple-500" />
   }
 ];
 
