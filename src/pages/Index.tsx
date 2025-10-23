@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, lazy, Suspense } from "react";
+import { useEffect, useState, useRef, lazy, Suspense, memo, useCallback } from "react";
 import Hero from "@/components/Hero";
 import PersonalCard from "@/components/PersonalCard";
 import { motion, useScroll, useSpring } from "framer-motion";
@@ -20,8 +20,8 @@ const GameShowcase = lazy(() => import("@/components/GameShowcase"));
 const Achievements = lazy(() => import("@/components/Achievements"));
 const Conclusion = lazy(() => import("@/components/Conclusion"));
 
-// Simple loading component for lazy-loaded sections
-const SectionLoader = () => (
+// Memoized loading component for lazy-loaded sections
+const SectionLoader = memo(() => (
   <div className="py-16 px-4">
     <Skeleton className="h-8 w-1/3 mx-auto mb-8" />
     <Skeleton className="h-4 w-2/3 mx-auto mb-4" />
@@ -32,7 +32,7 @@ const SectionLoader = () => (
       <Skeleton className="h-32 rounded-md" />
     </div>
   </div>
-);
+));
 
 const Index = () => {
   // Performance-optimized scroll tracking
@@ -52,41 +52,51 @@ const Index = () => {
   const scrollingRef = useRef(false);
   const progressBarRef = useRef<HTMLDivElement>(null);
 
+  // Optimized scroll handler with better throttling
+  const handleScroll = useCallback(() => {
+    if (!scrollingRef.current) {
+      setShowScrollButton(window.scrollY > window.innerHeight * 0.5);
+    }
+  }, []);
+
   useEffect(() => {
     let ticking = false;
     
-    // Throttled scroll handler for better performance
-    const handleScroll = () => {
-      if (!ticking && !scrollingRef.current) {
+    // Ultra-smooth scroll handler with RAF
+    const throttledScroll = () => {
+      if (!ticking) {
         requestAnimationFrame(() => {
-          setShowScrollButton(window.scrollY > window.innerHeight * 0.5);
+          handleScroll();
           ticking = false;
         });
         ticking = true;
       }
     };
     
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', throttledScroll, { passive: true });
     
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', throttledScroll);
     };
-  }, []);
+  }, [handleScroll]);
   
-  const scrollToTop = () => {
+  const scrollToTop = useCallback(() => {
     scrollingRef.current = true;
     window.scrollTo({ 
       top: 0, 
       behavior: 'smooth' 
     });
     
-    setTimeout(() => {
-      scrollingRef.current = false;
-    }, 1000);
-  };
+    // Use RAF instead of setTimeout for better performance
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        scrollingRef.current = false;
+      }, 1000);
+    });
+  }, []);
 
   return (
-    <main className="min-h-screen relative">
+    <main className="min-h-screen relative ultra-smooth">
       {/* Highly optimized progress bar */}
       <motion.div 
         ref={progressBarRef}
@@ -198,4 +208,5 @@ const Index = () => {
   );
 };
 
-export default Index;
+// Memoized Index component for better performance
+export default memo(Index);

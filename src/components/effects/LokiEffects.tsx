@@ -1,5 +1,5 @@
 
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback, useRef, memo } from "react";
 import { motion } from "framer-motion";
 
 const LokiEffects = () => {
@@ -21,18 +21,20 @@ const LokiEffects = () => {
   }, []);
 
   useEffect(() => {
-    // Throttled mouse movement for better performance
+    let rafId: number;
+    
+    // Ultra-optimized mouse movement with RAF
     const handleMouseMove = (e: MouseEvent) => {
-      if (mouseThrottleRef.current) return;
-      mouseThrottleRef.current = setTimeout(() => {
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
         if (!isScrolling) {
           setMousePosition({ x: e.clientX, y: e.clientY });
         }
-        mouseThrottleRef.current = undefined;
-      }, 16); // ~60fps
+        rafId = 0;
+      });
     };
 
-    // Detect scrolling to reduce animation complexity
+    // Optimized scroll detection
     const handleScroll = () => {
       setIsScrolling(true);
       if (scrollTimeoutRef.current) {
@@ -40,7 +42,7 @@ const LokiEffects = () => {
       }
       scrollTimeoutRef.current = setTimeout(() => {
         setIsScrolling(false);
-      }, 150);
+      }, 100); // Reduced timeout for more responsive animations
     };
 
     // Add event listeners with passive options for better performance
@@ -56,6 +58,9 @@ const LokiEffects = () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
       }
@@ -75,18 +80,18 @@ const LokiEffects = () => {
     scale: 1 - (i * 0.15)
   }));
 
-  // Reduced animation complexity during scroll
+  // Ultra-optimized animation props with reduced complexity
   const animationProps = isScrolling ? {
-    // Simplified animations during scroll
+    // Minimal animations during scroll for 60fps
     scale: 1,
-    background: "radial-gradient(circle, rgba(57, 255, 20, 0.15) 0%, rgba(0, 0, 0, 0) 70%)"
+    background: "radial-gradient(circle, rgba(57, 255, 20, 0.1) 0%, rgba(0, 0, 0, 0) 70%)"
   } : {
-    // Full animations when not scrolling
-    scale: [1, 1.1, 1],
+    // Simplified animations when not scrolling
+    scale: [1, 1.05, 1], // Reduced scale for better performance
     background: [
-      "radial-gradient(circle, rgba(57, 255, 20, 0.25) 0%, rgba(0, 0, 0, 0) 70%)",
-      "radial-gradient(circle, rgba(57, 255, 20, 0.35) 0%, rgba(0, 0, 0, 0) 70%)",
-      "radial-gradient(circle, rgba(57, 255, 20, 0.25) 0%, rgba(0, 0, 0, 0) 70%)",
+      "radial-gradient(circle, rgba(57, 255, 20, 0.2) 0%, rgba(0, 0, 0, 0) 70%)",
+      "radial-gradient(circle, rgba(57, 255, 20, 0.3) 0%, rgba(0, 0, 0, 0) 70%)",
+      "radial-gradient(circle, rgba(57, 255, 20, 0.2) 0%, rgba(0, 0, 0, 0) 70%)",
     ]
   };
 
@@ -164,79 +169,79 @@ const LokiEffects = () => {
         }}
       />
       
-      {/* Reduced timeline branch lines during scroll */}
-      {(!isScrolling ? [...Array(4)] : [...Array(2)]).map((_, i) => (
+      {/* Optimized timeline branch lines - reduced count for better performance */}
+      {(!isScrolling ? [...Array(2)] : [...Array(1)]).map((_, i) => (
         <motion.div
           key={`timeline-${i}`}
           className="absolute h-[1px] hw-accelerated"
           style={{
-            top: `${20 + i * 20}%`,
+            top: `${30 + i * 30}%`,
             width: "100%",
-            backgroundImage: "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(57,255,20,0.3) 50%, rgba(0,0,0,0) 100%)",
-            boxShadow: "0 0 6px rgba(57,255,20,0.3)",
+            backgroundImage: "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(57,255,20,0.2) 50%, rgba(0,0,0,0) 100%)",
+            boxShadow: "0 0 4px rgba(57,255,20,0.2)",
             willChange: "transform, opacity"
           }}
           animate={{
-            opacity: isScrolling ? 0.1 : [0.1, 0.3, 0.1],
-            scaleX: isScrolling ? 1 : [0.9, 1, 0.9],
-            x: isScrolling ? 0 : (i % 2 === 0 ? 1 : -1) * (xFactor * 15 - 7.5)
+            opacity: isScrolling ? 0.05 : [0.1, 0.2, 0.1],
+            scaleX: isScrolling ? 1 : [0.95, 1, 0.95],
+            x: isScrolling ? 0 : (i % 2 === 0 ? 1 : -1) * (xFactor * 10 - 5)
           }}
           transition={{
-            opacity: { duration: isScrolling ? 0 : 4 + i, repeat: isScrolling ? 0 : Infinity, ease: "easeInOut", repeatType: "reverse" },
-            scaleX: { duration: isScrolling ? 0 : 5 + i, repeat: isScrolling ? 0 : Infinity, ease: "easeInOut", repeatType: "reverse" },
-            x: { duration: isScrolling ? 0.1 : 2, ease: "easeOut" }
+            opacity: { duration: isScrolling ? 0 : 6 + i, repeat: isScrolling ? 0 : Infinity, ease: "easeInOut", repeatType: "reverse" },
+            scaleX: { duration: isScrolling ? 0 : 8 + i, repeat: isScrolling ? 0 : Infinity, ease: "easeInOut", repeatType: "reverse" },
+            x: { duration: isScrolling ? 0.1 : 3, ease: "easeOut" }
           }}
         />
       ))}
       
-      {/* Reduced runes during scroll */}
-      {(!isScrolling ? [...Array(8)] : [...Array(3)]).map((_, i) => (
+      {/* Optimized runes - significantly reduced count for better performance */}
+      {(!isScrolling ? [...Array(4)] : [...Array(1)]).map((_, i) => (
         <motion.div
           key={`rune-${i}`}
-          className="absolute rounded-full bg-primary/60 hw-accelerated"
+          className="absolute rounded-full bg-primary/40 hw-accelerated"
           style={{
-            width: Math.random() * 6 + 2,
-            height: Math.random() * 6 + 2,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            boxShadow: "0 0 8px rgba(57,255,20,0.6), 0 0 15px rgba(57,255,20,0.3)",
-            filter: "blur(1px)",
+            width: 3 + i,
+            height: 3 + i,
+            left: `${20 + i * 20}%`,
+            top: `${20 + i * 20}%`,
+            boxShadow: "0 0 4px rgba(57,255,20,0.3), 0 0 8px rgba(57,255,20,0.1)",
+            filter: "blur(0.5px)",
             willChange: "transform, opacity"
           }}
           animate={{
-            opacity: isScrolling ? 0.2 : [0, 0.8, 0],
-            scale: isScrolling ? 1 : [0, 1.3, 0],
+            opacity: isScrolling ? 0.1 : [0, 0.4, 0],
+            scale: isScrolling ? 1 : [0, 1.1, 0],
           }}
           transition={{
-            duration: isScrolling ? 0 : Math.random() * 3 + 2,
+            duration: isScrolling ? 0 : 4 + i,
             repeat: isScrolling ? 0 : Infinity,
-            delay: Math.random() * 3,
+            delay: i * 0.5,
             ease: "easeInOut"
           }}
         />
       ))}
 
-      {/* Cursor trail only when not scrolling */}
-      {!isScrolling && cursorTrailPositions.slice(0, 3).map((trail, i) => (
+      {/* Optimized cursor trail - reduced particles for better performance */}
+      {!isScrolling && cursorTrailPositions.slice(0, 2).map((trail, i) => (
         <motion.div
           key={`cursor-trail-${i}`}
-          className="absolute w-[30px] h-[30px] rounded-full hw-accelerated"
+          className="absolute w-[20px] h-[20px] rounded-full hw-accelerated"
           style={{
-            background: "radial-gradient(circle, rgba(57,255,20,0.4) 0%, rgba(0,0,0,0) 70%)",
-            boxShadow: "0 0 10px rgba(57,255,20,0.2)",
-            filter: "blur(2px)",
+            background: "radial-gradient(circle, rgba(57,255,20,0.3) 0%, rgba(0,0,0,0) 70%)",
+            boxShadow: "0 0 6px rgba(57,255,20,0.1)",
+            filter: "blur(1px)",
             willChange: "transform, opacity"
           }}
           animate={{
-            x: mousePosition.x - 15,
-            y: mousePosition.y - 15,
+            x: mousePosition.x - 10,
+            y: mousePosition.y - 10,
             scale: trail.scale,
-            opacity: [0.6, 0]
+            opacity: [0.4, 0]
           }}
           transition={{
-            x: { duration: 0.3, ease: "linear", delay: trail.delay },
-            y: { duration: 0.3, ease: "linear", delay: trail.delay },
-            opacity: { duration: 0.3, ease: "easeOut" }
+            x: { duration: 0.2, ease: "linear", delay: trail.delay },
+            y: { duration: 0.2, ease: "linear", delay: trail.delay },
+            opacity: { duration: 0.2, ease: "easeOut" }
           }}
         />
       ))}
@@ -297,4 +302,5 @@ const LokiEffects = () => {
   );
 };
 
-export default LokiEffects;
+// Memoized LokiEffects for better performance
+export default memo(LokiEffects);

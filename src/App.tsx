@@ -4,8 +4,9 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { initPerformanceOptimizations } from "@/lib/performance";
 
 // Lazy load pages for optimal code-splitting
 const Index = lazy(() => import("./pages/Index"));
@@ -21,8 +22,8 @@ const queryClient = new QueryClient({
   },
 });
 
-// Enhanced loading component with Loki-inspired effects
-const LoadingFallback = () => {
+// Enhanced loading component with Loki-inspired effects - memoized for performance
+const LoadingFallback = memo(() => {
   // Mark document as ready once loaded for better UX
   useEffect(() => {
     document.documentElement.dataset.loaded = "true";
@@ -30,16 +31,28 @@ const LoadingFallback = () => {
 
   const [loadingProgress, setLoadingProgress] = useState(0);
 
-  // Simulate loading progress
+  // Simulate loading progress with RAF for better performance
   useEffect(() => {
-    const interval = setInterval(() => {
-      setLoadingProgress(prev => {
-        const newProgress = prev + Math.random() * 10;
-        return newProgress >= 100 ? 100 : newProgress;
-      });
-    }, 200);
-
-    return () => clearInterval(interval);
+    let animationId: number;
+    let startTime = Date.now();
+    
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min((elapsed / 2000) * 100, 100); // 2 second load time
+      setLoadingProgress(progress);
+      
+      if (progress < 100) {
+        animationId = requestAnimationFrame(animate);
+      }
+    };
+    
+    animationId = requestAnimationFrame(animate);
+    
+    return () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+    };
   }, []);
 
   return (
@@ -215,22 +228,30 @@ const LoadingFallback = () => {
   );
 };
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Suspense fallback={<LoadingFallback />}>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+// Memoized App component for better performance
+const App = memo(() => {
+  // Initialize performance optimizations
+  useEffect(() => {
+    initPerformanceOptimizations();
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Suspense fallback={<LoadingFallback />}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+});
 
 export default App;

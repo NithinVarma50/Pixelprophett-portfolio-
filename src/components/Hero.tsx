@@ -1,16 +1,24 @@
 
 import { motion } from "framer-motion";
+import { memo, useCallback } from "react";
 import PersonalInfo from "./hero/PersonalInfo";
 import SocialLinks from "./hero/SocialLinks";
 import ActionButtons from "./hero/ActionButtons";
 import BackgroundEffects from "./hero/BackgroundEffects";
 import { SplineScene } from "./ui/splite";
 
-export default function Hero() {
-  const scrollToProjects = () => {
+const Hero = memo(() => {
+  const scrollToProjects = useCallback(() => {
     const projectsSection = document.getElementById('projects');
-    projectsSection?.scrollIntoView({ behavior: 'smooth' });
-  };
+    if (projectsSection) {
+      // Use smooth scrolling with better performance
+      projectsSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
+    }
+  }, []);
 
   return (
     <section className="min-h-screen flex flex-col lg:flex-row justify-center items-center section-padding text-center lg:text-left relative overflow-hidden pt-16 sm:pt-0">
@@ -103,4 +111,6 @@ export default function Hero() {
       <BackgroundEffects />
     </section>
   );
-}
+});
+
+export default Hero;
