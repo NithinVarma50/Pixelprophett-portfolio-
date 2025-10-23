@@ -58,7 +58,7 @@ export default function FitForge() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold">FitForge</h3>
-                  <p className="text-sm text-muted-foreground">Personal Project • 2024</p>
+                  <p className="text-sm text-muted-foreground">Personal Project • 2025</p>
                 </div>
               </div>
 
