@@ -27,18 +27,26 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    // Optimize build for better performance
-    target: 'esnext',
+    // Optimize build for better performance - Vercel compatible
+    target: 'es2020',
     minify: 'esbuild',
     sourcemap: false,
     rollupOptions: {
       output: {
-        // Optimize chunk splitting
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          framer: ['framer-motion'],
-          ui: ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
-          utils: ['clsx', 'tailwind-merge', 'class-variance-authority']
+        // Optimize chunk splitting - simplified for Vercel
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'vendor';
+            }
+            if (id.includes('framer-motion')) {
+              return 'framer';
+            }
+            if (id.includes('@radix-ui')) {
+              return 'ui';
+            }
+            return 'vendor';
+          }
         }
       }
     },
@@ -50,10 +58,7 @@ export default defineConfig(({ mode }) => ({
     include: [
       'react',
       'react-dom',
-      'framer-motion',
-      '@radix-ui/react-accordion',
-      '@radix-ui/react-dialog',
-      '@radix-ui/react-dropdown-menu'
+      'framer-motion'
     ]
   }
 }));

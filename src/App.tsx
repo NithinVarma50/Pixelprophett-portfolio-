@@ -226,7 +226,7 @@ const LoadingFallback = memo(() => {
       </div>
     </div>
   );
-};
+});
 
 // Memoized App component for better performance
 const App = memo(() => {

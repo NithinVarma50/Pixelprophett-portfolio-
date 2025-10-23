@@ -144,6 +144,9 @@ export const performanceMonitor = {
 
 // Preload critical resources
 export const preloadCriticalResources = () => {
+  // Only run in browser environment
+  if (typeof window === 'undefined') return;
+  
   // Preload critical fonts
   const fontPreloads = [
     'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
@@ -164,6 +167,9 @@ export const preloadCriticalResources = () => {
 
 // Optimize images for better performance
 export const optimizeImageLoading = () => {
+  // Only run in browser environment
+  if (typeof window === 'undefined') return;
+  
   // Add loading="lazy" to all images
   const images = document.querySelectorAll('img');
   images.forEach(img => {
@@ -175,6 +181,9 @@ export const optimizeImageLoading = () => {
 
 // Initialize performance optimizations
 export const initPerformanceOptimizations = () => {
+  // Only run in browser environment
+  if (typeof window === 'undefined') return;
+  
   // Preload critical resources
   preloadCriticalResources();
   
