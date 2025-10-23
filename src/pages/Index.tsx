@@ -7,6 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 // Lazy load non-critical components
 const About = lazy(() => import("@/components/About"));
+const ShaderShowcase = lazy(() => import("@/components/ShaderShowcase"));
 const DeskSetup = lazy(() => import("@/components/DeskSetup"));
 const FitForge = lazy(() => import("@/components/FitForge"));
 const Skills = lazy(() => import("@/components/Skills"));
@@ -124,6 +125,12 @@ const Index = () => {
             <div className="clear-both"></div>
           </div>
         </div>
+      </div>
+      
+      <div className="section-padding">
+        <Suspense fallback={<SectionLoader />}>
+          <ShaderShowcase />
+        </Suspense>
       </div>
       
       <Suspense fallback={<SectionLoader />}>
