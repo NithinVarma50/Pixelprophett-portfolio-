@@ -11,99 +11,113 @@ const ShaderBackground = () => {
     }
   `;
 
-  // Fragment shader source code
+  // Fragment shader source code - Horizontal flowing animation
   const fsSource = `
     precision highp float;
     uniform vec2 iResolution;
     uniform float iTime;
 
-    const float overallSpeed = 0.2;
-    const float gridSmoothWidth = 0.015;
-    const float axisWidth = 0.05;
-    const float majorLineWidth = 0.025;
-    const float minorLineWidth = 0.0125;
-    const float majorLineFrequency = 5.0;
-    const float minorLineFrequency = 1.0;
-    const vec4 gridColor = vec4(0.5);
-    const float scale = 5.0;
-    const vec4 lineColor = vec4(0.4, 0.2, 0.8, 1.0);
-    const float minLineWidth = 0.01;
-    const float maxLineWidth = 0.2;
-    const float lineSpeed = 1.0 * overallSpeed;
-    const float lineAmplitude = 1.0;
-    const float lineFrequency = 0.2;
-    const float warpSpeed = 0.2 * overallSpeed;
-    const float warpFrequency = 0.5;
-    const float warpAmplitude = 1.0;
-    const float offsetFrequency = 0.5;
-    const float offsetSpeed = 1.33 * overallSpeed;
-    const float minOffsetSpread = 0.6;
-    const float maxOffsetSpread = 2.0;
-    const int linesPerGroup = 16;
-
-    #define drawCircle(pos, radius, coord) smoothstep(radius + gridSmoothWidth, radius, length(coord - (pos)))
-    #define drawSmoothLine(pos, halfWidth, t) smoothstep(halfWidth, 0.0, abs(pos - (t)))
-    #define drawCrispLine(pos, halfWidth, t) smoothstep(halfWidth + gridSmoothWidth, halfWidth, abs(pos - (t)))
-    #define drawPeriodicLine(freq, width, t) drawCrispLine(freq / 2.0, width, abs(mod(t, freq) - (freq) / 2.0))
-
-    float drawGridLines(float axis) {
-      return drawCrispLine(0.0, axisWidth, axis)
-            + drawPeriodicLine(majorLineFrequency, majorLineWidth, axis)
-            + drawPeriodicLine(minorLineFrequency, minorLineWidth, axis);
+    // Animation parameters for horizontal flow
+    const float flowSpeed = 0.5;
+    const float waveAmplitude = 0.3;
+    const float waveFrequency = 2.0;
+    const float particleSpeed = 1.2;
+    const float glowIntensity = 0.8;
+    const float blendOpacity = 0.6;
+    
+    // Color scheme for horizontal flow
+    const vec3 primaryColor = vec3(0.22, 1.0, 0.08); // Loki green
+    const vec3 secondaryColor = vec3(0.0, 0.5, 0.2); // Dark green
+    const vec3 accentColor = vec3(0.8, 1.0, 0.2); // Bright accent
+    
+    // Noise function for organic movement
+    float noise(vec2 p) {
+      return sin(p.x) * cos(p.y) + sin(p.x * 1.3) * cos(p.y * 1.7) * 0.5;
     }
-
-    float drawGrid(vec2 space) {
-      return min(1.0, drawGridLines(space.x) + drawGridLines(space.y));
+    
+    // Smooth noise for flowing effect
+    float smoothNoise(vec2 p) {
+      vec2 i = floor(p);
+      vec2 f = fract(p);
+      f = f * f * (3.0 - 2.0 * f);
+      
+      float a = noise(i);
+      float b = noise(i + vec2(1.0, 0.0));
+      float c = noise(i + vec2(0.0, 1.0));
+      float d = noise(i + vec2(1.0, 1.0));
+      
+      return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
     }
-
-    float random(float t) {
-      return (cos(t) + cos(t * 1.3 + 1.3) + cos(t * 1.4 + 1.4)) / 3.0;
+    
+    // Horizontal wave function
+    float horizontalWave(float x, float time) {
+      return sin(x * waveFrequency + time * flowSpeed) * waveAmplitude;
     }
-
-    float getPlasmaY(float x, float horizontalFade, float offset) {
-      return random(x * lineFrequency + iTime * lineSpeed) * horizontalFade * lineAmplitude + offset;
+    
+    // Particle system for horizontal flow
+    float particle(vec2 uv, float time, float offset) {
+      float x = mod(uv.x + time * particleSpeed + offset, 1.0);
+      float y = uv.y + horizontalWave(uv.x * 10.0 + time, time) * 0.1;
+      
+      float dist = distance(vec2(x, y), vec2(0.5, 0.5));
+      float size = 0.1 + sin(time * 2.0 + offset) * 0.05;
+      
+      return smoothstep(size, size * 0.5, dist);
     }
-
-    void main() {
-      vec2 fragCoord = gl_FragCoord.xy;
-      vec4 fragColor;
-      vec2 uv = fragCoord.xy / iResolution.xy;
-      vec2 space = (fragCoord - iResolution.xy / 2.0) / iResolution.x * 2.0 * scale;
-
-      float horizontalFade = 1.0 - (cos(uv.x * 6.28) * 0.5 + 0.5);
-      float verticalFade = 1.0 - (cos(uv.y * 6.28) * 0.5 + 0.5);
-
-      space.y += random(space.x * warpFrequency + iTime * warpSpeed) * warpAmplitude * (0.5 + horizontalFade);
-      space.x += random(space.y * warpFrequency + iTime * warpSpeed + 2.0) * warpAmplitude * horizontalFade;
-
-      vec4 lines = vec4(0.0);
-      vec4 bgColor1 = vec4(0.1, 0.1, 0.3, 1.0);
-      vec4 bgColor2 = vec4(0.3, 0.1, 0.5, 1.0);
-
-      for(int l = 0; l < linesPerGroup; l++) {
-        float normalizedLineIndex = float(l) / float(linesPerGroup);
-        float offsetTime = iTime * offsetSpeed;
-        float offsetPosition = float(l) + space.x * offsetFrequency;
-        float rand = random(offsetPosition + offsetTime) * 0.5 + 0.5;
-        float halfWidth = mix(minLineWidth, maxLineWidth, rand * horizontalFade) / 2.0;
-        float offset = random(offsetPosition + offsetTime * (1.0 + normalizedLineIndex)) * mix(minOffsetSpread, maxOffsetSpread, horizontalFade);
-        float linePosition = getPlasmaY(space.x, horizontalFade, offset);
-        float line = drawSmoothLine(linePosition, halfWidth, space.y) / 2.0 + drawCrispLine(linePosition, halfWidth * 0.15, space.y);
-
-        float circleX = mod(float(l) + iTime * lineSpeed, 25.0) - 12.0;
-        vec2 circlePosition = vec2(circleX, getPlasmaY(circleX, horizontalFade, offset));
-        float circle = drawCircle(circlePosition, 0.01, space) * 4.0;
-
-        line = line + circle;
-        lines += line * lineColor * rand;
+    
+    // Main horizontal flow effect
+    float horizontalFlow(vec2 uv, float time) {
+      float flow = 0.0;
+      
+      // Multiple layers of horizontal movement
+      for(int i = 0; i < 5; i++) {
+        float layerOffset = float(i) * 0.2;
+        float layerSpeed = flowSpeed + float(i) * 0.1;
+        
+        vec2 flowUV = uv + vec2(time * layerSpeed + layerOffset, 0.0);
+        flow += smoothNoise(flowUV * 3.0) * (1.0 - float(i) * 0.2);
       }
-
-      fragColor = mix(bgColor1, bgColor2, uv.x);
-      fragColor *= verticalFade;
-      fragColor.a = 1.0;
-      fragColor += lines;
-
-      gl_FragColor = fragColor;
+      
+      return flow;
+    }
+    
+    void main() {
+      vec2 uv = gl_FragCoord.xy / iResolution.xy;
+      float time = iTime;
+      
+      // Create horizontal flowing effect
+      float flow = horizontalFlow(uv, time);
+      
+      // Add wave distortion
+      float wave = horizontalWave(uv.x * 5.0, time);
+      uv.y += wave * 0.1;
+      
+      // Generate particles flowing horizontally
+      float particles = 0.0;
+      for(int i = 0; i < 8; i++) {
+        float offset = float(i) * 0.125;
+        particles += particle(uv, time, offset) * (1.0 - float(i) * 0.1);
+      }
+      
+      // Create horizontal gradient
+      float horizontalGradient = smoothstep(0.0, 0.3, uv.x) * smoothstep(1.0, 0.7, uv.x);
+      
+      // Combine effects
+      float intensity = flow * 0.6 + particles * 0.4;
+      intensity *= horizontalGradient;
+      
+      // Color mixing
+      vec3 color1 = mix(primaryColor, secondaryColor, flow);
+      vec3 color2 = mix(color1, accentColor, particles);
+      
+      // Add glow effect
+      float glow = intensity * glowIntensity;
+      vec3 finalColor = color2 + glow * primaryColor;
+      
+      // Blend with background (transparent)
+      float alpha = intensity * blendOpacity;
+      
+      gl_FragColor = vec4(finalColor, alpha);
     }
   `;
 
@@ -183,8 +197,17 @@ const ShaderBackground = () => {
     const resizeCanvas = () => {
       const parent = canvas.parentElement;
       if (parent) {
-        canvas.width = parent.clientWidth;
-        canvas.height = parent.clientHeight;
+        // Get the full viewport width to ensure no gaps
+        const width = window.innerWidth;
+        const height = parent.clientHeight;
+        
+        canvas.width = width * window.devicePixelRatio;
+        canvas.height = height * window.devicePixelRatio;
+        
+        // Set canvas display size
+        canvas.style.width = `${width}px`;
+        canvas.style.height = `${height}px`;
+        
         gl.viewport(0, 0, canvas.width, canvas.height);
       }
     };
@@ -230,7 +253,15 @@ const ShaderBackground = () => {
   }, []);
 
   return (
-    <canvas ref={canvasRef} className="w-full h-full" />
+    <canvas 
+      ref={canvasRef} 
+      className="w-full h-full absolute inset-0" 
+      style={{ 
+        width: '100%', 
+        height: '100%',
+        display: 'block'
+      }} 
+    />
   );
 };
 
