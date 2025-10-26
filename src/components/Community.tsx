@@ -79,23 +79,33 @@ export default function Community() {
                         Founder & Community Admin
                       </span>
                     </h3>
-                    <p className="text-sm text-muted-foreground mb-1">300+ Member AI & Tech Community</p>
+                    <p className="text-sm text-muted-foreground mb-1">2000+ Member AI & Tech Community</p>
                     <p className="text-xs text-primary/70 flex items-center gap-1">
                       🚀 Active & Growing
                     </p>
                   </div>
-                  <a 
-                    href="https://chat.whatsapp.com/your-community-invite" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors text-sm"
-                  >
-                    Join Community <ExternalLink className="w-4 h-4" />
-                  </a>
+                  <div className="flex flex-col gap-2">
+                    <a 
+                      href="https://chat.whatsapp.com/your-community-invite" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors text-sm"
+                    >
+                      Join WhatsApp <ExternalLink className="w-4 h-4" />
+                    </a>
+                    <a 
+                      href="https://discord.gg/647N9g3M" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors text-sm"
+                    >
+                      Join Discord <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
                 </div>
 
                 <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
-                  Manage a 300+ member community for AI enthusiasts, engineers, entrepreneurs, and creators to share knowledge, 
+                  Manage a 2000+ member community for AI enthusiasts, engineers, entrepreneurs, and creators to share knowledge, 
                   collaborate, and grow their networks in the rapidly evolving AI landscape.
                 </p>
 
@@ -150,6 +160,7 @@ export default function Community() {
                     <p>• Weekly activities to boost engagement</p>
                     <p>• Startup pitch opportunities & personal brand building</p>
                     <p>• Planned hackathons with prize money</p>
+                    <p>• Discord server for enhanced collaboration</p>
                   </div>
                   <p className="text-sm font-medium text-primary/90 italic">
                     "Building bridges between AI enthusiasts and fostering a culture of innovation, collaboration, and mutual growth."

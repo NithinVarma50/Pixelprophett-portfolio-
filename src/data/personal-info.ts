@@ -25,7 +25,9 @@ export const personalInfo: PersonalInfo = {
   achievements: [
     "Organizing Innovators Den event at college",
     "Participated in Shark Tank event with startup pitch",
-    "Created multiple startup ideas across industries"
+    "Created multiple startup ideas across industries",
+    "Founded and manage 'Ignition in AI Era' - 2000+ member community",
+    "Launched Discord server for enhanced community collaboration"
   ],
   interests: [
     "Entrepreneurship",

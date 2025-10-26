@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
-import { Trophy, Award, Star, Users, GraduationCap } from "lucide-react";
+import { Trophy, Award, Star, Users, GraduationCap, MessageCircle } from "lucide-react";
 
 const achievements = [
   {
@@ -11,7 +11,7 @@ const achievements = [
   },
   {
     title: "AI Community Founder",
-    description: "Founded and manage 'Ignition in AI Era' - a 300+ member community for AI enthusiasts, engineers, and entrepreneurs",
+    description: "Founded and manage 'Ignition in AI Era' - a 2000+ member community for AI enthusiasts, engineers, and entrepreneurs",
     icon: <Users className="w-8 h-8 text-blue-500" />
   },
   {
@@ -25,9 +25,9 @@ const achievements = [
     icon: <Star className="w-8 h-8 text-yellow-500" />
   },
   {
-    title: "Community Leadership",
-    description: "Active participant in entrepreneurship communities and tech meetups",
-    icon: <Award className="w-8 h-8 text-green-500" />
+    title: "Discord Server Launch",
+    description: "Successfully launched Discord server for 'Ignition in AI Era' community, expanding engagement and collaboration opportunities",
+    icon: <MessageCircle className="w-8 h-8 text-green-500" />
   },
   {
     title: "Outskill Gen AI Program Completion",
