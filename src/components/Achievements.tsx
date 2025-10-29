@@ -5,6 +5,11 @@ import { Trophy, Award, Star, Users, GraduationCap, MessageCircle } from "lucide
 
 const achievements = [
   {
+    title: "Build-A-Thon Participation",
+    description: "AVISHKRUTI 2025 – National Level Technical & Management Fest (Aurora University), CodeVerse Club. Participated in the national-level Build-A-Thon, showcasing innovative ideas and contributing to tech development challenges.",
+    icon: <Award className="w-8 h-8 text-purple-500" />
+  },
+  {
     title: "Algovision Hackathon Participant",
     description: "Participated in Algovision hackathon at Aurora University's AVISHKRUTI fest, presenting 'The Decentralized AI Marketplace' project",
     icon: <Trophy className="w-8 h-8 text-purple-500" />
@@ -23,11 +28,6 @@ const achievements = [
     title: "Innovators Den Organizer",
     description: "Led the organization of a major entrepreneurship event, fostering innovation",
     icon: <Star className="w-8 h-8 text-yellow-500" />
-  },
-  {
-    title: "Discord Server Launch",
-    description: "Successfully launched Discord server for 'Ignition in AI Era' community, expanding engagement and collaboration opportunities",
-    icon: <MessageCircle className="w-8 h-8 text-green-500" />
   },
   {
     title: "Outskill Gen AI Program Completion",
