@@ -98,11 +98,51 @@ export const optimizeScrollPerformance = (): void => {
   document.body.style.willChange = 'scroll-position';
 };
 
+// Preload Spline 3D library and scene - optimized for mobile
+export const preloadSpline = (): void => {
+  if (typeof window === 'undefined') return;
+  
+  // Preload Spline library immediately (not lazy)
+  const loadSpline = () => {
+    // Start loading the Spline library bundle immediately
+    import('@splinetool/react-spline').then(() => {
+      // Library loaded - now preload the scene
+      const sceneUrl = 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode';
+      
+      // Fetch and cache the scene data
+      fetch(sceneUrl, { 
+        method: 'GET',
+        cache: 'force-cache',
+        mode: 'cors',
+        credentials: 'omit'
+      }).catch(() => {
+        // Silent fail - will load when component mounts
+      });
+    }).catch(() => {
+      // Silent fail - will load when component mounts
+    });
+  };
+  
+  // Start preloading immediately (don't wait for idle)
+  // This ensures Spline is cached before user reaches Hero section
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      loadSpline();
+    });
+  } else {
+    // DOM already loaded, start immediately
+    loadSpline();
+  }
+};
+
 // Initialize mobile optimizations
 export const initMobileOptimizations = (): void => {
   if (typeof window === 'undefined') return;
   
   optimizeScrollPerformance();
+  
+  // Preload Spline 3D for smooth experience
+  preloadSpline();
   
   // Note: Images are bundled with components now (no lazy loading), 
   // so they'll load automatically. No need to preload separately.
