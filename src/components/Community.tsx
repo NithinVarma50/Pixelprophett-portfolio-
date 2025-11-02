@@ -94,6 +94,14 @@ export default function Community() {
                       Join WhatsApp <ExternalLink className="w-4 h-4" />
                     </a>
                     <a 
+                      href="https://ignition-in-ai-era.vercel.app/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors text-sm"
+                    >
+                      Visit Website <ExternalLink className="w-4 h-4" />
+                    </a>
+                    <a 
                       href="https://discord.gg/647N9g3M" 
                       target="_blank" 
                       rel="noopener noreferrer"

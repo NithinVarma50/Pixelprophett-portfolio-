@@ -16,7 +16,8 @@ import {
   Zap,
   Lightbulb,
   Shirt,
-  ShoppingBag
+  ShoppingBag,
+  Dumbbell
 } from "lucide-react";
 
 const iconMap: { [key: string]: React.ReactNode } = {
@@ -142,6 +143,35 @@ export default function Projects() {
             A showcase of conceptual projects demonstrating innovative problem-solving approaches.
           </p>
         </div>
+
+        {/* Featured: FitForge (kept under this section) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.05 }}
+          className="mb-8"
+        >
+          <a 
+            href="https://nithin-fit-forge.vercel.app/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block"
+          >
+            <Card className="hover-card glass">
+              <CardContent className="p-5 sm:p-6 flex items-center gap-4">
+                <div className="p-3 rounded-lg bg-primary/10">
+                  <Dumbbell className="w-6 h-6 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg sm:text-xl font-semibold">FitForge</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Personal AI-Powered Fitness App</p>
+                </div>
+                <div className="hidden sm:block text-primary/80 text-sm">Open <span aria-hidden>↗</span></div>
+              </CardContent>
+            </Card>
+          </a>
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {projects.map((project, index) => (
