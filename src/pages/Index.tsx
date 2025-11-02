@@ -1,37 +1,25 @@
-import { useEffect, useState, useRef, lazy, Suspense, memo, useCallback } from "react";
+import { useEffect, useState, useRef, memo, useCallback } from "react";
 import Hero from "@/components/Hero";
 import PersonalCard from "@/components/PersonalCard";
 import { motion, useScroll, useSpring } from "framer-motion";
 import LokiEffects from "@/components/effects/LokiEffects";
-import { Skeleton } from "@/components/ui/skeleton";
+import { initMobileOptimizations } from "@/lib/mobile-optimization";
 
-// Lazy load non-critical components
-const About = lazy(() => import("@/components/About"));
-const DeskSetup = lazy(() => import("@/components/DeskSetup"));
-const FitForge = lazy(() => import("@/components/FitForge"));
-const Skills = lazy(() => import("@/components/Skills"));
-const Projects = lazy(() => import("@/components/Projects"));
-const QuickFix = lazy(() => import("@/components/QuickFix"));
-const QuickFixAnalysis = lazy(() => import("@/components/QuickFixAnalysis"));
-const FreelanceProject = lazy(() => import("@/components/FreelanceProject"));
-const Community = lazy(() => import("@/components/Community"));
-const GameShowcase = lazy(() => import("@/components/GameShowcase"));
-const Achievements = lazy(() => import("@/components/Achievements"));
-const Conclusion = lazy(() => import("@/components/Conclusion"));
+// Import all components directly for better caching - no lazy loading for smooth scrolling
+import About from "@/components/About";
+import DeskSetup from "@/components/DeskSetup";
+import FitForge from "@/components/FitForge";
+import Skills from "@/components/Skills";
+import Projects from "@/components/Projects";
+import QuickFix from "@/components/QuickFix";
+import QuickFixAnalysis from "@/components/QuickFixAnalysis";
+import FreelanceProject from "@/components/FreelanceProject";
+import Community from "@/components/Community";
+import GameShowcase from "@/components/GameShowcase";
+import Achievements from "@/components/Achievements";
+import Conclusion from "@/components/Conclusion";
 
-// Memoized loading component for lazy-loaded sections
-const SectionLoader = memo(() => (
-  <div className="py-16 px-4">
-    <Skeleton className="h-8 w-1/3 mx-auto mb-8" />
-    <Skeleton className="h-4 w-2/3 mx-auto mb-4" />
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
-      <Skeleton className="h-32 rounded-md" />
-      <Skeleton className="h-32 rounded-md" />
-      <Skeleton className="h-32 rounded-md" />
-      <Skeleton className="h-32 rounded-md" />
-    </div>
-  </div>
-));
+// Removed lazy loading - all components load upfront for smooth scrolling
 
 const Index = () => {
   // Performance-optimized scroll tracking
@@ -59,6 +47,9 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
+    // Initialize mobile optimizations on mount
+    initMobileOptimizations();
+    
     let ticking = false;
     
     // Ultra-smooth scroll handler with RAF
@@ -107,11 +98,11 @@ const Index = () => {
         aria-hidden="true"
       />
       
-      {/* Reduced initial render load - load only what's visible */}
+      {/* All components load upfront - no lazy loading for smooth scrolling */}
       <LokiEffects />
       <Hero />
       
-      {/* Lazy-loaded sections with suspense fallbacks */}
+      {/* All sections loaded immediately - cached and ready */}
       <div className="section-padding bg-secondary/20" id="about">
         <div className="max-w-4xl mx-auto">
           {/* Mobile: Card stacks above text */}
@@ -126,9 +117,7 @@ const Index = () => {
               <PersonalCard />
             </div>
             
-            <Suspense fallback={<SectionLoader />}>
-              <About />
-            </Suspense>
+            <About />
             
             {/* Clear float */}
             <div className="clear-both"></div>
@@ -136,49 +125,17 @@ const Index = () => {
         </div>
       </div>
       
-      <Suspense fallback={<SectionLoader />}>
-        <DeskSetup />
-      </Suspense>
-      
-      <Suspense fallback={<SectionLoader />}>
-        <Skills />
-      </Suspense>
-      
-      <Suspense fallback={<SectionLoader />}>
-        <FitForge />
-      </Suspense>
-      
-      <Suspense fallback={<SectionLoader />}>
-        <Projects />
-      </Suspense>
-      
-      <Suspense fallback={<SectionLoader />}>
-        <QuickFix />
-      </Suspense>
-      
-      <Suspense fallback={<SectionLoader />}>
-        <QuickFixAnalysis />
-      </Suspense>
-      
-      <Suspense fallback={<SectionLoader />}>
-        <FreelanceProject />
-      </Suspense>
-      
-      <Suspense fallback={<SectionLoader />}>
-        <Community />
-      </Suspense>
-      
-      <Suspense fallback={<SectionLoader />}>
-        <GameShowcase />
-      </Suspense>
-      
-      <Suspense fallback={<SectionLoader />}>
-        <Achievements />
-      </Suspense>
-      
-      <Suspense fallback={<SectionLoader />}>
-        <Conclusion />
-      </Suspense>
+      <DeskSetup />
+      <Skills />
+      <FitForge />
+      <Projects />
+      <QuickFix />
+      <QuickFixAnalysis />
+      <FreelanceProject />
+      <Community />
+      <GameShowcase />
+      <Achievements />
+      <Conclusion />
       
       {/* Optimized button with GPU acceleration */}
       {showScrollButton && (

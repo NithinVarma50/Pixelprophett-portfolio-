@@ -6,8 +6,12 @@ import SocialLinks from "./hero/SocialLinks";
 import ActionButtons from "./hero/ActionButtons";
 import BackgroundEffects from "./hero/BackgroundEffects";
 import { SplineScene } from "./ui/splite";
+import { isMobile, shouldEnableHighEndAnimations } from "@/lib/mobile-optimization";
 
 const Hero = memo(() => {
+  const isMobileDevice = isMobile();
+  const highEndAnimations = shouldEnableHighEndAnimations();
+  
   const scrollToProjects = useCallback(() => {
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
@@ -71,40 +75,56 @@ const Hero = memo(() => {
             Interactive ✨
           </motion.div>
 
-          {/* Main 3D scene container */}
+          {/* Main 3D scene container - disabled on mobile for performance */}
           <div className="relative w-full h-full rounded-xl overflow-hidden border border-white/5 group-hover:border-primary/20 transition-colors duration-300">
-            <SplineScene 
-              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-              className="w-full h-full"
-            />
+            {!isMobileDevice ? (
+              <SplineScene 
+                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                className="w-full h-full"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5">
+                <div className="text-center p-8">
+                  <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-primary/20 border-2 border-primary/30 flex items-center justify-center">
+                    <svg className="w-12 h-12 text-primary/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                  </div>
+                  <p className="text-primary/60 text-sm">Interactive 3D Model</p>
+                  <p className="text-muted-foreground text-xs mt-1">Optimized for mobile</p>
+                </div>
+              </div>
+            )}
             
             {/* Subtle overlay for better integration */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
           </div>
 
-          {/* Floating particles effect */}
-          <div className="absolute inset-0 pointer-events-none">
-            {[...Array(3)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-1 h-1 bg-primary/40 rounded-full"
-                style={{
-                  left: `${20 + i * 30}%`,
-                  top: `${30 + i * 20}%`,
-                }}
-                animate={{
-                  y: [-10, 10, -10],
-                  opacity: [0.3, 0.8, 0.3],
-                }}
-                transition={{
-                  duration: 3 + i,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: i * 0.5,
-                }}
-              />
-            ))}
-          </div>
+          {/* Floating particles effect - HIGH-END DESKTOP gets more particles */}
+          {!isMobileDevice && (
+            <div className="absolute inset-0 pointer-events-none">
+              {[...Array(highEndAnimations ? 5 : 3)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-1 h-1 bg-primary/40 rounded-full"
+                  style={{
+                    left: `${20 + i * 30}%`,
+                    top: `${30 + i * 20}%`,
+                  }}
+                  animate={{
+                    y: highEndAnimations ? [-15, 15, -15] : [-10, 10, -10],
+                    opacity: highEndAnimations ? [0.4, 1, 0.4] : [0.3, 0.8, 0.3],
+                  }}
+                  transition={{
+                    duration: highEndAnimations ? (4 + i) : (3 + i),
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: i * 0.5,
+                  }}
+                />
+              ))}
+            </div>
+          )}
         </motion.div>
       </motion.div>
 

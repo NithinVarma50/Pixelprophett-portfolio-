@@ -1,8 +1,10 @@
 
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { shouldEnableHighEndAnimations } from "@/lib/mobile-optimization";
 
 export default function BackgroundEffects() {
+  const highEndAnimations = shouldEnableHighEndAnimations();
   const orbs = useRef<Array<{ x: number; y: number; size: number; color: string }>>([]);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
@@ -17,7 +19,9 @@ export default function BackgroundEffects() {
       "rgba(0, 0, 0, 0.3)",       // Black for contrast
     ];
     
-    orbs.current = [...Array(8)].map(() => ({
+    // HIGH-END DESKTOP: More orbs for richer background
+    const orbCount = highEndAnimations ? 12 : 8;
+    orbs.current = [...Array(orbCount)].map(() => ({
       x: Math.random() * 100,
       y: Math.random() * 100,
       size: Math.random() * 120 + 40,

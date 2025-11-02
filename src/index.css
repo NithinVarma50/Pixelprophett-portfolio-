@@ -48,19 +48,36 @@
   body {
     @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
-    /* Enhanced paint performance */
-    transform: translateZ(0);
+    /* Enhanced paint performance - GPU acceleration */
+    transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     perspective: 1000;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #000000; /* Ensure deep black background */
-    /* Optimize for 60fps scrolling */
+    /* Optimize for 60fps scrolling - mobile optimized */
     will-change: scroll-position;
     contain: layout style paint;
     /* Better scroll performance */
     scroll-behavior: smooth;
     overscroll-behavior: contain;
+    /* Mobile-specific optimizations */
+    -webkit-overflow-scrolling: touch;
+    /* Reduce repaints */
+    isolation: isolate;
+  }
+  
+  /* Mobile-specific optimizations */
+  @media (max-width: 768px) {
+    body {
+      /* Disable smooth scroll JS on mobile - use CSS only */
+      scroll-behavior: auto;
+      /* Optimize rendering */
+      contain: layout style paint;
+      /* Force GPU acceleration */
+      transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+    }
   }
 
   .playfair {
@@ -117,15 +134,33 @@
     scroll-padding-top: 2rem;
   }
   
-  /* Ultra-smooth scrolling for main content */
+  /* Ultra-smooth scrolling for main content - mobile optimized */
   .ultra-smooth {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
     scroll-padding-top: 2rem;
     /* GPU acceleration for scrolling */
-    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
     will-change: scroll-position;
+    /* Optimize compositing */
+    contain: layout style paint;
+    /* Prevent scroll chaining */
+    overscroll-behavior-y: contain;
+  }
+  
+  @media (max-width: 768px) {
+    .ultra-smooth {
+      /* Disable JS smooth scroll on mobile - use native */
+      scroll-behavior: auto;
+      /* Force hardware acceleration */
+      transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+      /* Optimize for touch scrolling */
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-y;
+    }
   }
   
   /* Performance optimizations */

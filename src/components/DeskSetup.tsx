@@ -91,6 +91,8 @@ const DeskSetup = () => {
                         alt="My desk setup - a compact workspace with laptop, keyboard, and tech accessories"
                         className="w-full h-auto rounded-md shadow-lg object-cover"
                         style={{ aspectRatio: '16/9', objectFit: 'cover' }}
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                     <motion.div

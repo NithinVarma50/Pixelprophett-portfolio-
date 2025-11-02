@@ -1,8 +1,11 @@
 
 import { useEffect, useState, useCallback, useRef, memo } from "react";
 import { motion } from "framer-motion";
+import { shouldReduceAnimations, shouldEnableHighEndAnimations } from "@/lib/mobile-optimization";
 
 const LokiEffects = () => {
+  const reduceAnimations = shouldReduceAnimations();
+  const highEndAnimations = shouldEnableHighEndAnimations();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [viewportDimensions, setViewportDimensions] = useState({ 
     width: typeof window !== 'undefined' ? window.innerWidth : 0, 
@@ -81,12 +84,22 @@ const LokiEffects = () => {
   }));
 
   // Ultra-optimized animation props with reduced complexity
-  const animationProps = isScrolling ? {
-    // Minimal animations during scroll for 60fps
+  // On mobile or when reduced motion is preferred, disable most animations
+  // On desktop (high-end), enable full rich animations
+  const animationProps = (isScrolling || reduceAnimations) ? {
+    // Minimal animations during scroll or on mobile for 60fps
     scale: 1,
     background: "radial-gradient(circle, rgba(57, 255, 20, 0.1) 0%, rgba(0, 0, 0, 0) 70%)"
+  } : highEndAnimations ? {
+    // HIGH-END DESKTOP: Full rich animations with enhanced effects
+    scale: [1, 1.15, 1], // More dramatic scale for desktop
+    background: [
+      "radial-gradient(circle, rgba(57, 255, 20, 0.3) 0%, rgba(0, 0, 0, 0) 70%)",
+      "radial-gradient(circle, rgba(57, 255, 20, 0.5) 0%, rgba(0, 0, 0, 0) 70%)",
+      "radial-gradient(circle, rgba(57, 255, 20, 0.3) 0%, rgba(0, 0, 0, 0) 70%)",
+    ]
   } : {
-    // Simplified animations when not scrolling
+    // Simplified animations when not scrolling (tablet/small desktop)
     scale: [1, 1.05, 1], // Reduced scale for better performance
     background: [
       "radial-gradient(circle, rgba(57, 255, 20, 0.2) 0%, rgba(0, 0, 0, 0) 70%)",
@@ -101,15 +114,15 @@ const LokiEffects = () => {
       <motion.div 
         className="absolute w-[50vw] h-[50vh] rounded-full hw-accelerated"
         animate={{
-          x: isScrolling ? 0 : xFactor * 20 - 10,
-          y: isScrolling ? 0 : yFactor * 20 - 10,
+          x: (isScrolling || reduceAnimations) ? 0 : (highEndAnimations ? xFactor * 30 - 15 : xFactor * 20 - 10),
+          y: (isScrolling || reduceAnimations) ? 0 : (highEndAnimations ? yFactor * 30 - 15 : yFactor * 20 - 10),
           ...animationProps
         }}
         transition={{
-          x: { duration: isScrolling ? 0.1 : 1.5, ease: "easeOut" },
-          y: { duration: isScrolling ? 0.1 : 1.5, ease: "easeOut" },
-          scale: { duration: isScrolling ? 0 : 8, repeat: isScrolling ? 0 : Infinity, ease: "easeInOut" },
-          background: { duration: isScrolling ? 0 : 4, repeat: isScrolling ? 0 : Infinity, ease: "easeInOut" }
+          x: { duration: (isScrolling || reduceAnimations) ? 0.1 : (highEndAnimations ? 2 : 1.5), ease: "easeOut" },
+          y: { duration: (isScrolling || reduceAnimations) ? 0.1 : (highEndAnimations ? 2 : 1.5), ease: "easeOut" },
+          scale: { duration: (isScrolling || reduceAnimations) ? 0 : (highEndAnimations ? 10 : 8), repeat: (isScrolling || reduceAnimations) ? 0 : Infinity, ease: "easeInOut" },
+          background: { duration: (isScrolling || reduceAnimations) ? 0 : (highEndAnimations ? 5 : 4), repeat: (isScrolling || reduceAnimations) ? 0 : Infinity, ease: "easeInOut" }
         }}
         style={{
           left: "30%",
@@ -119,25 +132,30 @@ const LokiEffects = () => {
         }}
       />
       
-      {/* Simplified secondary effect during scroll */}
-      {!isScrolling && (
+      {/* Simplified secondary effect during scroll - disabled on mobile */}
+      {/* HIGH-END DESKTOP: Enhanced secondary effect with more particles */}
+      {!isScrolling && !reduceAnimations && (
         <motion.div 
           className="absolute w-[40vw] h-[40vh] rounded-full hw-accelerated"
           animate={{
-            x: -xFactor * 15,
-            y: -yFactor * 15,
-            scale: [1, 1.15, 1],
-            background: [
+            x: -xFactor * (highEndAnimations ? 20 : 15),
+            y: -yFactor * (highEndAnimations ? 20 : 15),
+            scale: [1, highEndAnimations ? 1.25 : 1.15, 1],
+            background: highEndAnimations ? [
+              "radial-gradient(circle, rgba(18, 110, 10, 0.35) 0%, rgba(0, 0, 0, 0) 70%)",
+              "radial-gradient(circle, rgba(57, 255, 20, 0.5) 0%, rgba(0, 0, 0, 0) 70%)",
+              "radial-gradient(circle, rgba(18, 110, 10, 0.35) 0%, rgba(0, 0, 0, 0) 70%)",
+            ] : [
               "radial-gradient(circle, rgba(18, 110, 10, 0.25) 0%, rgba(0, 0, 0, 0) 70%)",
               "radial-gradient(circle, rgba(57, 255, 20, 0.35) 0%, rgba(0, 0, 0, 0) 70%)",
               "radial-gradient(circle, rgba(18, 110, 10, 0.25) 0%, rgba(0, 0, 0, 0) 70%)",
             ]
           }}
           transition={{
-            x: { duration: 2, ease: "easeOut" },
-            y: { duration: 2, ease: "easeOut" },
-            scale: { duration: 10, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" },
-            background: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+            x: { duration: highEndAnimations ? 2.5 : 2, ease: "easeOut" },
+            y: { duration: highEndAnimations ? 2.5 : 2, ease: "easeOut" },
+            scale: { duration: highEndAnimations ? 12 : 10, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" },
+            background: { duration: highEndAnimations ? 6 : 5, repeat: Infinity, ease: "easeInOut" }
           }}
           style={{
             right: "20%",
@@ -158,19 +176,19 @@ const LokiEffects = () => {
           willChange: "transform, opacity"
         }}
         animate={{
-          scaleX: isScrolling ? 1 : [0.8, 1, 0.8],
-          opacity: isScrolling ? 0.3 : [0.4, 0.6, 0.4],
-          y: isScrolling ? 0 : yFactor * 30 - 15
+          scaleX: (isScrolling || reduceAnimations) ? 1 : [0.8, 1, 0.8],
+          opacity: (isScrolling || reduceAnimations) ? 0.3 : [0.4, 0.6, 0.4],
+          y: (isScrolling || reduceAnimations) ? 0 : yFactor * 30 - 15
         }}
         transition={{
-          scaleX: { duration: isScrolling ? 0 : 6, repeat: isScrolling ? 0 : Infinity, ease: "easeInOut" },
-          opacity: { duration: isScrolling ? 0 : 6, repeat: isScrolling ? 0 : Infinity, ease: "easeInOut" },
-          y: { duration: isScrolling ? 0.1 : 2, ease: "easeOut" }
+          scaleX: { duration: (isScrolling || reduceAnimations) ? 0 : 6, repeat: (isScrolling || reduceAnimations) ? 0 : Infinity, ease: "easeInOut" },
+          opacity: { duration: (isScrolling || reduceAnimations) ? 0 : 6, repeat: (isScrolling || reduceAnimations) ? 0 : Infinity, ease: "easeInOut" },
+          y: { duration: (isScrolling || reduceAnimations) ? 0.1 : 2, ease: "easeOut" }
         }}
       />
       
-      {/* Optimized timeline branch lines - reduced count for better performance */}
-      {(!isScrolling ? [...Array(2)] : [...Array(1)]).map((_, i) => (
+      {/* Optimized timeline branch lines - reduced count for better performance - disabled on mobile */}
+      {!reduceAnimations && (!isScrolling ? [...Array(2)] : [...Array(1)]).map((_, i) => (
         <motion.div
           key={`timeline-${i}`}
           className="absolute h-[1px] hw-accelerated"
@@ -194,8 +212,8 @@ const LokiEffects = () => {
         />
       ))}
       
-      {/* Optimized runes - significantly reduced count for better performance */}
-      {(!isScrolling ? [...Array(4)] : [...Array(1)]).map((_, i) => (
+      {/* Optimized runes - HIGH-END DESKTOP gets more runes */}
+      {!reduceAnimations && (!isScrolling ? [...Array(highEndAnimations ? 6 : 4)] : [...Array(1)]).map((_, i) => (
         <motion.div
           key={`rune-${i}`}
           className="absolute rounded-full bg-primary/40 hw-accelerated"
@@ -221,8 +239,8 @@ const LokiEffects = () => {
         />
       ))}
 
-      {/* Optimized cursor trail - reduced particles for better performance */}
-      {!isScrolling && cursorTrailPositions.slice(0, 2).map((trail, i) => (
+      {/* Optimized cursor trail - HIGH-END DESKTOP gets more particles */}
+      {!isScrolling && !reduceAnimations && cursorTrailPositions.slice(0, highEndAnimations ? 4 : 2).map((trail, i) => (
         <motion.div
           key={`cursor-trail-${i}`}
           className="absolute w-[20px] h-[20px] rounded-full hw-accelerated"
@@ -246,8 +264,8 @@ const LokiEffects = () => {
         />
       ))}
 
-      {/* Sacred timeline "prune" effect - only when not scrolling */}
-      {!isScrolling && (
+      {/* Sacred timeline "prune" effect - only when not scrolling - disabled on mobile */}
+      {!isScrolling && !reduceAnimations && (
         <motion.div
           className="absolute w-full h-[2px] left-0 origin-left hw-accelerated"
           style={{ 
@@ -282,20 +300,24 @@ const LokiEffects = () => {
           willChange: "transform, border-color, box-shadow"
         }}
         animate={{
-          rotate: isScrolling ? 0 : [0, 360],
-          borderColor: isScrolling ? "rgba(57,255,20,0.2)" : ["rgba(57,255,20,0.2)", "rgba(57,255,20,0.5)", "rgba(57,255,20,0.2)"],
-          boxShadow: isScrolling ? 
+          rotate: (isScrolling || reduceAnimations) ? 0 : [0, 360],
+          borderColor: (isScrolling || reduceAnimations) ? "rgba(57,255,20,0.2)" : highEndAnimations ? ["rgba(57,255,20,0.2)", "rgba(57,255,20,0.7)", "rgba(57,255,20,0.2)"] : ["rgba(57,255,20,0.2)", "rgba(57,255,20,0.5)", "rgba(57,255,20,0.2)"],
+          boxShadow: (isScrolling || reduceAnimations) ? 
             "inset 0 0 15px rgba(57,255,20,0.1), 0 0 15px rgba(57,255,20,0.1)" :
-            [
+            highEndAnimations ? [
+              "inset 0 0 20px rgba(57,255,20,0.15), 0 0 20px rgba(57,255,20,0.15)",
+              "inset 0 0 40px rgba(57,255,20,0.3), 0 0 40px rgba(57,255,20,0.4)",
+              "inset 0 0 20px rgba(57,255,20,0.15), 0 0 20px rgba(57,255,20,0.15)"
+            ] : [
               "inset 0 0 15px rgba(57,255,20,0.1), 0 0 15px rgba(57,255,20,0.1)",
               "inset 0 0 30px rgba(57,255,20,0.2), 0 0 30px rgba(57,255,20,0.3)",
               "inset 0 0 15px rgba(57,255,20,0.1), 0 0 15px rgba(57,255,20,0.1)"
             ]
         }}
         transition={{
-          rotate: { duration: isScrolling ? 0 : 25, repeat: isScrolling ? 0 : Infinity, ease: "linear" },
-          borderColor: { duration: isScrolling ? 0 : 6, repeat: isScrolling ? 0 : Infinity, ease: "easeInOut" },
-          boxShadow: { duration: isScrolling ? 0 : 6, repeat: isScrolling ? 0 : Infinity, ease: "easeInOut" }
+          rotate: { duration: (isScrolling || reduceAnimations) ? 0 : 25, repeat: (isScrolling || reduceAnimations) ? 0 : Infinity, ease: "linear" },
+          borderColor: { duration: (isScrolling || reduceAnimations) ? 0 : 6, repeat: (isScrolling || reduceAnimations) ? 0 : Infinity, ease: "easeInOut" },
+          boxShadow: { duration: (isScrolling || reduceAnimations) ? 0 : 6, repeat: (isScrolling || reduceAnimations) ? 0 : Infinity, ease: "easeInOut" }
         }}
       />
     </div>
