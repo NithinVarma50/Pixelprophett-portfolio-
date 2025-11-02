@@ -108,7 +108,21 @@ export default function Community() {
                   Manage a 2000+ member community for AI enthusiasts, engineers, entrepreneurs, and creators to share knowledge, 
                   collaborate, and grow their networks in the rapidly evolving AI landscape.
                 </p>
-
+                
+                <div className="border border-primary/20 rounded-lg p-4 mb-6 bg-secondary/10">
+                  <h4 className="font-semibold text-sm mb-2 text-primary">Info Website</h4>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Explore community updates, events, resources, and how to get involved.
+                  </p>
+                  <a
+                    href="https://ignition-in-ai-era.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-primary hover:text-primary/80 transition-colors text-sm font-medium"
+                  >
+                    Visit Ignition in AI Era <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
                 <div className="mb-6">
                   <h4 className="font-semibold text-sm mb-3 text-primary">Key Initiatives</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
