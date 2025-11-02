@@ -8,6 +8,7 @@ import { initMobileOptimizations } from "@/lib/mobile-optimization";
 // Import all components directly for better caching - no lazy loading for smooth scrolling
 import About from "@/components/About";
 import DeskSetup from "@/components/DeskSetup";
+import FitForge from "@/components/FitForge";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import QuickFix from "@/components/QuickFix";
@@ -26,6 +27,8 @@ const Index = () => {
   // Performance-optimized scroll tracking - reduced on mobile
   const { scrollYProgress } = useScroll({
     offset: ["start start", "end end"],
+    // Reduce precision on mobile for better performance
+    layoutEffect: !isMobileDevice
   });
   
   // Optimized spring physics - lighter on mobile
@@ -128,6 +131,7 @@ const Index = () => {
       
       <DeskSetup />
       <Skills />
+      <FitForge />
       <Projects />
       <QuickFix />
       <QuickFixAnalysis />
