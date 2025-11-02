@@ -53,6 +53,18 @@
     overscroll-behavior: contain;
   }
   
+  @media (max-width: 768px) {
+    html {
+      scroll-behavior: auto;
+      /* Mobile: ensure native scrolling works */
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-y;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  }
+  
   body {
     @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
@@ -80,8 +92,8 @@
     body {
       /* Disable smooth scroll JS on mobile - use CSS only */
       scroll-behavior: auto;
-      /* Optimize rendering - aggressive containment */
-      contain: strict;
+      /* Optimize rendering - use layout/style/paint only (NOT size - breaks scrolling) */
+      contain: layout style paint;
       /* Force GPU acceleration */
       transform: translate3d(0, 0, 0);
       -webkit-transform: translate3d(0, 0, 0);
@@ -90,6 +102,11 @@
       /* Optimize font rendering */
       text-rendering: optimizeSpeed;
       -webkit-font-smoothing: subpixel-antialiased;
+      /* Ensure scrolling works - don't restrict body overflow */
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-y;
+      height: auto;
+      min-height: 100%;
     }
     
     /* Disable expensive backdrop-filter on mobile */
@@ -229,10 +246,13 @@
       /* Optimize for touch scrolling */
       -webkit-overflow-scrolling: touch;
       touch-action: pan-y;
-      /* Aggressive containment for smooth scroll */
-      contain: strict;
+      /* Safe containment for smooth scroll (NOT strict - breaks scrolling) */
+      contain: layout style paint;
       /* Prevent layout shifts */
       content-visibility: auto;
+      /* Don't create nested scroll container - let document scroll */
+      height: auto;
+      min-height: 100vh;
     }
     
     /* Pause animations during scroll */

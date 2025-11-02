@@ -98,12 +98,12 @@ const LokiEffects = () => {
     scale: 1,
     background: "radial-gradient(circle, rgba(57, 255, 20, 0.1) 0%, rgba(0, 0, 0, 0) 70%)"
   } : highEndAnimations ? {
-    // HIGH-END DESKTOP: Premium rich animations with vibrant colors
-    scale: [1, 1.2, 1], // More dramatic scale for desktop
+    // HIGH-END DESKTOP: Refined minimal animations with subtle colors
+    scale: [1, 1.08, 1], // More subtle scale for desktop
     background: [
-      "radial-gradient(circle, rgba(57, 255, 20, 0.4) 0%, rgba(120, 255, 68, 0.2) 30%, rgba(0, 0, 0, 0) 70%)",
-      "radial-gradient(circle, rgba(57, 255, 20, 0.7) 0%, rgba(120, 255, 68, 0.4) 30%, rgba(35, 192, 25, 0.2) 50%, rgba(0, 0, 0, 0) 70%)",
-      "radial-gradient(circle, rgba(57, 255, 20, 0.4) 0%, rgba(120, 255, 68, 0.2) 30%, rgba(0, 0, 0, 0) 70%)",
+      "radial-gradient(circle, rgba(57, 255, 20, 0.15) 0%, rgba(120, 255, 68, 0.08) 30%, rgba(0, 0, 0, 0) 70%)",
+      "radial-gradient(circle, rgba(57, 255, 20, 0.25) 0%, rgba(120, 255, 68, 0.15) 30%, rgba(35, 192, 25, 0.1) 50%, rgba(0, 0, 0, 0) 70%)",
+      "radial-gradient(circle, rgba(57, 255, 20, 0.15) 0%, rgba(120, 255, 68, 0.08) 30%, rgba(0, 0, 0, 0) 70%)",
     ]
   } : {
     // Simplified animations when not scrolling (tablet/small desktop)
@@ -134,9 +134,9 @@ const LokiEffects = () => {
         style={{
           left: "30%",
           top: "20%",
-          filter: highEndAnimations ? "blur(60px) brightness(1.2)" : "blur(50px)",
+          filter: highEndAnimations ? "blur(60px) brightness(1.05)" : "blur(50px)",
           willChange: "transform, background",
-          boxShadow: highEndAnimations ? "0 0 100px rgba(57, 255, 20, 0.3)" : "none"
+          boxShadow: highEndAnimations ? "0 0 80px rgba(57, 255, 20, 0.15)" : "none"
         }}
       />
       
@@ -148,11 +148,11 @@ const LokiEffects = () => {
           animate={{
             x: -xFactor * (highEndAnimations ? 20 : 15),
             y: -yFactor * (highEndAnimations ? 20 : 15),
-            scale: [1, highEndAnimations ? 1.25 : 1.15, 1],
+            scale: [1, highEndAnimations ? 1.12 : 1.15, 1],
             background: highEndAnimations ? [
-              "radial-gradient(circle, rgba(18, 110, 10, 0.45) 0%, rgba(57, 255, 20, 0.25) 25%, rgba(0, 0, 0, 0) 70%)",
-              "radial-gradient(circle, rgba(57, 255, 20, 0.7) 0%, rgba(120, 255, 68, 0.5) 25%, rgba(35, 192, 25, 0.3) 40%, rgba(0, 0, 0, 0) 70%)",
-              "radial-gradient(circle, rgba(18, 110, 10, 0.45) 0%, rgba(57, 255, 20, 0.25) 25%, rgba(0, 0, 0, 0) 70%)",
+              "radial-gradient(circle, rgba(18, 110, 10, 0.2) 0%, rgba(57, 255, 20, 0.12) 25%, rgba(0, 0, 0, 0) 70%)",
+              "radial-gradient(circle, rgba(57, 255, 20, 0.3) 0%, rgba(120, 255, 68, 0.2) 25%, rgba(35, 192, 25, 0.12) 40%, rgba(0, 0, 0, 0) 70%)",
+              "radial-gradient(circle, rgba(18, 110, 10, 0.2) 0%, rgba(57, 255, 20, 0.12) 25%, rgba(0, 0, 0, 0) 70%)",
             ] : [
               "radial-gradient(circle, rgba(18, 110, 10, 0.25) 0%, rgba(0, 0, 0, 0) 70%)",
               "radial-gradient(circle, rgba(57, 255, 20, 0.35) 0%, rgba(0, 0, 0, 0) 70%)",
@@ -168,9 +168,9 @@ const LokiEffects = () => {
           style={{
             right: "20%",
             bottom: "30%",
-            filter: highEndAnimations ? "blur(50px) brightness(1.3)" : "blur(40px)",
+            filter: highEndAnimations ? "blur(50px) brightness(1.08)" : "blur(40px)",
             willChange: "transform, background",
-            boxShadow: highEndAnimations ? "0 0 80px rgba(57, 255, 20, 0.4)" : "none"
+            boxShadow: highEndAnimations ? "0 0 60px rgba(57, 255, 20, 0.2)" : "none"
           }}
         />
       )}
@@ -181,10 +181,10 @@ const LokiEffects = () => {
         style={{
           top: "50%",
           backgroundImage: highEndAnimations
-            ? "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(57,255,20,0.5) 25%, rgba(120,255,68,0.8) 50%, rgba(57,255,20,0.5) 75%, rgba(0,0,0,0) 100%)"
+            ? "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(57,255,20,0.3) 25%, rgba(120,255,68,0.45) 50%, rgba(57,255,20,0.3) 75%, rgba(0,0,0,0) 100%)"
             : "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(57,255,20,0.6) 50%, rgba(0,0,0,0) 100%)",
           boxShadow: highEndAnimations
-            ? "0 0 25px rgba(57,255,20,0.6), 0 0 50px rgba(120,255,68,0.3)"
+            ? "0 0 15px rgba(57,255,20,0.3), 0 0 30px rgba(120,255,68,0.15)"
             : "0 0 15px rgba(57,255,20,0.4)",
           willChange: "transform, opacity"
         }}
@@ -209,10 +209,10 @@ const LokiEffects = () => {
             top: `${30 + i * 30}%`,
             width: "100%",
             backgroundImage: highEndAnimations 
-              ? "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(57,255,20,0.3) 30%, rgba(120,255,68,0.4) 50%, rgba(57,255,20,0.3) 70%, rgba(0,0,0,0) 100%)"
+              ? "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(57,255,20,0.18) 30%, rgba(120,255,68,0.25) 50%, rgba(57,255,20,0.18) 70%, rgba(0,0,0,0) 100%)"
               : "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(57,255,20,0.2) 50%, rgba(0,0,0,0) 100%)",
             boxShadow: highEndAnimations 
-              ? "0 0 8px rgba(57,255,20,0.4), 0 0 16px rgba(120,255,68,0.2)"
+              ? "0 0 6px rgba(57,255,20,0.25), 0 0 12px rgba(120,255,68,0.12)"
               : "0 0 4px rgba(57,255,20,0.2)",
             willChange: "transform, opacity"
           }}
@@ -240,14 +240,14 @@ const LokiEffects = () => {
             left: `${20 + i * 20}%`,
             top: `${20 + i * 20}%`,
             boxShadow: highEndAnimations
-              ? "0 0 8px rgba(57,255,20,0.6), 0 0 16px rgba(120,255,68,0.4), 0 0 24px rgba(57,255,20,0.2)"
+              ? "0 0 6px rgba(57,255,20,0.35), 0 0 12px rgba(120,255,68,0.2), 0 0 18px rgba(57,255,20,0.1)"
               : "0 0 4px rgba(57,255,20,0.3), 0 0 8px rgba(57,255,20,0.1)",
-            filter: highEndAnimations ? "blur(1px) brightness(1.5)" : "blur(0.5px)",
+            filter: highEndAnimations ? "blur(1px) brightness(1.2)" : "blur(0.5px)",
             willChange: "transform, opacity"
           }}
           animate={{
-            opacity: isScrolling ? 0.1 : highEndAnimations ? [0, 0.6, 0] : [0, 0.4, 0],
-            scale: isScrolling ? 1 : highEndAnimations ? [0, 1.3, 0] : [0, 1.1, 0],
+            opacity: isScrolling ? 0.1 : highEndAnimations ? [0, 0.4, 0] : [0, 0.4, 0],
+            scale: isScrolling ? 1 : highEndAnimations ? [0, 1.15, 0] : [0, 1.1, 0],
           }}
           transition={{
             duration: isScrolling ? 0 : 4 + i,
@@ -265,12 +265,12 @@ const LokiEffects = () => {
           className="absolute w-[20px] h-[20px] rounded-full hw-accelerated"
           style={{
             background: highEndAnimations
-              ? "radial-gradient(circle, rgba(57,255,20,0.5) 0%, rgba(120,255,68,0.3) 30%, rgba(0,0,0,0) 70%)"
+              ? "radial-gradient(circle, rgba(57,255,20,0.3) 0%, rgba(120,255,68,0.15) 30%, rgba(0,0,0,0) 70%)"
               : "radial-gradient(circle, rgba(57,255,20,0.3) 0%, rgba(0,0,0,0) 70%)",
             boxShadow: highEndAnimations
-              ? "0 0 12px rgba(57,255,20,0.4), 0 0 24px rgba(120,255,68,0.2)"
+              ? "0 0 8px rgba(57,255,20,0.25), 0 0 16px rgba(120,255,68,0.12)"
               : "0 0 6px rgba(57,255,20,0.1)",
-            filter: highEndAnimations ? "blur(2px) brightness(1.3)" : "blur(1px)",
+            filter: highEndAnimations ? "blur(2px) brightness(1.15)" : "blur(1px)",
             willChange: "transform, opacity"
           }}
           animate={{
@@ -294,10 +294,10 @@ const LokiEffects = () => {
           style={{ 
             top: "50%", 
             background: highEndAnimations
-              ? "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(255,140,0,0.5) 30%, rgba(255,200,0,0.8) 50%, rgba(255,140,0,0.5) 70%, rgba(0,0,0,0) 100%)"
+              ? "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(255,140,0,0.35) 30%, rgba(255,200,0,0.5) 50%, rgba(255,140,0,0.35) 70%, rgba(0,0,0,0) 100%)"
               : "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(255,140,0,0.6) 50%, rgba(0,0,0,0) 100%)",
             boxShadow: highEndAnimations
-              ? "0 0 30px rgba(255,140,0,0.8), 0 0 60px rgba(255,200,0,0.4)"
+              ? "0 0 20px rgba(255,140,0,0.5), 0 0 40px rgba(255,200,0,0.25)"
               : "0 0 20px rgba(255,140,0,0.6)",
             willChange: "transform, opacity"
           }}
@@ -328,13 +328,13 @@ const LokiEffects = () => {
         }}
         animate={{
           rotate: (isScrolling || reduceAnimations) ? 0 : [0, 360],
-          borderColor: (isScrolling || reduceAnimations) ? "rgba(57,255,20,0.2)" : highEndAnimations ? ["rgba(57,255,20,0.2)", "rgba(57,255,20,0.7)", "rgba(57,255,20,0.2)"] : ["rgba(57,255,20,0.2)", "rgba(57,255,20,0.5)", "rgba(57,255,20,0.2)"],
+          borderColor: (isScrolling || reduceAnimations) ? "rgba(57,255,20,0.2)" : highEndAnimations ? ["rgba(57,255,20,0.2)", "rgba(57,255,20,0.5)", "rgba(57,255,20,0.2)"] : ["rgba(57,255,20,0.2)", "rgba(57,255,20,0.5)", "rgba(57,255,20,0.2)"],
           boxShadow: (isScrolling || reduceAnimations) ? 
             "inset 0 0 15px rgba(57,255,20,0.1), 0 0 15px rgba(57,255,20,0.1)" :
             highEndAnimations ? [
-              "inset 0 0 20px rgba(57,255,20,0.15), 0 0 20px rgba(57,255,20,0.15)",
-              "inset 0 0 40px rgba(57,255,20,0.3), 0 0 40px rgba(57,255,20,0.4)",
-              "inset 0 0 20px rgba(57,255,20,0.15), 0 0 20px rgba(57,255,20,0.15)"
+              "inset 0 0 18px rgba(57,255,20,0.12), 0 0 18px rgba(57,255,20,0.12)",
+              "inset 0 0 30px rgba(57,255,20,0.2), 0 0 30px rgba(57,255,20,0.25)",
+              "inset 0 0 18px rgba(57,255,20,0.12), 0 0 18px rgba(57,255,20,0.12)"
             ] : [
               "inset 0 0 15px rgba(57,255,20,0.1), 0 0 15px rgba(57,255,20,0.1)",
               "inset 0 0 30px rgba(57,255,20,0.2), 0 0 30px rgba(57,255,20,0.3)",

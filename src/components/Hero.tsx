@@ -63,10 +63,10 @@ const Hero = memo(() => {
             damping: highEndAnimations ? 25 : 20
           }}
         >
-          {/* Interactive glow effect - HIGH-END DESKTOP gets enhanced glow */}
+          {/* Interactive glow effect - HIGH-END DESKTOP gets refined minimal glow */}
           <div className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl ${
             highEndAnimations 
-              ? 'bg-gradient-to-r from-primary/30 via-primary/20 via-transparent via-primary/20 to-primary/30' 
+              ? 'bg-gradient-to-r from-primary/18 via-primary/12 via-transparent via-primary/12 to-primary/18' 
               : 'bg-gradient-to-r from-primary/20 via-transparent to-primary/20'
           }`} />
           
@@ -80,10 +80,10 @@ const Hero = memo(() => {
             Interactive ✨
           </motion.div>
 
-          {/* Main 3D scene container - HIGH-END DESKTOP gets enhanced border glow */}
+          {/* Main 3D scene container - HIGH-END DESKTOP gets refined border glow */}
           <div className={`relative w-full h-full rounded-xl overflow-hidden transition-all duration-300 ${
             highEndAnimations 
-              ? 'border border-white/10 group-hover:border-primary/40 shadow-[0_0_30px_rgba(57,255,20,0.2)] group-hover:shadow-[0_0_50px_rgba(57,255,20,0.4)]'
+              ? 'border border-white/10 group-hover:border-primary/30 shadow-[0_0_20px_rgba(57,255,20,0.12)] group-hover:shadow-[0_0_35px_rgba(57,255,20,0.2)]'
               : 'border border-white/5 group-hover:border-primary/20'
           }`}>
             <SplineScene 
@@ -91,20 +91,20 @@ const Hero = memo(() => {
               className="w-full h-full"
             />
             
-            {/* Subtle overlay - enhanced on desktop */}
+            {/* Subtle overlay - refined on desktop */}
             <div className={`absolute inset-0 pointer-events-none ${
               highEndAnimations 
-                ? 'bg-gradient-to-t from-black/15 via-transparent via-primary/5 via-transparent to-transparent'
+                ? 'bg-gradient-to-t from-black/12 via-transparent via-primary/3 via-transparent to-transparent'
                 : 'bg-gradient-to-t from-black/10 via-transparent to-transparent'
             }`} />
             
-            {/* HIGH-END DESKTOP: Additional corner glow effects */}
+            {/* HIGH-END DESKTOP: Minimal corner accent effects */}
             {highEndAnimations && (
               <>
-                <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-primary/20 to-transparent rounded-tl-xl blur-md pointer-events-none" />
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-primary/20 to-transparent rounded-tr-xl blur-md pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-primary/20 to-transparent rounded-bl-xl blur-md pointer-events-none" />
-                <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-primary/20 to-transparent rounded-br-xl blur-md pointer-events-none" />
+                <div className="absolute top-0 left-0 w-16 h-16 bg-gradient-to-br from-primary/12 to-transparent rounded-tl-xl blur-sm pointer-events-none" />
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-primary/12 to-transparent rounded-tr-xl blur-sm pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-primary/12 to-transparent rounded-bl-xl blur-sm pointer-events-none" />
+                <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-primary/12 to-transparent rounded-br-xl blur-sm pointer-events-none" />
               </>
             )}
           </div>

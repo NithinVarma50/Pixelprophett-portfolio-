@@ -104,10 +104,10 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
             </div>
           </div>
         )}
-        {/* HIGH-END DESKTOP: Enhanced glow effect overlay */}
+        {/* HIGH-END DESKTOP: Minimal glow effect overlay */}
         {highEndAnimations && !isLoading && (
           <div className="absolute inset-0 pointer-events-none" style={{
-            background: 'radial-gradient(circle at center, transparent 0%, rgba(57, 255, 20, 0.03) 50%, transparent 100%)',
+            background: 'radial-gradient(circle at center, transparent 0%, rgba(57, 255, 20, 0.015) 50%, transparent 100%)',
             mixBlendMode: 'screen',
           }} />
         )}

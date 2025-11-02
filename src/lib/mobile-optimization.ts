@@ -98,8 +98,11 @@ export const optimizeScrollPerformance = (): void => {
     document.body.style.backfaceVisibility = 'hidden';
     document.body.style.perspective = '1000px';
     
-    // Reduce repaints during scroll
+    // Reduce repaints during scroll - NOT strict (breaks scrolling)
     document.body.style.contain = 'layout style paint';
+    // Ensure scrolling works on mobile - don't restrict body overflow
+    document.body.style.height = 'auto';
+    document.body.style.minHeight = '100%';
     
     // Add aggressive CSS optimizations for mobile scroll
     const style = document.createElement('style');
@@ -136,10 +139,18 @@ export const optimizeScrollPerformance = (): void => {
           pointer-events: none !important;
         }
         
-        /* Force simpler rendering during scroll */
+        /* Force simpler rendering during scroll - NOT strict to avoid breaking scroll */
         body.is-scrolling section,
         body.is-scrolling div {
           contain: layout style paint !important;
+        }
+        
+        /* Ensure main container doesn't block scrolling */
+        main,
+        .ultra-smooth {
+          height: auto !important;
+          min-height: 100vh !important;
+          position: relative;
         }
       }
     `;
