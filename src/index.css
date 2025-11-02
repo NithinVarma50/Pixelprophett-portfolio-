@@ -13,20 +13,28 @@
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 120 50% 50%; /* More muted Loki green */
+    --primary: 120 50% 50%; /* Vibrant Loki green */
     --primary-foreground: 0 0% 0%; /* Black text on green */
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
-    --accent: 120 40% 40%; /* More muted green accent */
+    --accent: 120 40% 40%; /* Rich green accent */
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 120 50% 50%; /* More muted Loki green for focus rings */
+    --ring: 120 50% 50%; /* Vibrant Loki green for focus rings */
     --radius: 0.5rem;
+  }
+  
+  /* HIGH-END DESKTOP: Enhanced color palette */
+  @media (min-width: 1024px) {
+    :root {
+      --primary: 120 55% 55%; /* More vibrant on desktop */
+      --accent: 120 45% 45%; /* Richer accent on desktop */
+    }
   }
 }
 
@@ -67,16 +75,58 @@
     isolation: isolate;
   }
   
-  /* Mobile-specific optimizations */
+  /* Mobile-specific optimizations - AGGRESSIVE */
   @media (max-width: 768px) {
     body {
       /* Disable smooth scroll JS on mobile - use CSS only */
       scroll-behavior: auto;
-      /* Optimize rendering */
-      contain: layout style paint;
+      /* Optimize rendering - aggressive containment */
+      contain: strict;
       /* Force GPU acceleration */
       transform: translate3d(0, 0, 0);
       -webkit-transform: translate3d(0, 0, 0);
+      /* Disable expensive effects during initial load */
+      will-change: scroll-position;
+      /* Optimize font rendering */
+      text-rendering: optimizeSpeed;
+      -webkit-font-smoothing: subpixel-antialiased;
+    }
+    
+    /* Disable expensive backdrop-filter on mobile */
+    .glass,
+    .loki-glass {
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+    }
+    
+    /* Reduce animation complexity on mobile */
+    [class*="motion"],
+    [data-framer-name] {
+      will-change: auto;
+    }
+    
+    /* Optimize sections for mobile */
+    section {
+      contain: layout style paint;
+      isolation: isolate;
+      /* Use content-visibility for off-screen sections */
+      content-visibility: auto;
+    }
+    
+    /* Reduce shadow complexity on mobile */
+    * {
+      text-shadow: none !important;
+    }
+    
+    /* Simplify box-shadows on mobile */
+    [class*="card"],
+    [class*="Card"] {
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    }
+    
+    /* Disable expensive gradients during scroll */
+    body.is-scrolling [class*="gradient"] {
+      background: var(--background) !important;
     }
   }
 
@@ -98,6 +148,17 @@
     @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-xl;
     will-change: transform, box-shadow;
   }
+  
+  /* HIGH-END DESKTOP: Enhanced card effects */
+  @media (min-width: 1024px) {
+    .hover-card {
+      @apply transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl;
+    }
+    
+    .hover-card:hover {
+      box-shadow: 0 20px 40px rgba(57, 255, 20, 0.15), 0 0 20px rgba(57, 255, 20, 0.1) !important;
+    }
+  }
 
   .loki-hover-card {
     @apply transition-all duration-300 hover:scale-[1.02];
@@ -107,6 +168,14 @@
   
   .loki-hover-card:hover {
     box-shadow: 0 0 15px rgba(57, 255, 20, 0.1);
+  }
+  
+  /* HIGH-END DESKTOP: Enhanced Loki hover card */
+  @media (min-width: 1024px) {
+    .loki-hover-card:hover {
+      box-shadow: 0 0 25px rgba(57, 255, 20, 0.15), 0 0 50px rgba(120, 255, 68, 0.1);
+      transform: scale(1.03);
+    }
   }
 
   .section-padding {
@@ -160,6 +229,15 @@
       /* Optimize for touch scrolling */
       -webkit-overflow-scrolling: touch;
       touch-action: pan-y;
+      /* Aggressive containment for smooth scroll */
+      contain: strict;
+      /* Prevent layout shifts */
+      content-visibility: auto;
+    }
+    
+    /* Pause animations during scroll */
+    .ultra-smooth.is-scrolling * {
+      animation-play-state: paused !important;
     }
   }
   

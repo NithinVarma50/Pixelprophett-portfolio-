@@ -22,17 +22,21 @@ import Conclusion from "@/components/Conclusion";
 // Removed lazy loading - all components load upfront for smooth scrolling
 
 const Index = () => {
-  // Performance-optimized scroll tracking
+  const isMobileDevice = typeof window !== 'undefined' && (window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+  
+  // Performance-optimized scroll tracking - reduced on mobile
   const { scrollYProgress } = useScroll({
-    offset: ["start start", "end end"]
+    offset: ["start start", "end end"],
+    // Reduce precision on mobile for better performance
+    layoutEffect: !isMobileDevice
   });
   
-  // Optimized spring physics for smoother performance
+  // Optimized spring physics - lighter on mobile
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 200,
-    damping: 40,
-    restDelta: 0.001,
-    mass: 0.3 // Reduced mass for more responsive movement
+    stiffness: isMobileDevice ? 100 : 200, // Lighter on mobile
+    damping: isMobileDevice ? 30 : 40, // More damping on mobile
+    restDelta: isMobileDevice ? 0.01 : 0.001, // Less precise on mobile
+    mass: isMobileDevice ? 1 : 0.3 // More mass = less responsive but smoother on mobile
   });
   
   const [showScrollButton, setShowScrollButton] = useState(false);

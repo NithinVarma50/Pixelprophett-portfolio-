@@ -48,22 +48,27 @@ const Hero = memo(() => {
         <motion.div 
           className="w-full h-[400px] lg:h-[500px] relative group cursor-pointer"
           whileHover={{ 
-            scale: 1.02,
-            rotateY: 5,
-            rotateX: 2
+            scale: highEndAnimations ? 1.03 : 1.02,
+            rotateY: highEndAnimations ? 8 : 5,
+            rotateX: highEndAnimations ? 4 : 2,
+            z: highEndAnimations ? 10 : 0
           }}
           whileTap={{ 
-            scale: 0.98,
-            rotateY: -2 
+            scale: highEndAnimations ? 0.97 : 0.98,
+            rotateY: highEndAnimations ? -3 : -2 
           }}
           transition={{ 
             type: "spring", 
-            stiffness: 200, 
-            damping: 20 
+            stiffness: highEndAnimations ? 250 : 200,
+            damping: highEndAnimations ? 25 : 20
           }}
         >
-          {/* Interactive glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+          {/* Interactive glow effect - HIGH-END DESKTOP gets enhanced glow */}
+          <div className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl ${
+            highEndAnimations 
+              ? 'bg-gradient-to-r from-primary/30 via-primary/20 via-transparent via-primary/20 to-primary/30' 
+              : 'bg-gradient-to-r from-primary/20 via-transparent to-primary/20'
+          }`} />
           
           {/* Touch indicator */}
           <motion.div
@@ -75,15 +80,33 @@ const Hero = memo(() => {
             Interactive ✨
           </motion.div>
 
-          {/* Main 3D scene container - enabled on all devices with optimizations */}
-          <div className="relative w-full h-full rounded-xl overflow-hidden border border-white/5 group-hover:border-primary/20 transition-colors duration-300">
+          {/* Main 3D scene container - HIGH-END DESKTOP gets enhanced border glow */}
+          <div className={`relative w-full h-full rounded-xl overflow-hidden transition-all duration-300 ${
+            highEndAnimations 
+              ? 'border border-white/10 group-hover:border-primary/40 shadow-[0_0_30px_rgba(57,255,20,0.2)] group-hover:shadow-[0_0_50px_rgba(57,255,20,0.4)]'
+              : 'border border-white/5 group-hover:border-primary/20'
+          }`}>
             <SplineScene 
               scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
               className="w-full h-full"
             />
             
-            {/* Subtle overlay for better integration */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
+            {/* Subtle overlay - enhanced on desktop */}
+            <div className={`absolute inset-0 pointer-events-none ${
+              highEndAnimations 
+                ? 'bg-gradient-to-t from-black/15 via-transparent via-primary/5 via-transparent to-transparent'
+                : 'bg-gradient-to-t from-black/10 via-transparent to-transparent'
+            }`} />
+            
+            {/* HIGH-END DESKTOP: Additional corner glow effects */}
+            {highEndAnimations && (
+              <>
+                <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-primary/20 to-transparent rounded-tl-xl blur-md pointer-events-none" />
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-primary/20 to-transparent rounded-tr-xl blur-md pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-primary/20 to-transparent rounded-bl-xl blur-md pointer-events-none" />
+                <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-primary/20 to-transparent rounded-br-xl blur-md pointer-events-none" />
+              </>
+            )}
           </div>
 
           {/* Floating particles effect - HIGH-END DESKTOP gets more particles */}

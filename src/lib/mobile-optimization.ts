@@ -84,18 +84,104 @@ export const preloadImages = (imagePaths: string[]): void => {
   });
 };
 
-// Optimize scroll performance on mobile
+// Optimize scroll performance on mobile - AGGRESSIVE optimizations
 export const optimizeScrollPerformance = (): void => {
   if (typeof window === 'undefined') return;
   
-  // Disable smooth scroll on mobile for better performance (we'll use CSS)
   if (isMobile()) {
+    // Disable smooth scroll on mobile - use native scrolling
     document.documentElement.style.scrollBehavior = 'auto';
+    
+    // Force GPU acceleration
+    document.body.style.transform = 'translate3d(0, 0, 0)';
+    document.body.style.willChange = 'scroll-position';
+    document.body.style.backfaceVisibility = 'hidden';
+    document.body.style.perspective = '1000px';
+    
+    // Reduce repaints during scroll
+    document.body.style.contain = 'layout style paint';
+    
+    // Add aggressive CSS optimizations for mobile scroll
+    const style = document.createElement('style');
+    style.id = 'mobile-scroll-optimizations';
+    style.textContent = `
+      @media (max-width: 768px) {
+        /* Pause all animations during scroll on mobile */
+        body.is-scrolling * {
+          animation-play-state: paused !important;
+          transition: none !important;
+        }
+        
+        /* Disable will-change during scroll to reduce GPU memory */
+        body.is-scrolling [style*="will-change"],
+        body.is-scrolling [class*="hw-accelerated"],
+        body.is-scrolling [class*="gpu-layer"] {
+          will-change: auto !important;
+        }
+        
+        /* Disable backdrop-filter during scroll (expensive) */
+        body.is-scrolling * {
+          backdrop-filter: none !important;
+          -webkit-backdrop-filter: none !important;
+        }
+        
+        /* Reduce blur effects during scroll */
+        body.is-scrolling * {
+          filter: none !important;
+        }
+        
+        /* Optimize motion components during scroll */
+        body.is-scrolling [data-framer-name],
+        body.is-scrolling [class*="motion"] {
+          pointer-events: none !important;
+        }
+        
+        /* Force simpler rendering during scroll */
+        body.is-scrolling section,
+        body.is-scrolling div {
+          contain: layout style paint !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // Add scroll state class for CSS optimizations
+    let scrollTimeout: NodeJS.Timeout;
+    let isScrolling = false;
+    let lastScrollTop = window.pageYOffset;
+    
+    const handleScroll = () => {
+      const currentScrollTop = window.pageYOffset;
+      
+      // Only add class if actually scrolling
+      if (!isScrolling || Math.abs(currentScrollTop - lastScrollTop) > 5) {
+        isScrolling = true;
+        document.body.classList.add('is-scrolling');
+      }
+      
+      lastScrollTop = currentScrollTop;
+      
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        isScrolling = false;
+        document.body.classList.remove('is-scrolling');
+      }, 100); // Remove class 100ms after scrolling stops
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('touchmove', handleScroll, { passive: true });
+    
+    // Cleanup on unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('touchmove', handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  } else {
+    // Desktop optimization - lighter touch
+    document.body.style.transform = 'translateZ(0)';
+    document.body.style.willChange = 'scroll-position';
   }
-  
-  // Force GPU acceleration on scroll container
-  document.body.style.transform = 'translateZ(0)';
-  document.body.style.willChange = 'scroll-position';
 };
 
 // Preload Spline 3D library and scene - optimized for mobile
