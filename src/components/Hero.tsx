@@ -38,31 +38,32 @@ const Hero = memo(() => {
         <ActionButtons scrollToProjects={scrollToProjects} />
       </motion.div>
 
-      {/* Right side - Interactive 3D Robot */}
-      <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="flex-1 relative z-10 mt-8 lg:mt-0 w-full max-w-lg lg:max-w-none"
-      >
-        <motion.div 
-          className="w-full h-[400px] lg:h-[500px] relative group cursor-pointer"
-          whileHover={{ 
-            scale: highEndAnimations ? 1.03 : 1.02,
-            rotateY: highEndAnimations ? 8 : 5,
-            rotateX: highEndAnimations ? 4 : 2,
-            z: highEndAnimations ? 10 : 0
-          }}
-          whileTap={{ 
-            scale: highEndAnimations ? 0.97 : 0.98,
-            rotateY: highEndAnimations ? -3 : -2 
-          }}
-          transition={{ 
-            type: "spring", 
-            stiffness: highEndAnimations ? 250 : 200,
-            damping: highEndAnimations ? 25 : 20
-          }}
+      {/* Right side - Interactive 3D Robot (disabled on mobile) */}
+      {!isMobileDevice && (
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex-1 relative z-10 mt-8 lg:mt-0 w-full max-w-lg lg:max-w-none"
         >
+          <motion.div 
+            className="w-full h-[400px] lg:h-[500px] relative group cursor-pointer"
+            whileHover={{ 
+              scale: highEndAnimations ? 1.03 : 1.02,
+              rotateY: highEndAnimations ? 8 : 5,
+              rotateX: highEndAnimations ? 4 : 2,
+              z: highEndAnimations ? 10 : 0
+            }}
+            whileTap={{ 
+              scale: highEndAnimations ? 0.97 : 0.98,
+              rotateY: highEndAnimations ? -3 : -2 
+            }}
+            transition={{ 
+              type: "spring", 
+              stiffness: highEndAnimations ? 250 : 200,
+              damping: highEndAnimations ? 25 : 20
+            }}
+          >
           {/* Interactive glow effect - HIGH-END DESKTOP gets refined minimal glow */}
           <div className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl ${
             highEndAnimations 
@@ -110,32 +111,31 @@ const Hero = memo(() => {
           </div>
 
           {/* Floating particles effect - HIGH-END DESKTOP gets more particles */}
-          {!isMobileDevice && (
-            <div className="absolute inset-0 pointer-events-none">
-              {[...Array(highEndAnimations ? 5 : 3)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-1 h-1 bg-primary/40 rounded-full"
-                  style={{
-                    left: `${20 + i * 30}%`,
-                    top: `${30 + i * 20}%`,
-                  }}
-                  animate={{
-                    y: highEndAnimations ? [-15, 15, -15] : [-10, 10, -10],
-                    opacity: highEndAnimations ? [0.4, 1, 0.4] : [0.3, 0.8, 0.3],
-                  }}
-                  transition={{
-                    duration: highEndAnimations ? (4 + i) : (3 + i),
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: i * 0.5,
-                  }}
-                />
-              ))}
-            </div>
-          )}
+          <div className="absolute inset-0 pointer-events-none">
+            {[...Array(highEndAnimations ? 5 : 3)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-1 h-1 bg-primary/40 rounded-full"
+                style={{
+                  left: `${20 + i * 30}%`,
+                  top: `${30 + i * 20}%`,
+                }}
+                animate={{
+                  y: highEndAnimations ? [-15, 15, -15] : [-10, 10, -10],
+                  opacity: highEndAnimations ? [0.4, 1, 0.4] : [0.3, 0.8, 0.3],
+                }}
+                transition={{
+                  duration: highEndAnimations ? (4 + i) : (3 + i),
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: i * 0.5,
+                }}
+              />
+            ))}
+          </div>
         </motion.div>
-      </motion.div>
+        </motion.div>
+      )}
 
       <BackgroundEffects />
     </section>
