@@ -131,8 +131,8 @@ const Index = () => {
       
       <DeskSetup />
       <Skills />
-      <FitForge />
       <Projects />
+      <FitForge />
       <QuickFix />
       <QuickFixAnalysis />
       <FreelanceProject />
