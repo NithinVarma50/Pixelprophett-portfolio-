@@ -31,7 +31,7 @@ const Hero = memo(() => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="lg:flex-1 max-w-2xl relative z-10 px-4 sm:px-6 md:px-0 lg:pr-8 w-full"
+        className="flex-1 max-w-2xl relative z-10 px-4 sm:px-6 md:px-0 lg:pr-8"
       >
         <PersonalInfo />
         <SocialLinks />

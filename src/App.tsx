@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense, useEffect, useState, memo } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { initPerformanceOptimizations } from "@/lib/performance";
 
 // Lazy load pages for optimal code-splitting
@@ -230,7 +230,7 @@ const LoadingFallback = memo(() => {
 
 // Memoized App component for better performance
 const App = memo(() => {
-  // Initialize performance optimizations after React is ready
+  // Initialize performance optimizations
   useEffect(() => {
     initPerformanceOptimizations();
   }, []);
