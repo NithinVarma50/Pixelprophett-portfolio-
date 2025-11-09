@@ -85,7 +85,7 @@ export const preloadImages = (imagePaths: string[]): void => {
 };
 
 // Optimize scroll performance on mobile - AGGRESSIVE optimizations
-export const optimizeScrollPerformance = (): void => {
+export const optimizeScrollPerformance = (): void | (() => void) => {
   if (typeof window === 'undefined') return;
   
   if (isMobile()) {

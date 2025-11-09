@@ -26,9 +26,7 @@ const Index = () => {
   
   // Performance-optimized scroll tracking - reduced on mobile
   const { scrollYProgress } = useScroll({
-    offset: ["start start", "end end"],
-    // Reduce precision on mobile for better performance
-    layoutEffect: !isMobileDevice
+    offset: ["start start", "end end"]
   });
   
   // Optimized spring physics - lighter on mobile

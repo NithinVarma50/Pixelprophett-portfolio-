@@ -1,15 +1,15 @@
 import { TiltedCard } from "./ui/tilted-card";
-import profilePhoto from "@/assets/profile-photo.png";
+import profilePhoto from "@/assets/profile-photo-new.jpg";
 
 export default function PersonalCard() {
   const overlayContent = (
     <div className="absolute inset-0 flex flex-col justify-end p-4 
-                    bg-gradient-to-t from-background/90 to-transparent 
+                    bg-gradient-to-t from-background/30 to-transparent 
                     rounded-b-[15px]"> 
-      <p className="text-lg font-semibold text-foreground drop-shadow-sm">
+      <p className="text-lg font-semibold text-foreground drop-shadow-lg">
         Nithin Varma
       </p>
-      <p className="text-sm text-muted-foreground drop-shadow-sm">
+      <p className="text-sm text-muted-foreground drop-shadow-lg">
         Aspiring Entrepreneur
       </p>
     </div>

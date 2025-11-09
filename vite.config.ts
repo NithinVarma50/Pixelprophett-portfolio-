@@ -14,10 +14,7 @@ export default defineConfig(({ mode }) => ({
     }
   },
   plugins: [
-    react({
-      // Enable SWC optimizations for better performance
-      jsxRuntime: 'automatic'
-    }),
+    react(),
     mode === 'development' &&
     componentTagger(),
   ].filter(Boolean),
