@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense, useEffect, useState, memo } from "react";
 import { motion } from "framer-motion";
+import { initPerformanceOptimizations } from "@/lib/performance";
 
 // Lazy load pages for optimal code-splitting
 const Index = lazy(() => import("./pages/Index"));
@@ -229,6 +230,11 @@ const LoadingFallback = memo(() => {
 
 // Memoized App component for better performance
 const App = memo(() => {
+  // Initialize performance optimizations after React is ready
+  useEffect(() => {
+    initPerformanceOptimizations();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
