@@ -123,13 +123,6 @@ const projects: Project[] = [
     description: "A stylish, functional clothing brand for modern adventurers, blending minimalism with innovation",
     category: "Fashion Tech",
     icon: "shirt"
-  },
-  {
-    id: 13,
-    title: "QuickFix",
-    description: "A hyperlocal vehicle repair service connecting vehicle owners with skilled mechanics for doorstep solutions",
-    category: "Service Tech",
-    icon: "wrench"
   }
 ];
 

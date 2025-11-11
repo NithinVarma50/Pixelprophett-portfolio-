@@ -38,10 +38,10 @@ export default function QuickFix() {
       >
         <div className="text-center mb-8 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold playfair mb-3 sm:mb-4">
-            Current Venture
+            🚗 QuickFix Project
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-2">
-            Leading a hyperlocal vehicle repair startup from concept to market
+            A hyperlocal vehicle repair service concept with full-stack implementation
           </p>
         </div>
 
@@ -56,16 +56,10 @@ export default function QuickFix() {
               <CardContent className="p-6 sm:p-8">
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold mb-2 flex items-center gap-2">
-                      🚗 QuickFix
-                      <span className="text-sm bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded-full">
-                        Co-Founder
-                      </span>
+                    <h3 className="text-xl sm:text-2xl font-bold mb-2">
+                      QuickFix
                     </h3>
-                    <p className="text-sm text-muted-foreground mb-1">Tech & Strategy Lead</p>
-                    <p className="text-xs text-primary/70 flex items-center gap-1">
-                      🚧 Progress-Stage Startup
-                    </p>
+                    <p className="text-sm text-muted-foreground mb-1">Hyperlocal Vehicle Repair Service</p>
                   </div>
                   <a 
                     href="https://quic-fix.vercel.app" 
@@ -78,8 +72,8 @@ export default function QuickFix() {
                 </div>
 
                 <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
-                  QuickFix is a hyperlocal vehicle repair startup bringing 10-minute response times to roadside breakdowns. 
-                  We're building a smart, dispatch-on-demand system that connects users with mechanics — fast, simple, and fully digital.
+                  A hyperlocal vehicle repair service concept designed to bring 10-minute response times to roadside breakdowns. 
+                  Built a smart, dispatch-on-demand system that connects users with mechanics — fast, simple, and fully digital.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
@@ -116,11 +110,8 @@ export default function QuickFix() {
                 </div>
 
                 <div className="border-t border-border pt-4">
-                  <p className="text-sm text-muted-foreground mb-2">
-                    We've launched our MVP, delivered early customer orders, and are actively scaling toward a franchise-backed, tech-driven model.
-                  </p>
-                  <p className="text-sm font-medium text-primary/90 italic">
-                    "Real-world hustle, tech-backed scale — QuickFix is just getting started."
+                  <p className="text-sm text-muted-foreground italic">
+                    "A comprehensive project exploring hyperlocal service delivery with technology-driven solutions."
                   </p>
                 </div>
               </CardContent>

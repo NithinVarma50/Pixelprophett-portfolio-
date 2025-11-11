@@ -11,6 +11,8 @@ import DeskSetup from "@/components/DeskSetup";
 import FitForge from "@/components/FitForge";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
+import QuickFix from "@/components/QuickFix";
+import QuickFixAnalysis from "@/components/QuickFixAnalysis";
 import FreelanceProject from "@/components/FreelanceProject";
 import Community from "@/components/Community";
 import GameShowcase from "@/components/GameShowcase";
@@ -129,6 +131,8 @@ const Index = () => {
       <Skills />
       <Projects />
       <FitForge />
+      <QuickFix />
+      <QuickFixAnalysis />
       <FreelanceProject />
       <Community />
       <GameShowcase />
