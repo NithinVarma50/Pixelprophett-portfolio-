@@ -38,10 +38,10 @@ export default function QuickFix() {
       >
         <div className="text-center mb-8 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold playfair mb-3 sm:mb-4">
-            Current Venture
+            QuickFix Project
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-2">
-            Leading a hyperlocal vehicle repair startup from concept to market
+            A hyperlocal vehicle repair startup from concept to MVP
           </p>
         </div>
 
@@ -63,8 +63,8 @@ export default function QuickFix() {
                       </span>
                     </h3>
                     <p className="text-sm text-muted-foreground mb-1">Tech & Strategy Lead</p>
-                    <p className="text-xs text-primary/70 flex items-center gap-1">
-                      🚧 Progress-Stage Startup
+                    <p className="text-xs text-muted-foreground flex items-center gap-1">
+                      Past Project
                     </p>
                   </div>
                   <a 
@@ -78,8 +78,8 @@ export default function QuickFix() {
                 </div>
 
                 <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
-                  QuickFix is a hyperlocal vehicle repair startup bringing 10-minute response times to roadside breakdowns. 
-                  We're building a smart, dispatch-on-demand system that connects users with mechanics — fast, simple, and fully digital.
+                  QuickFix was a hyperlocal vehicle repair startup concept designed to bring 10-minute response times to roadside breakdowns.
+                  Built a smart, dispatch-on-demand system connecting users with mechanics — fast, simple, and fully digital. The project reached MVP stage before being discontinued.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
@@ -117,10 +117,10 @@ export default function QuickFix() {
 
                 <div className="border-t border-border pt-4">
                   <p className="text-sm text-muted-foreground mb-2">
-                    We've launched our MVP, delivered early customer orders, and are actively scaling toward a franchise-backed, tech-driven model.
+                    Successfully launched MVP and delivered early customer orders. The project was discontinued due to challenges in marketing focus, team coordination, and resource allocation. Valuable lessons learned in startup operations and market validation.
                   </p>
-                  <p className="text-sm font-medium text-primary/90 italic">
-                    "Real-world hustle, tech-backed scale — QuickFix is just getting started."
+                  <p className="text-sm font-medium text-muted-foreground italic">
+                    "Building QuickFix provided hands-on experience in full-stack development, startup operations, and the importance of focused execution."
                   </p>
                 </div>
               </CardContent>
