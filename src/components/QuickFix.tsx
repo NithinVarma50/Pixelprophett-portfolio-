@@ -1,155 +1,132 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
-import { Button } from "./ui/button";
-import { Wrench, Bot, Code, BarChart3, ExternalLink } from "lucide-react";
+import { ExternalLink, Wrench, Zap, TrendingUp, Target, Bot } from "lucide-react";
 
 export default function QuickFix() {
-  const keyFeatures = [
+  const features = [
     {
-      icon: <Code className="w-5 h-5" />,
-      label: "Full-Stack Development",
-      detail: "Complete platform with frontend, backend & deployment"
+      icon: <Wrench className="w-6 h-6 text-primary/70" />,
+      title: "Built & deployed the entire website",
+      description: "Full-stack development: Frontend, backend, UI/UX, deployment"
     },
     {
-      icon: <Bot className="w-5 h-5" />,
-      label: "AI Assistant Integration",
-      detail: "Natural language processing for vehicle diagnostics"
+      icon: <Bot className="w-6 h-6 text-primary/70" />,
+      title: "AI Assistant (QuickFix AI)",
+      description: "Designed & integrated intelligent assistant with natural language processing"
     },
     {
-      icon: <BarChart3 className="w-5 h-5" />,
-      label: "Business Strategy",
-      detail: "Market research & operational planning"
+      icon: <TrendingUp className="w-6 h-6 text-primary/70" />,
+      title: "Strategy & logistics planning",
+      description: "Driving market positioning and growth"
+    },
+    {
+      icon: <Target className="w-6 h-6 text-primary/70" />,
+      title: "Daily marketing campaigns",
+      description: "Executing digital growth hacks"
     }
   ];
 
   return (
-    <section className="section-padding bg-background" id="quickfix">
+    <section className="section-padding bg-secondary/10" id="quickfix">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="max-w-6xl mx-auto px-4"
+        className="max-w-7xl mx-auto"
       >
-        {/* Header */}
-        <div className="text-center mb-12">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="inline-block mb-4"
-          >
-            <Wrench className="w-12 h-12 sm:w-16 sm:h-16 text-primary mx-auto animate-float" />
-          </motion.div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold playfair mb-3">
-            QuickFix
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold playfair mb-3 sm:mb-4">
+            Current Venture
           </h2>
-          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
-            Hyperlocal Vehicle Repair Platform
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-2">
+            Leading a hyperlocal vehicle repair startup from concept to market
           </p>
         </div>
 
-        {/* Main Content Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <Card className="hover-card loki-glass border-primary/20 overflow-hidden">
-            <CardContent className="p-0">
-              {/* Project Overview */}
-              <div className="p-6 sm:p-8">
-                <div className="flex items-start justify-between mb-6">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <Card className="hover-card glass mb-6 sm:mb-8">
+              <CardContent className="p-6 sm:p-8">
+                <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2">Project Overview</h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground">Full-stack service platform</p>
+                    <h3 className="text-xl sm:text-2xl font-bold mb-2 flex items-center gap-2">
+                      🚗 QuickFix
+                      <span className="text-sm bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded-full">
+                        Co-Founder
+                      </span>
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-1">Tech & Strategy Lead</p>
+                    <p className="text-xs text-primary/70 flex items-center gap-1">
+                      🚧 Progress-Stage Startup
+                    </p>
                   </div>
                   <a 
                     href="https://quic-fix.vercel.app" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-primary hover:text-primary/80 transition-colors text-sm font-medium shrink-0"
+                    className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors text-sm"
                   >
-                    <span className="hidden sm:inline">Visit Site</span>
-                    <ExternalLink className="w-4 h-4" />
+                    Visit Website <ExternalLink className="w-4 h-4" />
                   </a>
                 </div>
 
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6">
-                  A hyperlocal vehicle repair service designed to deliver 10-minute response times to roadside breakdowns. 
-                  Built a complete full-stack platform with smart dispatch-on-demand system connecting users with mechanics — 
-                  fast, simple, and fully digital.
+                <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
+                  QuickFix is a hyperlocal vehicle repair startup bringing 10-minute response times to roadside breakdowns. 
+                  We're building a smart, dispatch-on-demand system that connects users with mechanics — fast, simple, and fully digital.
                 </p>
 
-                {/* Key Features Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  {keyFeatures.map((feature, index) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                  {features.map((feature, index) => (
                     <motion.div
-                      key={feature.label}
+                      key={feature.title}
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
-                      className="flex gap-3 p-4 rounded-lg bg-secondary/20 hover:bg-secondary/30 transition-colors"
+                      transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
+                      className="flex items-start gap-3 p-3 rounded-lg bg-secondary/20"
                     >
-                      <div className="flex-shrink-0 text-primary mt-0.5">
+                      <div className="flex-shrink-0 mt-1">
                         {feature.icon}
                       </div>
                       <div>
-                        <h4 className="font-semibold text-xs sm:text-sm mb-1">{feature.label}</h4>
-                        <p className="text-xs text-muted-foreground leading-relaxed">{feature.detail}</p>
+                        <h4 className="font-medium text-sm mb-1">{feature.title}</h4>
+                        <p className="text-xs text-muted-foreground">{feature.description}</p>
                       </div>
                     </motion.div>
                   ))}
                 </div>
-              </div>
 
-              {/* AI Assistant Highlight */}
-              <div className="border-t border-border bg-primary/5 p-6 sm:p-8">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Bot className="w-5 h-5 text-primary" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-sm sm:text-base mb-2">QuickFix AI Assistant</h4>
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                      Integrated intelligent assistant that interprets vehicle issues using natural language processing 
-                      and recommends DIY solutions or instant bookings. Full-stack implementation includes backend APIs 
-                      and seamless frontend integration.
-                    </p>
-                  </div>
+                <div className="border border-primary/20 rounded-lg p-4 mb-6 bg-primary/5">
+                  <h4 className="flex items-center gap-2 font-semibold text-sm mb-2 text-primary">
+                    <Bot className="w-4 h-4" />
+                    🛠️ AI Assistant (QuickFix AI)
+                  </h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Designed & integrated an intelligent assistant that interprets user vehicle issues using natural language 
+                    and recommends DIY solutions or instant bookings. Built complete full-stack solution including backend APIs 
+                    and frontend integration.
+                  </p>
                 </div>
-              </div>
 
-              {/* CTA Section */}
-              <div className="p-6 sm:p-8 bg-secondary/10 text-center">
-                <Button 
-                  className="text-base sm:text-lg py-6 px-8 relative overflow-hidden group"
-                  size="lg"
-                  asChild
-                >
-                  <a 
-                    href="https://quic-fix.vercel.app" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="relative z-10"
-                  >
-                    <span className="relative z-10">Explore QuickFix Platform</span>
-                    <span className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300"></span>
-                  </a>
-                </Button>
-                <p className="text-xs text-muted-foreground mt-4 italic">
-                  Comprehensive project with market research & operational strategy
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+                <div className="border-t border-border pt-4">
+                  <p className="text-sm text-muted-foreground mb-2">
+                    We've launched our MVP, delivered early customer orders, and are actively scaling toward a franchise-backed, tech-driven model.
+                  </p>
+                  <p className="text-sm font-medium text-primary/90 italic">
+                    "Real-world hustle, tech-backed scale — QuickFix is just getting started."
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   );

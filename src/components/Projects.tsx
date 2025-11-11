@@ -16,8 +16,7 @@ import {
   Zap,
   Lightbulb,
   Shirt,
-  ShoppingBag,
-  Wrench
+  ShoppingBag
 } from "lucide-react";
 
 const iconMap: { [key: string]: React.ReactNode } = {
@@ -35,8 +34,7 @@ const iconMap: { [key: string]: React.ReactNode } = {
   zap: <Zap className="w-12 h-12 text-primary/60" />,
   lightbulb: <Lightbulb className="w-12 h-12 text-primary/60" />,
   shirt: <Shirt className="w-12 h-12 text-primary/60" />,
-  shoppingbag: <ShoppingBag className="w-12 h-12 text-primary/60" />,
-  wrench: <Wrench className="w-12 h-12 text-primary/60" />
+  shoppingbag: <ShoppingBag className="w-12 h-12 text-primary/60" />
 };
 
 const projects: Project[] = [

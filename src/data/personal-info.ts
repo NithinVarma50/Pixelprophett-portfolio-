@@ -20,7 +20,7 @@ export const personalInfo: PersonalInfo = {
   projects: [
     "Cloudix", "Green Terra", "Feastify", "Waveroo", "Minimate",
     "Brain Candy", "BrainCandy AI Study Assistant", "Matrix-Based Computer",
-    "Radianto", "Velox", "Evolvion", "Gravix", "Lumin", "QuickFix"
+    "Radianto", "Velox", "Evolvion", "Gravix", "Lumin"
   ],
   achievements: [
     "Organizing Innovators Den event at college",
