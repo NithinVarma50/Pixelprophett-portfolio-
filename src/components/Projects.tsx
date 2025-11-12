@@ -134,41 +134,40 @@ export default function Projects() {
         transition={{ duration: 0.5 }}
         className="max-w-7xl mx-auto"
       >
-        <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold playfair mb-3 sm:mb-4">
+        {/* Section Header */}
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold playfair mb-4">
             Innovative Concepts & Ideas
           </h2>
-          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-2">
-            A showcase of conceptual projects demonstrating innovative problem-solving approaches.
+          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            A showcase of conceptual projects demonstrating innovative problem-solving approaches across various domains.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
             >
-              <a 
-                href={project.link} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="block"
-              >
-                <Card className="hover-card glass h-full">
-                  <CardContent className="p-4 sm:p-6 flex flex-col items-center text-center">
-                    <div className="mb-3 sm:mb-4">
-                      {iconMap[project.icon?.toLowerCase() || 'rocket']}
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2">{project.title}</h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground">{project.description}</p>
-                    <span className="text-xs text-primary/60 mt-2">{project.category}</span>
-                  </CardContent>
-                </Card>
-              </a>
+              <Card className="hover-card glass h-full">
+                <CardContent className="p-6 sm:p-8 flex flex-col items-center text-center h-full">
+                  <div className="mb-4 sm:mb-6 p-4 rounded-xl bg-secondary/20">
+                    {iconMap[project.icon?.toLowerCase() || 'rocket']}
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-semibold mb-3">{project.title}</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 flex-grow">
+                    {project.description}
+                  </p>
+                  <span className="inline-block px-4 py-1.5 text-xs sm:text-sm font-medium bg-primary/10 text-primary rounded-full border border-primary/20">
+                    {project.category}
+                  </span>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </div>
