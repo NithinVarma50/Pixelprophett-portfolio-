@@ -104,18 +104,18 @@ const Index = () => {
       <LokiEffects />
       <Hero />
       
-      {/* About Section with Enhanced Layout */}
+      {/* All sections loaded immediately - cached and ready */}
       <div className="section-padding bg-secondary/20" id="about">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {/* Mobile: Card stacks above text */}
-          <div className="block lg:hidden mb-10 flex justify-center">
+          <div className="block lg:hidden mb-8 flex justify-center">
             <PersonalCard />
           </div>
           
           {/* Desktop: Text wraps around floating card */}
           <div className="relative">
-            {/* Floating card on desktop */}
-            <div className="hidden lg:block float-right mt-24 ml-8 mb-8 mr-0" style={{shapeOutside: 'margin-box'}}>
+            {/* Floating card on desktop - positioned much lower to allow more text above */}
+            <div className="hidden lg:block float-right mt-32 ml-8 mb-8 mr-6" style={{shapeOutside: 'margin-box'}}>
               <PersonalCard />
             </div>
             
