@@ -45,14 +45,36 @@ const DeskSetup = () => {
                   </div>
                 </div>
 
-                <div className="space-y-6">
-                  {/* Image at the top */}
+                <div className="grid lg:grid-cols-2 gap-8 items-start">
+                  {/* Content on the left */}
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="relative group max-w-3xl mx-auto"
+                    className="space-y-4"
+                  >
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                      This is my little command center — the place where I've spent countless hours learning, building, and dreaming. 
+                      I haven't created a full production-level product yet, but I've built plenty of small projects here, 
+                      experimenting with ideas and learning everything I can along the way.
+                    </p>
+
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                      I've learned so many things sitting at this desk — from understanding AI concepts to watching my favorite 
+                      YouTubers talk about startups, coding, and design. Every late-night session here has its own memory. 
+                      Sometimes it's me debugging something for hours, other times it's just me watching videos, taking notes, 
+                      or planning my next big idea.
+                    </p>
+                  </motion.div>
+
+                  {/* Image on the right */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="relative group"
                   >
                     <div className="border-2 border-primary/20 rounded-lg p-2 bg-background/50 hover:border-primary/40 transition-all duration-300">
                       <img
@@ -75,27 +97,14 @@ const DeskSetup = () => {
                     </motion.div>
                   </motion.div>
 
-                  {/* Content flowing below */}
+                  {/* Additional content below spanning full width */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className="space-y-4"
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="lg:col-span-2 space-y-4"
                   >
-                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                      This is my little command center — the place where I've spent countless hours learning, building, and dreaming. 
-                      I haven't created a full production-level product yet, but I've built plenty of small projects here, 
-                      experimenting with ideas and learning everything I can along the way.
-                    </p>
-
-                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                      I've learned so many things sitting at this desk — from understanding AI concepts to watching my favorite 
-                      YouTubers talk about startups, coding, and design. Every late-night session here has its own memory. 
-                      Sometimes it's me debugging something for hours, other times it's just me watching videos, taking notes, 
-                      or planning my next big idea.
-                    </p>
-
                     <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                       My laptop isn't some high-end machine, but it's been my constant teammate. It struggles, sure — but it never gives up on me. 
                       It's been with me through every crash, every compile, every idea that almost didn't work but somehow did.
