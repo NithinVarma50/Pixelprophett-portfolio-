@@ -45,13 +45,42 @@ const DeskSetup = () => {
                   </div>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
-                  {/* Content on the left */}
+                <div className="space-y-6">
+                  {/* Image at the top */}
                   <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
+                    className="relative group max-w-3xl mx-auto"
+                  >
+                    <div className="border-2 border-primary/20 rounded-lg p-2 bg-background/50 hover:border-primary/40 transition-all duration-300">
+                      <img
+                        src={deskImage}
+                        alt="My desk setup - a compact workspace with laptop, keyboard, and tech accessories"
+                        className="w-full h-auto rounded-md shadow-lg object-cover"
+                        style={{ aspectRatio: '16/9', objectFit: 'cover' }}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.8, type: "spring" }}
+                      viewport={{ once: true }}
+                      className="absolute -top-2 -right-2 bg-primary text-primary-foreground px-3 py-1 rounded-full shadow-lg font-semibold text-xs"
+                    >
+                      🚀 Command Center
+                    </motion.div>
+                  </motion.div>
+
+                  {/* Content flowing below */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
                     className="space-y-4"
                   >
                     <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
@@ -75,35 +104,6 @@ const DeskSetup = () => {
                     <p className="text-sm sm:text-base text-muted-foreground leading-relaxed italic">
                       This setup might look simple, but it's where everything started for me. Every bit of progress, every spark of creativity — it all happens right here.
                     </p>
-                  </motion.div>
-
-                  {/* Image on the right */}
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className="relative group"
-                  >
-                    <div className="border-2 border-primary/20 rounded-lg p-2 bg-background/50 hover:border-primary/40 transition-all duration-300">
-                      <img
-                        src={deskImage}
-                        alt="My desk setup - a compact workspace with laptop, keyboard, and tech accessories"
-                        className="w-full h-auto rounded-md shadow-lg object-cover"
-                        style={{ aspectRatio: '16/9', objectFit: 'cover' }}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </div>
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.8, type: "spring" }}
-                      viewport={{ once: true }}
-                      className="absolute -top-2 -right-2 bg-primary text-primary-foreground px-3 py-1 rounded-full shadow-lg font-semibold text-xs"
-                    >
-                      🚀 Command Center
-                    </motion.div>
                   </motion.div>
                 </div>
               </CardContent>
