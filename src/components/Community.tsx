@@ -71,37 +71,17 @@ export default function Community() {
           >
             <Card className="hover-card glass mb-6">
               <CardContent className="p-6 sm:p-8">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-bold mb-2 flex items-center gap-2">
-                      🤖 Ignition in AI Era
-                      <span className="text-sm bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full">
-                        Founder & Community Admin
-                      </span>
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-1">2000+ Member AI & Tech Community</p>
-                    <p className="text-xs text-primary/70 flex items-center gap-1">
-                      🚀 Active & Growing
-                    </p>
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <a 
-                      href="https://chat.whatsapp.com/your-community-invite" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors text-sm"
-                    >
-                      Join WhatsApp <ExternalLink className="w-4 h-4" />
-                    </a>
-                    <a 
-                      href="https://discord.gg/647N9g3M" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors text-sm"
-                    >
-                      Join Discord <ExternalLink className="w-4 h-4" />
-                    </a>
-                  </div>
+                <div className="mb-4">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-2 flex items-center gap-2">
+                    🤖 Ignition in AI Era
+                    <span className="text-sm bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full">
+                      Founder & Community Admin
+                    </span>
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-1">2000+ Member AI & Tech Community</p>
+                  <p className="text-xs text-primary/70 flex items-center gap-1">
+                    🚀 Active & Growing
+                  </p>
                 </div>
 
                 <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
