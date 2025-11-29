@@ -84,10 +84,16 @@ export default function Community() {
                   </p>
                 </div>
 
-                <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed">
                   Manage a 2000+ member community for AI enthusiasts, engineers, entrepreneurs, and creators to share knowledge, 
                   collaborate, and grow their networks in the rapidly evolving AI landscape.
                 </p>
+
+                <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 mb-6">
+                  <p className="text-sm text-foreground font-medium">
+                    💡 Want to join? Visit our website for WhatsApp and Discord links!
+                  </p>
+                </div>
                 
                 <div className="border border-primary/20 rounded-lg p-4 mb-6 bg-secondary/10">
                   <h4 className="font-semibold text-sm mb-2 text-primary">Info Website</h4>
