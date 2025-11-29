@@ -70,15 +70,15 @@ export default function Community() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <Card className="hover-card glass mb-6">
-              <CardContent className="p-6 sm:p-8">
-                <div className="mb-4">
-                  <h3 className="text-xl sm:text-2xl font-bold mb-2 flex items-center gap-2">
-                    🤖 Ignition in AI Era
-                    <span className="text-sm bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full">
+              <CardContent className="p-4 sm:p-8">
+                <div className="mb-3 sm:mb-4">
+                  <h3 className="text-lg sm:text-2xl font-bold mb-2 flex flex-col sm:flex-row items-start sm:items-center gap-2">
+                    <span>🤖 Ignition in AI Era</span>
+                    <span className="text-xs sm:text-sm bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full">
                       Founder & Community Admin
                     </span>
                   </h3>
-                  <p className="text-sm text-muted-foreground mb-1">2000+ Member AI & Tech Community</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-1">2000+ Member AI & Tech Community</p>
                   <p className="text-xs text-primary/70 flex items-center gap-1">
                     🚀 Active & Growing
                   </p>
@@ -89,15 +89,15 @@ export default function Community() {
                   collaborate, and grow their networks in the rapidly evolving AI landscape.
                 </p>
 
-                <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 mb-6">
-                  <p className="text-sm text-foreground font-medium">
+                <div className="bg-primary/10 border border-primary/30 rounded-lg p-2.5 sm:p-3 mb-4 sm:mb-6">
+                  <p className="text-xs sm:text-sm text-foreground font-medium">
                     💡 Want to join? Visit our website for WhatsApp and Discord links!
                   </p>
                 </div>
-                
-                <div className="border border-primary/20 rounded-lg p-4 mb-6 bg-secondary/10">
-                  <h4 className="font-semibold text-sm mb-2 text-primary">Info Website</h4>
-                  <p className="text-sm text-muted-foreground mb-3">
+
+                <div className="border border-primary/20 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6 bg-secondary/10">
+                  <h4 className="font-semibold text-xs sm:text-sm mb-2 text-primary">Info Website</h4>
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3 leading-relaxed">
                     Explore community updates, events, resources, and how to get involved.
                   </p>
                   <a
@@ -109,9 +109,9 @@ export default function Community() {
                     Visit Ignition in AI Era <ExternalLink className="w-4 h-4" />
                   </a>
                 </div>
-                <div className="mb-6">
-                  <h4 className="font-semibold text-sm mb-3 text-primary">Key Initiatives</h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="mb-4 sm:mb-6">
+                  <h4 className="font-semibold text-xs sm:text-sm mb-2 sm:mb-3 text-primary">Key Initiatives</h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                     {initiatives.map((initiative, index) => (
                       <motion.div
                         key={initiative.title}
@@ -119,50 +119,50 @@ export default function Community() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
-                        className="flex items-start gap-3 p-3 rounded-lg bg-secondary/20"
+                        className="flex items-start gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-lg bg-secondary/20"
                       >
-                        <div className="flex-shrink-0 mt-1">
+                        <div className="flex-shrink-0 mt-0.5 scale-90 sm:scale-100">
                           {initiative.icon}
                         </div>
-                        <div>
-                          <h5 className="font-medium text-sm mb-1">{initiative.title}</h5>
-                          <p className="text-xs text-muted-foreground">{initiative.description}</p>
+                        <div className="flex-1 min-w-0">
+                          <h5 className="font-medium text-xs sm:text-sm mb-1 leading-snug">{initiative.title}</h5>
+                          <p className="text-xs text-muted-foreground leading-relaxed">{initiative.description}</p>
                         </div>
                       </motion.div>
                     ))}
                   </div>
                 </div>
 
-                <div className="border border-primary/20 rounded-lg p-4 mb-6 bg-primary/5">
-                  <h4 className="font-semibold text-sm mb-2 text-primary">
+                <div className="border border-primary/20 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6 bg-primary/5">
+                  <h4 className="font-semibold text-xs sm:text-sm mb-2 text-primary">
                     Community Impact
                   </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 mb-2 sm:mb-3">
                     {impact.map((item, index) => (
-                      <div key={item.title} className="flex items-start gap-2">
-                        {item.icon}
-                        <div>
-                          <p className="text-sm font-medium">{item.title}</p>
-                          <p className="text-xs text-muted-foreground">{item.description}</p>
+                      <div key={item.title} className="flex items-start gap-2 py-0.5">
+                        <div className="flex-shrink-0 scale-90 sm:scale-100 mt-0.5">{item.icon}</div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-xs sm:text-sm font-medium leading-snug">{item.title}</p>
+                          <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="border-t border-border pt-4">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Users className="w-5 h-5 text-primary/70" />
-                    <h4 className="font-semibold text-sm text-primary">Community Features</h4>
+                <div className="border-t border-border pt-3 sm:pt-4">
+                  <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                    <Users className="w-4 h-4 sm:w-5 sm:h-5 text-primary/70" />
+                    <h4 className="font-semibold text-xs sm:text-sm text-primary">Community Features</h4>
                   </div>
-                  <div className="text-sm text-muted-foreground space-y-1 mb-3">
+                  <div className="text-xs sm:text-sm text-muted-foreground space-y-1 mb-2 sm:mb-3 leading-relaxed">
                     <p>• Open member-led events (admin-supported)</p>
                     <p>• Weekly activities to boost engagement</p>
                     <p>• Startup pitch opportunities & personal brand building</p>
                     <p>• Planned hackathons with prize money</p>
                     <p>• Discord server for enhanced collaboration</p>
                   </div>
-                  <p className="text-sm font-medium text-primary/90 italic">
+                  <p className="text-xs sm:text-sm font-medium text-primary/90 italic leading-relaxed">
                     "Building bridges between AI enthusiasts and fostering a culture of innovation, collaboration, and mutual growth."
                   </p>
                 </div>

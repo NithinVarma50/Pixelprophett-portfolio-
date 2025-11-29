@@ -159,13 +159,13 @@ export default function Projects() {
                 className="block"
               >
                 <Card className="hover-card glass h-full">
-                  <CardContent className="p-4 sm:p-6 flex flex-col items-center text-center">
-                    <div className="mb-3 sm:mb-4">
+                  <CardContent className="p-3 sm:p-6 flex flex-col items-center text-center">
+                    <div className="mb-2 sm:mb-4 scale-75 sm:scale-100">
                       {iconMap[project.icon?.toLowerCase() || 'rocket']}
                     </div>
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2">{project.title}</h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground">{project.description}</p>
-                    <span className="text-xs text-primary/60 mt-2">{project.category}</span>
+                    <h3 className="text-base sm:text-xl font-semibold mb-1.5 sm:mb-2 leading-snug">{project.title}</h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{project.description}</p>
+                    <span className="text-xs text-primary/60 mt-2 font-medium">{project.category}</span>
                   </CardContent>
                 </Card>
               </a>

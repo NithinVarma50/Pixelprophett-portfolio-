@@ -63,13 +63,13 @@ export default function Achievements() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Card className="hover-card glass h-full">
-                <CardContent className="p-4 sm:p-6 flex items-start space-x-3 sm:space-x-4">
-                  <div className="flex-shrink-0">
+                <CardContent className="p-3 sm:p-6 flex items-start gap-3 sm:gap-4">
+                  <div className="flex-shrink-0 mt-0.5 scale-90 sm:scale-100">
                     {achievement.icon}
                   </div>
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2">{achievement.title}</h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground">{achievement.description}</p>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-base sm:text-xl font-semibold mb-1.5 sm:mb-2 leading-snug">{achievement.title}</h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{achievement.description}</p>
                   </div>
                 </CardContent>
               </Card>
