@@ -67,8 +67,8 @@ export default function Skills() {
             >
               <Card className="hover-card glass h-full">
                 <CardContent className="p-4 sm:p-6">
-                  <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-center">{category.title}</h3>
-                  <div className="grid grid-cols-1 gap-3">
+                  <h3 className="text-lg sm:text-2xl font-semibold mb-3 sm:mb-6 text-center">{category.title}</h3>
+                  <div className="grid grid-cols-1 gap-2.5 sm:gap-3">
                     {category.skills.map((skill, index) => (
                       <motion.div
                         key={skill.name}
@@ -76,10 +76,10 @@ export default function Skills() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.3, delay: index * 0.1 }}
-                        className="flex items-center gap-2 sm:gap-3"
+                        className="flex items-center gap-2 sm:gap-3 py-0.5"
                       >
-                        <span className="text-lg sm:text-xl">{skill.icon}</span>
-                        <span className="text-sm sm:text-base text-muted-foreground">{skill.name}</span>
+                        <span className="text-base sm:text-xl flex-shrink-0">{skill.icon}</span>
+                        <span className="text-xs sm:text-base text-muted-foreground leading-snug">{skill.name}</span>
                       </motion.div>
                     ))}
                   </div>
