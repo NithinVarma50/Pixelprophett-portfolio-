@@ -14,6 +14,7 @@ import Projects from "@/components/Projects";
 import QuickFix from "@/components/QuickFix";
 import QuickFixAnalysis from "@/components/QuickFixAnalysis";
 import FreelanceProject from "@/components/FreelanceProject";
+import PXPLab from "@/components/PXPLab";
 import Community from "@/components/Community";
 import GameShowcase from "@/components/GameShowcase";
 import Achievements from "@/components/Achievements";
@@ -134,6 +135,7 @@ const Index = () => {
       <QuickFix />
       <QuickFixAnalysis />
       <FreelanceProject />
+      <PXPLab />
       <Community />
       <GameShowcase />
       <Achievements />
