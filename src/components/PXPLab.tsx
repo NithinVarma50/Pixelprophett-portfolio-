@@ -9,10 +9,11 @@ import {
   Zap,
   Sparkles,
   Package,
-  ExternalLink
+  ExternalLink,
+  Users
 } from "lucide-react";
 import { Button } from "./ui/button";
-import pxplabMascot from "@/assets/pxplab-mascot.png";
+
 const services = [
   {
     icon: Globe,
@@ -70,11 +71,9 @@ export default function PXPLab() {
           <CardContent className="p-4 sm:p-8">
             {/* Studio Intro */}
             <div className="flex items-center gap-3 mb-6">
-              <img 
-                src={pxplabMascot} 
-                alt="PXPLAB Mascot" 
-                className="w-12 h-12 sm:w-14 sm:h-14 object-contain"
-              />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Users className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+              </div>
               <div>
                 <h3 className="text-lg sm:text-xl font-semibold">Digital Studio</h3>
                 <p className="text-xs sm:text-sm text-muted-foreground">Me & Koushik</p>
