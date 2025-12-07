@@ -36,7 +36,7 @@ export default function FitForge() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
             FitForge
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -50,14 +50,14 @@ export default function FitForge() {
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <Card className="backdrop-blur-sm bg-card/50 border-primary/20 hover:border-primary/40 transition-all duration-300">
+          <Card className="backdrop-blur-sm bg-card/30 border-border/40 hover:border-border/60 transition-all duration-300">
             <CardContent className="p-6 md:p-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-lg bg-primary/10">
-                  <Dumbbell className="w-6 h-6 text-primary" />
+                <div className="p-3 rounded-lg bg-muted/50 border border-border/30">
+                  <Dumbbell className="w-6 h-6 text-foreground" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold">FitForge</h3>
+                  <h3 className="text-2xl font-bold text-foreground">FitForge</h3>
                   <p className="text-sm text-muted-foreground">Personal Project • 2025</p>
                 </div>
               </div>
@@ -67,7 +67,7 @@ export default function FitForge() {
                   href="https://nithin-fit-forge.vercel.app/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-muted/50 border border-border/40 text-foreground hover:bg-muted/70 transition-all"
                 >
                   <Zap className="w-4 h-4" />
                   <span className="font-medium">Visit Live App</span>
@@ -87,11 +87,11 @@ export default function FitForge() {
               </div>
 
               <div className="mb-8">
-                <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                  <Target className="w-5 h-5 text-primary" />
+                <h4 className="text-lg font-semibold mb-4 flex items-center gap-2 text-foreground">
+                  <Target className="w-5 h-5 text-foreground/70" />
                   Key Features
                 </h4>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid md:grid-cols-2 gap-3">
                   {features.map((feature, index) => (
                     <motion.div
                       key={index}
@@ -99,13 +99,13 @@ export default function FitForge() {
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className="flex items-start gap-3 p-4 rounded-lg bg-background/50 border border-primary/10 hover:border-primary/30 transition-colors"
+                      className="flex items-start gap-3 p-4 rounded-lg bg-muted/30 border border-border/30 hover:border-border/50 transition-colors"
                     >
-                      <div className="p-2 rounded-lg bg-primary/10 mt-1">
-                        <feature.icon className="w-4 h-4 text-primary" />
+                      <div className="p-2 rounded-lg bg-muted/50 border border-border/20 mt-1">
+                        <feature.icon className="w-4 h-4 text-foreground/80" />
                       </div>
                       <div>
-                        <h5 className="font-semibold mb-1">{feature.title}</h5>
+                        <h5 className="font-semibold mb-1 text-foreground">{feature.title}</h5>
                         <p className="text-sm text-muted-foreground">{feature.description}</p>
                       </div>
                     </motion.div>
@@ -113,8 +113,8 @@ export default function FitForge() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
-                <p className="text-sm text-foreground/70 italic">
+              <div className="p-4 rounded-lg bg-muted/30 border border-border/30">
+                <p className="text-sm text-muted-foreground italic">
                   "Building FitForge taught me that the best AI applications are those that solve real problems in your own life — tools that learn and grow with you, not just one-time answers."
                 </p>
               </div>
