@@ -1,33 +1,33 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
-import { Dumbbell, Brain, TrendingUp, Calendar, Target, Zap } from "lucide-react";
+import { Zap, Layout, Type, Smartphone, Palette, ExternalLink } from "lucide-react";
 
 const features = [
   {
-    icon: Brain,
-    title: "AI-Powered Planning",
-    description: "Integrated OpenRouter's Grok-4 Fast model for intelligent workout generation"
+    icon: Type,
+    title: "Visual Hierarchy",
+    description: "Bold typography and strategic color contrast for impact"
   },
   {
-    icon: TrendingUp,
-    title: "Adaptive Programs",
-    description: "Workout plans that evolve with your progress over time"
+    icon: Layout,
+    title: "Poster-Inspired Layouts",
+    description: "Section designs that treat the screen like a digital poster"
   },
   {
-    icon: Calendar,
-    title: "Progress Tracking",
-    description: "Data-driven approach to monitor fitness journey and improvements"
+    icon: Smartphone,
+    title: "Modern Architecture",
+    description: "Clean, responsive UI built with modern frontend practices"
   },
   {
-    icon: Target,
-    title: "Personalized Goals",
-    description: "Custom bulking and flexibility roadmaps tailored to individual needs"
+    icon: Palette,
+    title: "Brand-First Design",
+    description: "Creative experimentation focused on brand identity over templates"
   }
 ];
 
-export default function FitForge() {
+export default function Crunchd() {
   return (
-    <section id="fitforge" className="py-20 px-4 relative">
+    <section id="crunchd" className="py-20 px-4 relative">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,10 +37,10 @@ export default function FitForge() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
-            FitForge
+            CRUNCHD
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Personal AI-Powered Fitness App
+            Street Food Café UI Concept
           </p>
         </motion.div>
 
@@ -54,41 +54,41 @@ export default function FitForge() {
             <CardContent className="p-6 md:p-8">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-3 rounded-lg bg-primary/10">
-                  <Dumbbell className="w-6 h-6 text-primary" />
+                  <Palette className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold">FitForge</h3>
-                  <p className="text-sm text-muted-foreground">Personal Project • 2025</p>
+                  <h3 className="text-2xl font-bold">CRUNCHD</h3>
+                  <p className="text-sm text-muted-foreground">UI/UX Flex Project • 2025</p>
                 </div>
               </div>
 
               <div className="mb-6">
                 <a 
-                  href="https://nithin-fit-forge.vercel.app/" 
+                  href="https://crunchd.vercel.app/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
                 >
-                  <Zap className="w-4 h-4" />
-                  <span className="font-medium">Visit Live App</span>
+                  <ExternalLink className="w-4 h-4" />
+                  <span className="font-medium">Visit Live Preview</span>
                 </a>
               </div>
 
               <div className="prose prose-invert max-w-none mb-8">
                 <p className="text-foreground/80 leading-relaxed mb-4">
-                  I built FitForge when I started going to the gym for the first time at 18. I had no experience and wasn't sure how to plan or track workouts. I initially asked AI to create a fitness plan for me — it gave me a good bulking and flexibility roadmap, but it was just a one-time answer.
+                  CRUNCHD is a modern Gen-Z street food café website concept that I built as a fun UI/UX flex project in my free time. The idea was to explore bold branding, poster-style layouts, and playful micro-copy, inspired by contemporary food brands and street-culture aesthetics.
                 </p>
                 <p className="text-foreground/80 leading-relaxed mb-4">
-                  That's when I decided to build my own app — something that could adapt to my progress over time. I integrated AI using OpenRouter's free Grok-4 Fast model, allowing the app to generate and adjust personalized workout plans.
+                  This project focuses purely on frontend design and interaction, treating the website like a visual poster rather than a traditional layout. Every section was intentionally designed to feel loud, fast, and scroll-engaging — matching the energy of modern street food culture.
                 </p>
                 <p className="text-foreground/80 leading-relaxed">
-                  FitForge isn't a product or startup — it's a personal tool I created to make my fitness journey easier and more data-driven. It reflects how I like to use AI not just for ideas, but to build practical tools that fit into everyday life.
+                  A polished, production-ready concept website that showcases my approach to UI design, frontend structure, and creative experimentation — built without client constraints, purely for exploration and skill growth.
                 </p>
               </div>
 
               <div className="mb-8">
                 <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                  <Target className="w-5 h-5 text-primary" />
+                  <Zap className="w-5 h-5 text-primary" />
                   Key Features
                 </h4>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -115,7 +115,7 @@ export default function FitForge() {
 
               <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
                 <p className="text-sm text-foreground/70 italic">
-                  "Building FitForge taught me that the best AI applications are those that solve real problems in your own life — tools that learn and grow with you, not just one-time answers."
+                  "All content displayed on the website, including menu items, reviews, and brand details, is mock data created solely for demonstration purposes."
                 </p>
               </div>
             </CardContent>

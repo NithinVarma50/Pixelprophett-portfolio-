@@ -8,7 +8,7 @@ import { initMobileOptimizations } from "@/lib/mobile-optimization";
 // Import all components directly for better caching - no lazy loading for smooth scrolling
 import About from "@/components/About";
 import DeskSetup from "@/components/DeskSetup";
-import FitForge from "@/components/FitForge";
+import Crunchd from "@/components/Crunchd";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import QuickFix from "@/components/QuickFix";
@@ -24,12 +24,12 @@ import Conclusion from "@/components/Conclusion";
 
 const Index = () => {
   const isMobileDevice = typeof window !== 'undefined' && (window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
-  
+
   // Performance-optimized scroll tracking - reduced on mobile
   const { scrollYProgress } = useScroll({
     offset: ["start start", "end end"]
   });
-  
+
   // Optimized spring physics - lighter on mobile
   const scaleX = useSpring(scrollYProgress, {
     stiffness: isMobileDevice ? 100 : 200, // Lighter on mobile
@@ -37,7 +37,7 @@ const Index = () => {
     restDelta: isMobileDevice ? 0.01 : 0.001, // Less precise on mobile
     mass: isMobileDevice ? 1 : 0.3 // More mass = less responsive but smoother on mobile
   });
-  
+
   const [showScrollButton, setShowScrollButton] = useState(false);
   const scrollingRef = useRef(false);
   const progressBarRef = useRef<HTMLDivElement>(null);
@@ -52,9 +52,9 @@ const Index = () => {
   useEffect(() => {
     // Initialize mobile optimizations on mount
     initMobileOptimizations();
-    
+
     let ticking = false;
-    
+
     // Ultra-smooth scroll handler with RAF
     const throttledScroll = () => {
       if (!ticking) {
@@ -65,21 +65,21 @@ const Index = () => {
         ticking = true;
       }
     };
-    
+
     window.addEventListener('scroll', throttledScroll, { passive: true });
-    
+
     return () => {
       window.removeEventListener('scroll', throttledScroll);
     };
   }, [handleScroll]);
-  
+
   const scrollToTop = useCallback(() => {
     scrollingRef.current = true;
-    window.scrollTo({ 
-      top: 0, 
-      behavior: 'smooth' 
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
-    
+
     // Use RAF instead of setTimeout for better performance
     requestAnimationFrame(() => {
       setTimeout(() => {
@@ -91,20 +91,20 @@ const Index = () => {
   return (
     <main className="min-h-screen relative ultra-smooth">
       {/* Highly optimized progress bar */}
-      <motion.div 
+      <motion.div
         ref={progressBarRef}
         className="fixed top-0 left-0 right-0 h-1 bg-primary z-[100] transform-gpu"
-        style={{ 
+        style={{
           scaleX,
           transformOrigin: "left"
         }}
         aria-hidden="true"
       />
-      
+
       {/* All components load upfront - no lazy loading for smooth scrolling */}
       <LokiEffects />
       <Hero />
-      
+
       {/* All sections loaded immediately - cached and ready */}
       <div className="section-padding bg-secondary/20" id="about">
         <div className="max-w-4xl mx-auto">
@@ -112,26 +112,26 @@ const Index = () => {
           <div className="block lg:hidden mb-8 flex justify-center">
             <PersonalCard />
           </div>
-          
+
           {/* Desktop: Text wraps around floating card */}
           <div className="relative">
             {/* Floating card on desktop - positioned much lower to allow more text above */}
-            <div className="hidden lg:block float-right mt-32 ml-8 mb-8 mr-6" style={{shapeOutside: 'margin-box'}}>
+            <div className="hidden lg:block float-right mt-32 ml-8 mb-8 mr-6" style={{ shapeOutside: 'margin-box' }}>
               <PersonalCard />
             </div>
-            
+
             <About />
-            
+
             {/* Clear float */}
             <div className="clear-both"></div>
           </div>
         </div>
       </div>
-      
+
       <DeskSetup />
       <Skills />
       <Projects />
-      <FitForge />
+      <Crunchd />
       <QuickFix />
       <QuickFixAnalysis />
       <FreelanceProject />
@@ -140,7 +140,7 @@ const Index = () => {
       <GameShowcase />
       <Achievements />
       <Conclusion />
-      
+
       {/* Optimized button with GPU acceleration */}
       {showScrollButton && (
         <motion.button

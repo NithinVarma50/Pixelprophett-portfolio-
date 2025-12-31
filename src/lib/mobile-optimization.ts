@@ -35,7 +35,7 @@ export const shouldEnableHighEndAnimations = (): boolean => {
 // Preload component chunks immediately
 export const preloadAllComponents = async (): Promise<void> => {
   if (typeof window === 'undefined') return;
-  
+
   // Use requestIdleCallback if available, otherwise setTimeout
   const scheduleLoad = (callback: () => void) => {
     if ('requestIdleCallback' in window) {
@@ -50,7 +50,7 @@ export const preloadAllComponents = async (): Promise<void> => {
     const componentPaths = [
       () => import('@/components/About'),
       () => import('@/components/DeskSetup'),
-      () => import('@/components/FitForge'),
+      () => import('@/components/Crunchd'),
       () => import('@/components/Skills'),
       () => import('@/components/Projects'),
       () => import('@/components/QuickFix'),
@@ -74,7 +74,7 @@ export const preloadAllComponents = async (): Promise<void> => {
 // Preload images
 export const preloadImages = (imagePaths: string[]): void => {
   if (typeof window === 'undefined') return;
-  
+
   imagePaths.forEach(src => {
     const link = document.createElement('link');
     link.rel = 'preload';
@@ -87,23 +87,23 @@ export const preloadImages = (imagePaths: string[]): void => {
 // Optimize scroll performance on mobile - AGGRESSIVE optimizations
 export const optimizeScrollPerformance = (): void | (() => void) => {
   if (typeof window === 'undefined') return;
-  
+
   if (isMobile()) {
     // Disable smooth scroll on mobile - use native scrolling
     document.documentElement.style.scrollBehavior = 'auto';
-    
+
     // Force GPU acceleration
     document.body.style.transform = 'translate3d(0, 0, 0)';
     document.body.style.willChange = 'scroll-position';
     document.body.style.backfaceVisibility = 'hidden';
     document.body.style.perspective = '1000px';
-    
+
     // Reduce repaints during scroll - NOT strict (breaks scrolling)
     document.body.style.contain = 'layout style paint';
     // Ensure scrolling works on mobile - don't restrict body overflow
     document.body.style.height = 'auto';
     document.body.style.minHeight = '100%';
-    
+
     // Add aggressive CSS optimizations for mobile scroll
     const style = document.createElement('style');
     style.id = 'mobile-scroll-optimizations';
@@ -155,33 +155,33 @@ export const optimizeScrollPerformance = (): void | (() => void) => {
       }
     `;
     document.head.appendChild(style);
-    
+
     // Add scroll state class for CSS optimizations
     let scrollTimeout: NodeJS.Timeout;
     let isScrolling = false;
     let lastScrollTop = window.pageYOffset;
-    
+
     const handleScroll = () => {
       const currentScrollTop = window.pageYOffset;
-      
+
       // Only add class if actually scrolling
       if (!isScrolling || Math.abs(currentScrollTop - lastScrollTop) > 5) {
         isScrolling = true;
         document.body.classList.add('is-scrolling');
       }
-      
+
       lastScrollTop = currentScrollTop;
-      
+
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(() => {
         isScrolling = false;
         document.body.classList.remove('is-scrolling');
       }, 100); // Remove class 100ms after scrolling stops
     };
-    
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('touchmove', handleScroll, { passive: true });
-    
+
     // Cleanup on unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -198,16 +198,16 @@ export const optimizeScrollPerformance = (): void | (() => void) => {
 // Preload Spline 3D library and scene - optimized for mobile
 export const preloadSpline = (): void => {
   if (typeof window === 'undefined') return;
-  
+
   // Preload Spline library immediately (not lazy)
   const loadSpline = () => {
     // Start loading the Spline library bundle immediately
     import('@splinetool/react-spline').then(() => {
       // Library loaded - now preload the scene
       const sceneUrl = 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode';
-      
+
       // Fetch and cache the scene data
-      fetch(sceneUrl, { 
+      fetch(sceneUrl, {
         method: 'GET',
         cache: 'force-cache',
         mode: 'cors',
@@ -219,7 +219,7 @@ export const preloadSpline = (): void => {
       // Silent fail - will load when component mounts
     });
   };
-  
+
   // Start preloading immediately (don't wait for idle)
   // This ensures Spline is cached before user reaches Hero section
   if (document.readyState === 'loading') {
@@ -235,15 +235,15 @@ export const preloadSpline = (): void => {
 // Initialize mobile optimizations
 export const initMobileOptimizations = (): void => {
   if (typeof window === 'undefined') return;
-  
+
   optimizeScrollPerformance();
-  
+
   // Preload Spline 3D for smooth experience
   preloadSpline();
-  
+
   // Note: Images are bundled with components now (no lazy loading), 
   // so they'll load automatically. No need to preload separately.
-  
+
   // Components are now imported directly (no lazy loading),
   // so they're already cached and ready. The preloadAllComponents
   // was for lazy-loaded components, but we removed lazy loading
