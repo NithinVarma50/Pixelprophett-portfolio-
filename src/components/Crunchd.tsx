@@ -6,22 +6,22 @@ const features = [
   {
     icon: Type,
     title: "Visual Hierarchy",
-    description: "Bold typography and strategic color contrast for impact"
+    description: "Prioritizing clear visual hierarchy and layout control"
   },
   {
     icon: Layout,
-    title: "Poster-Inspired Layouts",
-    description: "Section designs that treat the screen like a digital poster"
+    title: "Poster-Style UI",
+    description: "Non-template structure with bold presentation"
   },
   {
     icon: Smartphone,
-    title: "Modern Architecture",
-    description: "Clean, responsive UI built with modern frontend practices"
+    title: "Responsive Design",
+    description: "Mobile-first approach with scroll-driven sections"
   },
   {
-    icon: Palette,
-    title: "Brand-First Design",
-    description: "Creative experimentation focused on brand identity over templates"
+    icon: Zap,
+    title: "Modern Architecture",
+    description: "Component-based frontend with performance focus"
   }
 ];
 
@@ -63,9 +63,9 @@ export default function Crunchd() {
               </div>
 
               <div className="mb-6">
-                <a 
-                  href="https://crunchd.vercel.app/" 
-                  target="_blank" 
+                <a
+                  href="https://crunchd.vercel.app/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
                 >
@@ -76,13 +76,13 @@ export default function Crunchd() {
 
               <div className="prose prose-invert max-w-none mb-8">
                 <p className="text-foreground/80 leading-relaxed mb-4">
-                  CRUNCHD is a modern Gen-Z street food café website concept that I built as a fun UI/UX flex project in my free time. The idea was to explore bold branding, poster-style layouts, and playful micro-copy, inspired by contemporary food brands and street-culture aesthetics.
+                  CRUNCHD is a Gen-Z street food café website concept built as a UI and frontend exploration project in my free time. The project focuses on visual structure, layout experimentation, and interactive design, with an emphasis on bold presentation and scroll-driven sections.
                 </p>
                 <p className="text-foreground/80 leading-relaxed mb-4">
-                  This project focuses purely on frontend design and interaction, treating the website like a visual poster rather than a traditional layout. Every section was intentionally designed to feel loud, fast, and scroll-engaging — matching the energy of modern street food culture.
+                  The website uses a poster-style layout approach, prioritizing clear visual hierarchy, spacing, and color systems over traditional page structures. The goal was to design a clean, engaging interface while maintaining a fast and responsive frontend setup.
                 </p>
                 <p className="text-foreground/80 leading-relaxed">
-                  A polished, production-ready concept website that showcases my approach to UI design, frontend structure, and creative experimentation — built without client constraints, purely for exploration and skill growth.
+                  A polished concept website that demonstrates frontend execution, UI structure, and design exploration without client or business constraints.
                 </p>
               </div>
 
@@ -115,7 +115,7 @@ export default function Crunchd() {
 
               <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
                 <p className="text-sm text-foreground/70 italic">
-                  "All content displayed on the website, including menu items, reviews, and brand details, is mock data created solely for demonstration purposes."
+                  "All data shown on the website, including menu items and brand details, is mock data created purely for demonstration purposes."
                 </p>
               </div>
             </CardContent>
