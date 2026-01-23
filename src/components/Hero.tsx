@@ -66,14 +66,24 @@ const Hero = memo(() => {
           >
             {/* Interactive glow effect - HIGH-END DESKTOP gets refined minimal glow */}
             <div className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl ${highEndAnimations
-                ? 'bg-gradient-to-r from-primary/18 via-primary/12 via-transparent via-primary/12 to-primary/18'
-                : 'bg-gradient-to-r from-primary/20 via-transparent to-primary/20'
+              ? 'bg-gradient-to-r from-primary/18 via-primary/12 via-transparent via-primary/12 to-primary/18'
+              : 'bg-gradient-to-r from-primary/20 via-transparent to-primary/20'
               }`} />
 
+            {/* Touch indicator */}
+            <motion.div
+              className="absolute top-4 right-4 bg-primary/10 backdrop-blur-sm rounded-full px-3 py-1 text-xs text-primary border border-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              initial={{ y: -10, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 1 }}
+            >
+              Interactive ✨
+            </motion.div>
+
             {/* Main 3D scene container - HIGH-END DESKTOP gets refined border glow */}
-            <div className={`relative w-full h-full rounded-xl overflow-hidden transition-all duration-300 pointer-events-none ${highEndAnimations
-                ? 'border border-white/10 group-hover:border-primary/30 shadow-[0_0_20px_rgba(57,255,20,0.12)] group-hover:shadow-[0_0_35px_rgba(57,255,20,0.2)]'
-                : 'border border-white/5 group-hover:border-primary/20'
+            <div className={`relative w-full h-full rounded-xl overflow-hidden transition-all duration-300 ${highEndAnimations
+              ? 'border border-white/10 group-hover:border-primary/30 shadow-[0_0_20px_rgba(57,255,20,0.12)] group-hover:shadow-[0_0_35px_rgba(57,255,20,0.2)]'
+              : 'border border-white/5 group-hover:border-primary/20'
               }`}>
               <SplineScene
                 scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
@@ -82,8 +92,8 @@ const Hero = memo(() => {
 
               {/* Subtle overlay - refined on desktop */}
               <div className={`absolute inset-0 pointer-events-none ${highEndAnimations
-                  ? 'bg-gradient-to-t from-black/12 via-transparent via-primary/3 via-transparent to-transparent'
-                  : 'bg-gradient-to-t from-black/10 via-transparent to-transparent'
+                ? 'bg-gradient-to-t from-black/12 via-transparent via-primary/3 via-transparent to-transparent'
+                : 'bg-gradient-to-t from-black/10 via-transparent to-transparent'
                 }`} />
 
               {/* HIGH-END DESKTOP: Minimal corner accent effects */}

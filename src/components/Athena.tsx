@@ -64,7 +64,7 @@ export default function Athena() {
 
                             <div className="mb-6">
                                 <a
-                                    href="#"
+                                    href="https://athena-cyber-sentinel.vercel.app/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
