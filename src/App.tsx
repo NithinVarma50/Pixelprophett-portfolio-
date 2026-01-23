@@ -40,7 +40,7 @@ const App = memo(() => {
               initial={{ scale: 1.1, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="w-full h-full"
+              className="w-full min-h-screen"
             >
               <Routes>
                 <Route path="/" element={<Index />} />

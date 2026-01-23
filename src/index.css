@@ -51,14 +51,12 @@
 
   html {
     scroll-behavior: smooth;
-    @apply overflow-x-hidden;
-    /* Enhanced smooth scrolling */
+    /* Do NOT hide overflow-x on html - causes scroll lock */
+    /* overflow-x: hidden; */
     scroll-padding-top: 2rem;
-    /* Ensure vertical scroll is always possible */
     overflow-y: auto;
     /* Better scroll performance */
     -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
   }
 
   /* Canvas interactivity restored */
@@ -73,14 +71,16 @@
       /* Mobile: ensure native scrolling works */
       -webkit-overflow-scrolling: touch;
       touch-action: pan-y;
-      height: 100%;
+      /* Remove fixed height to allow scrolling */
+      /* height: 100%; */
       overflow-y: auto;
-      overflow-x: hidden;
     }
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
+    @apply bg-background text-foreground font-sans antialiased;
+    overflow-x: hidden;
+    /* Only hide x on body */
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
     /* Enhanced paint performance - GPU acceleration */
     transform: translate3d(0, 0, 0);
@@ -90,18 +90,12 @@
     -moz-osx-font-smoothing: grayscale;
     background-color: #000000;
     /* Ensure deep black background */
-    /* Optimize for 60fps scrolling - mobile optimized */
     will-change: scroll-position;
-    /* Optimize for 60fps scrolling - mobile optimized */
-    will-change: scroll-position;
-    /* Removed aggressive containment that breaks scrolling */
-    /* contain: layout style paint; */
     /* Better scroll performance */
     scroll-behavior: smooth;
-    overscroll-behavior: contain;
+
     /* Mobile-specific optimizations */
     -webkit-overflow-scrolling: touch;
-    /* Reduce repaints */
     isolation: isolate;
   }
 
@@ -115,7 +109,6 @@
       /* Force GPU acceleration */
       transform: translate3d(0, 0, 0);
       -webkit-transform: translate3d(0, 0, 0);
-      /* Disable expensive effects during initial load */
       will-change: scroll-position;
       /* Optimize font rendering */
       text-rendering: optimizeSpeed;
@@ -124,7 +117,7 @@
       -webkit-overflow-scrolling: touch;
       touch-action: pan-y;
       height: auto;
-      min-height: 100%;
+      min-height: 100vh;
     }
 
     /* Disable expensive backdrop-filter on mobile */
@@ -142,9 +135,9 @@
 
     /* Optimize sections for mobile */
     section {
-      contain: layout style paint;
+      /* Remove strict containment aimed at layout */
+      contain: style paint;
       isolation: isolate;
-      /* Use content-visibility for off-screen sections */
       content-visibility: auto;
     }
 
