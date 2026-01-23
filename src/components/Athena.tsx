@@ -62,20 +62,15 @@ export default function Athena() {
                                 </div>
                             </div>
 
-                            <div className="mb-6 flex gap-4">
+                            <div className="mb-6">
                                 <a
                                     href="#"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
                                 >
-                                    <Globe className="w-4 h-4" />
-                                    <span className="font-medium">Request a Demo</span>
-                                </a>
-                                <a
-                                    href="#"
-                                    className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-                                >
                                     <ExternalLink className="w-4 h-4" />
-                                    <span className="font-medium">Learn More</span>
+                                    <span className="font-medium">Visit Live Project</span>
                                 </a>
                             </div>
 
