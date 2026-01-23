@@ -77,7 +77,10 @@
     background-color: #000000; /* Ensure deep black background */
     /* Optimize for 60fps scrolling - mobile optimized */
     will-change: scroll-position;
-    contain: layout style paint;
+    /* Optimize for 60fps scrolling - mobile optimized */
+    will-change: scroll-position;
+    /* Removed aggressive containment that breaks scrolling */
+    /* contain: layout style paint; */
     /* Better scroll performance */
     scroll-behavior: smooth;
     overscroll-behavior: contain;
@@ -231,7 +234,9 @@
     -webkit-transform: translate3d(0, 0, 0);
     will-change: scroll-position;
     /* Optimize compositing */
-    contain: layout style paint;
+    will-change: scroll-position;
+    /* Optimize compositing */
+    /* contain: layout style paint; */
     /* Prevent scroll chaining */
     overscroll-behavior-y: contain;
   }
@@ -247,7 +252,9 @@
       -webkit-overflow-scrolling: touch;
       touch-action: pan-y;
       /* Safe containment for smooth scroll (NOT strict - breaks scrolling) */
-      contain: layout style paint;
+      touch-action: pan-y;
+      /* Safe containment for smooth scroll (NOT strict - breaks scrolling) */
+      /* contain: layout style paint; */
       /* Prevent layout shifts */
       content-visibility: auto;
       /* Don't create nested scroll container - let document scroll */
