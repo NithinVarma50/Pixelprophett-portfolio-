@@ -134,10 +134,10 @@ const Index = () => {
       <Skills />
       <Projects />
       <Crunchd />
+      <Standard />
       <Athena />
       <QuickFix />
       <QuickFixAnalysis />
-      <Standard />
       <FreelanceProject />
       <PXPLab />
       <Community />
