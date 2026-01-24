@@ -58,7 +58,7 @@ export default function Athena() {
                                 </div>
                                 <div>
                                     <h3 className="text-2xl font-bold">Athena</h3>
-                                    <p className="text-sm text-muted-foreground">Cybersecurity Platform • 2025</p>
+                                    <p className="text-sm text-muted-foreground">College Project • 2025</p>
                                 </div>
                             </div>
 

@@ -45,7 +45,7 @@ export default function Standard() {
         <div className="text-center mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm mb-4">
             <Image className="w-4 h-4" />
-            Personal Project • 2025
+            Personal Project • Built for Fun • 2025
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold playfair mb-3 sm:mb-4">
             🖼️ STANDARD

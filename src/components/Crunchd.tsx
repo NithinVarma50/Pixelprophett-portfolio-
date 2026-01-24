@@ -58,7 +58,7 @@ export default function Crunchd() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold">CRUNCHD</h3>
-                  <p className="text-sm text-muted-foreground">UI/UX Flex Project • 2025</p>
+                  <p className="text-sm text-muted-foreground">Personal Project • Built for Fun • 2025</p>
                 </div>
               </div>
 
