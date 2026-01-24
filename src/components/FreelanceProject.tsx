@@ -6,6 +6,63 @@ export default function FreelanceProject() {
   const projects = [
     {
       id: 1,
+      emoji: "🖼️",
+      title: "STANDARD — Minimal Wallpaper Library",
+      role: "Designer & Developer",
+      status: "Live & Free to Use",
+      statusColor: "green-500",
+      category: "UI/UX Exploration",
+      url: "https://standard-ten.vercel.app/",
+      description: "A content-first wallpaper website designed with a minimal, Apple TV–inspired UI. The goal was to remove all unnecessary interface elements and let visuals lead the experience. Wallpapers are manually curated and presented in a calm, distraction-free environment focused purely on browsing and downloading.",
+      features: [
+        {
+          icon: <Layout className="w-5 h-5 text-primary/70" />,
+          title: "Minimal Interface",
+          description: "Content-first UI with clean visual hierarchy"
+        },
+        {
+          icon: <Zap className="w-5 h-5 text-primary/70" />,
+          title: "Focus Interactions",
+          description: "Apple TV–inspired hover states and motion"
+        },
+        {
+          icon: <Globe className="w-5 h-5 text-primary/70" />,
+          title: "Free Downloads",
+          description: "Direct, frictionless download for all wallpapers"
+        },
+        {
+          icon: <Palette className="w-5 h-5 text-primary/70" />,
+          title: "Design Restraint",
+          description: "No login, no ads, no tracking UI"
+        }
+      ],
+      techStack: [
+        {
+          icon: <Code className="w-4 h-4 text-primary/70" />,
+          title: "React + TypeScript",
+          description: "Modern frontend"
+        },
+        {
+          icon: <Zap className="w-4 h-4 text-primary/70" />,
+          title: "Vite",
+          description: "Fast builds"
+        },
+        {
+          icon: <Palette className="w-4 h-4 text-primary/70" />,
+          title: "Tailwind CSS",
+          description: "Utility styling"
+        }
+      ],
+      deliverables: [
+        "Vertical scroll wallpaper gallery",
+        "Focus/hover state inspired by Apple TV UI",
+        "Subtle motion and scaling interactions",
+        "Static JSON data architecture"
+      ],
+      quote: "STANDARD was built around restraint. Every element that didn't support the core action — viewing and downloading wallpapers — was removed. The result is a calm, premium browsing experience where the content itself becomes the interface."
+    },
+    {
+      id: 2,
       emoji: "🎨",
       title: "Anousha Moon Portfolio",
       role: "Web Designer & Frontend Developer",
@@ -63,7 +120,7 @@ export default function FreelanceProject() {
       quote: "Built using pure HTML, CSS, and JavaScript with emphasis on clean UI, spacing, and visual hierarchy."
     },
     {
-      id: 2,
+      id: 3,
       emoji: "🚚",
       title: "SS Courier & Cargo Services",
       role: "Web Designer & Developer",
