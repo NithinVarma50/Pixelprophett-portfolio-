@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
 import { ExternalLink, Layout, Zap, Globe, Palette, Code, Image, Download, Eye } from "lucide-react";
+import standardLogo from "@/assets/standard-logo.png";
 
 export default function Standard() {
   const features = [
@@ -58,10 +59,13 @@ export default function Standard() {
         <Card className="hover-card glass overflow-hidden">
           <CardContent className="p-6 sm:p-8">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4">
-              <div>
-              <span className="text-sm bg-primary/20 text-primary px-2 py-1 rounded-full">
-                ✅ Live & Free to Use
-              </span>
+              <div className="flex items-center gap-4">
+                <img src={standardLogo} alt="STANDARD logo" className="w-12 h-12 rounded-xl object-cover" />
+                <div>
+                  <span className="text-sm bg-primary/20 text-primary px-2 py-1 rounded-full">
+                    ✅ Live & Free to Use
+                  </span>
+                </div>
               </div>
               <a
                 href="https://standard-ten.vercel.app/"
