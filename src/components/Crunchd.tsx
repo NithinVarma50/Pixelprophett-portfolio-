@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
 import { Zap, Layout, Type, Smartphone, Palette, ExternalLink } from "lucide-react";
+import crunchdLogo from "@/assets/crunchd-logo.png";
 
 const features = [
   {
@@ -53,9 +54,7 @@ export default function Crunchd() {
           <Card className="backdrop-blur-sm bg-card/50 border-primary/20 hover:border-primary/40 transition-all duration-300">
             <CardContent className="p-6 md:p-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-lg bg-primary/10">
-                  <Palette className="w-6 h-6 text-primary" />
-                </div>
+                <img src={crunchdLogo} alt="CRUNCHD logo" className="w-12 h-12 rounded-xl object-cover" />
                 <div>
                   <h3 className="text-2xl font-bold">CRUNCHD</h3>
                   <p className="text-sm text-muted-foreground">Personal Project • Built for Fun • 2025</p>
