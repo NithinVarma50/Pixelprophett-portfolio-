@@ -135,7 +135,7 @@ export default function PXPLab() {
                 size="sm"
               >
                 <a 
-                  href="https://pixelprophett-studio.vercel.app" 
+                  href="https://pxplab.online/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2"
