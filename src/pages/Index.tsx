@@ -20,7 +20,6 @@ import PXPLab from "@/components/PXPLab";
 import Community from "@/components/Community";
 import GameShowcase from "@/components/GameShowcase";
 import Achievements from "@/components/Achievements";
-import MarketingPosters from "@/components/MarketingPosters";
 import Conclusion from "@/components/Conclusion";
 
 // Removed lazy loading - all components load upfront for smooth scrolling
@@ -143,7 +142,6 @@ const Index = () => {
       <PXPLab />
       <Community />
       <GameShowcase />
-      <MarketingPosters />
       <Achievements />
       <Conclusion />
 
