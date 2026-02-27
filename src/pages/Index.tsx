@@ -7,7 +7,7 @@ import { initMobileOptimizations } from "@/lib/mobile-optimization";
 
 // Import all components directly for better caching - no lazy loading for smooth scrolling
 import About from "@/components/About";
-import DeskSetup from "@/components/DeskSetup";
+import MarketingPosters from "@/components/MarketingPosters";
 import Crunchd from "@/components/Crunchd";
 import Athena from "@/components/Athena";
 import Skills from "@/components/Skills";
@@ -17,7 +17,6 @@ import QuickFixAnalysis from "@/components/QuickFixAnalysis";
 import FreelanceProject from "@/components/FreelanceProject";
 import Standard from "@/components/Standard";
 import PXPLab from "@/components/PXPLab";
-import MarketingPosters from "@/components/MarketingPosters";
 import Community from "@/components/Community";
 import GameShowcase from "@/components/GameShowcase";
 import Achievements from "@/components/Achievements";
@@ -131,7 +130,7 @@ const Index = () => {
         </div>
       </div>
 
-      <DeskSetup />
+      <MarketingPosters />
       <Skills />
       <Projects />
       <Crunchd />
@@ -142,7 +141,6 @@ const Index = () => {
       <FreelanceProject />
       <PXPLab />
       <Community />
-      <MarketingPosters />
       <GameShowcase />
       <Achievements />
       <Conclusion />

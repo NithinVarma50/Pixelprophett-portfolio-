@@ -1,7 +1,9 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useCallback, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import useEmblaCarousel from "embla-carousel-react";
+import { ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 
 // Import images
 import automationRed from "@/assets/posters/automation-red.png";
@@ -95,13 +97,35 @@ const posters: Poster[] = [
     color: "bg-orange-600/10 text-orange-600"
   }
 ];
-
 export default function MarketingPosters() {
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+  }, [emblaApi, onSelect]);
+
+  const activePoster = posters[selectedIndex] || posters[0];
 
   return (
     <section className="section-padding relative overflow-hidden" id="marketing">
-      <div className="max-w-7xl mx-auto container px-4">
+      <div className="max-w-6xl mx-auto container px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -112,72 +136,130 @@ export default function MarketingPosters() {
             Marketing <span className="text-primary">Gallery</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Visual storytelling designed to convert. A collection of marketing assets 
+            Visual storytelling designed to convert. A collection of marketing assets
             created for various campaigns and brand identities.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr">
-          {posters.map((poster, index) => (
-            <Dialog key={poster.id}>
-              <DialogTrigger asChild>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="group relative cursor-pointer rounded-xl overflow-hidden bg-secondary/20 border border-white/5 hover:border-primary/20 transition-all duration-300 h-full flex flex-col"
-                  onMouseEnter={() => setHoveredId(poster.id)}
-                  onMouseLeave={() => setHoveredId(null)}
-                >
-                  <div className="relative aspect-[4/5] overflow-hidden w-full">
+        <div className="flex flex-col lg:flex-row gap-8 items-center lg:items-stretch">
+
+          {/* Carousel Frame */}
+          <div className="w-full lg:w-3/5 relative group">
+            <div
+              className="overflow-hidden rounded-2xl border border-white/10 bg-black/40 aspect-[4/5] sm:aspect-[16/10] lg:aspect-square flex items-center justify-center relative touch-pan-y"
+              ref={emblaRef}
+            >
+              <div className="flex w-full h-full">
+                {posters.map((poster) => (
+                  <div
+                    className="flex-[0_0_100%] min-w-0 flex items-center justify-center p-6 h-full relative"
+                    key={poster.id}
+                  >
                     <img
                       src={poster.src}
                       alt={poster.title}
-                      className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                      className="max-w-full max-h-full w-auto h-auto object-contain drop-shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                      <p className="text-white text-sm font-medium">Click to expand</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Navigation Controls */}
+              <button
+                onClick={scrollPrev}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white backdrop-blur-md hover:bg-black hover:scale-110 transition-all z-10"
+                aria-label="Previous poster"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <button
+                onClick={scrollNext}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white backdrop-blur-md hover:bg-black hover:scale-110 transition-all z-10"
+                aria-label="Next poster"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+
+              {/* Expand Dialog */}
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button
+                    className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white backdrop-blur-md hover:bg-primary hover:text-white transition-all z-10 opacity-100 lg:opacity-0 group-hover:opacity-100"
+                    title="View full screen"
+                  >
+                    <Maximize2 className="w-5 h-5" />
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="max-w-5xl p-0 overflow-hidden bg-black/95 border-white/10 w-[95vw] sm:w-full">
+                  <div className="relative w-full h-[85vh] sm:h-auto sm:max-h-[90vh] flex flex-col md:flex-row">
+                    <div className="w-full h-1/2 md:h-auto md:w-2/3 bg-black flex items-center justify-center p-4">
+                      <img
+                        src={activePoster.src}
+                        alt={activePoster.title}
+                        className="max-h-full w-auto object-contain rounded-sm"
+                      />
+                    </div>
+                    <div className="w-full h-1/2 md:h-auto md:w-1/3 p-6 md:p-8 flex flex-col justify-center bg-card/5 border-t md:border-t-0 md:border-l border-white/5 overflow-y-auto">
+                      <div className={cn("inline-flex self-start px-3 py-1 rounded-full text-xs font-medium mb-4", activePoster.color)}>
+                        Marketing Asset
+                      </div>
+                      <h2 className="text-2xl md:text-3xl font-bold mb-4">{activePoster.title}</h2>
+                      <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                        {activePoster.description}
+                      </p>
+                      <div className="mt-8 pt-6 border-t border-white/10">
+                        <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Designed for</p>
+                        <p className="font-semibold text-sm md:text-base">PXPLab / Ignition</p>
+                      </div>
                     </div>
                   </div>
-                  
-                  <div className="p-4 flex flex-col flex-grow glass-card bg-secondary/10 backdrop-blur-sm border-t border-white/5">
-                    <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">
-                      {poster.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground line-clamp-3">
-                      {poster.description}
-                    </p>
+                </DialogContent>
+              </Dialog>
+            </div>
+
+            {/* Indicators */}
+            <div className="flex justify-center gap-2 mt-6 flex-wrap px-4">
+              {posters.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => emblaApi?.scrollTo(i)}
+                  className={cn(
+                    "h-2 rounded-full transition-all duration-300",
+                    i === selectedIndex ? "bg-primary w-8" : "bg-white/20 w-2 hover:bg-white/40"
+                  )}
+                  aria-label={`Go to slide ${i + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Description Panel */}
+          <div className="w-full lg:w-2/5 flex flex-col justify-center">
+            <div className="glass-card p-6 md:p-8 rounded-2xl border border-white/10 bg-secondary/10 backdrop-blur-sm relative overflow-hidden min-h-[250px] lg:min-h-[300px] flex flex-col justify-center h-full">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={selectedIndex}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative z-10"
+                >
+                  <div className={cn("inline-flex self-start px-3 py-1 rounded-full text-xs font-medium mb-4", activePoster.color)}>
+                    Asset {activePoster.id} of {posters.length}
                   </div>
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-white">
+                    {activePoster.title}
+                  </h3>
+                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                    {activePoster.description}
+                  </p>
                 </motion.div>
-              </DialogTrigger>
-              <DialogContent className="max-w-4xl p-0 overflow-hidden bg-black/95 border-white/10">
-                <div className="relative w-full h-full max-h-[85vh] flex flex-col md:flex-row">
-                  <div className="w-full md:w-2/3 bg-black flex items-center justify-center p-4">
-                    <img
-                      src={poster.src}
-                      alt={poster.title}
-                      className="max-h-[70vh] md:max-h-[80vh] w-auto object-contain rounded-sm"
-                    />
-                  </div>
-                  <div className="w-full md:w-1/3 p-6 md:p-8 flex flex-col justify-center bg-card/5 border-l border-white/5">
-                    <div className={cn("inline-flex self-start px-3 py-1 rounded-full text-xs font-medium mb-4", poster.color)}>
-                      Marketing Asset
-                    </div>
-                    <h2 className="text-2xl md:text-3xl font-bold mb-4">{poster.title}</h2>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {poster.description}
-                    </p>
-                    <div className="mt-8 pt-6 border-t border-white/10">
-                      <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Designed for</p>
-                      <p className="font-semibold">PXPLab / Ignition</p>
-                    </div>
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
-          ))}
+              </AnimatePresence>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
