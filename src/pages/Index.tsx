@@ -17,6 +17,7 @@ import QuickFixAnalysis from "@/components/QuickFixAnalysis";
 import FreelanceProject from "@/components/FreelanceProject";
 import Standard from "@/components/Standard";
 import PXPLab from "@/components/PXPLab";
+import MarketingPosters from "@/components/MarketingPosters";
 import Community from "@/components/Community";
 import GameShowcase from "@/components/GameShowcase";
 import Achievements from "@/components/Achievements";
@@ -141,6 +142,7 @@ const Index = () => {
       <FreelanceProject />
       <PXPLab />
       <Community />
+      <MarketingPosters />
       <GameShowcase />
       <Achievements />
       <Conclusion />
