@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useCallback, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 
@@ -164,59 +164,59 @@ export default function MarketingPosters() {
                   </div>
                 ))}
               </div>
+            </div>
 
-              {/* Navigation Controls */}
-              <button
-                onClick={scrollPrev}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white backdrop-blur-md hover:bg-black hover:scale-110 transition-all z-10"
-                aria-label="Previous poster"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <button
-                onClick={scrollNext}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white backdrop-blur-md hover:bg-black hover:scale-110 transition-all z-10"
-                aria-label="Next poster"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
+            {/* Navigation Controls */}
+            <button
+              onClick={scrollPrev}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white backdrop-blur-md hover:bg-black hover:scale-110 transition-all z-10"
+              aria-label="Previous poster"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={scrollNext}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white backdrop-blur-md hover:bg-black hover:scale-110 transition-all z-10"
+              aria-label="Next poster"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
 
-              {/* Expand Dialog */}
-              <Dialog>
-                <DialogTrigger asChild>
-                  <button
-                    className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white backdrop-blur-md hover:bg-primary hover:text-white transition-all z-10 opacity-100 lg:opacity-0 group-hover:opacity-100"
-                    title="View full screen"
-                  >
-                    <Maximize2 className="w-5 h-5" />
-                  </button>
-                </DialogTrigger>
-                <DialogContent className="max-w-5xl p-0 overflow-hidden bg-black/95 border-white/10 w-[95vw] sm:w-full">
-                  <div className="relative w-full h-[85vh] sm:h-auto sm:max-h-[90vh] flex flex-col md:flex-row">
-                    <div className="w-full h-1/2 md:h-auto md:w-2/3 bg-black flex items-center justify-center p-4">
-                      <img
-                        src={activePoster.src}
-                        alt={activePoster.title}
-                        className="max-h-full w-auto object-contain rounded-sm"
-                      />
+            {/* Expand Dialog */}
+            <Dialog>
+              <DialogTrigger asChild>
+                <button
+                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white backdrop-blur-md hover:bg-primary hover:text-white transition-all z-10 opacity-100 lg:opacity-0 group-hover:opacity-100"
+                  title="View full screen"
+                >
+                  <Maximize2 className="w-5 h-5" />
+                </button>
+              </DialogTrigger>
+              <DialogContent className="max-w-5xl p-0 overflow-hidden bg-black/95 border-white/10 w-[95vw] sm:w-full">
+                <div className="relative w-full h-[85vh] sm:h-auto sm:max-h-[90vh] flex flex-col md:flex-row">
+                  <div className="w-full h-1/2 md:h-auto md:w-2/3 bg-black flex items-center justify-center p-4">
+                    <img
+                      src={activePoster.src}
+                      alt={activePoster.title}
+                      className="max-h-full w-auto object-contain rounded-sm"
+                    />
+                  </div>
+                  <div className="w-full h-1/2 md:h-auto md:w-1/3 p-6 md:p-8 flex flex-col justify-center bg-card/5 border-t md:border-t-0 md:border-l border-white/5 overflow-y-auto">
+                    <div className={cn("inline-flex self-start px-3 py-1 rounded-full text-xs font-medium mb-4", activePoster.color)}>
+                      Marketing Asset
                     </div>
-                    <div className="w-full h-1/2 md:h-auto md:w-1/3 p-6 md:p-8 flex flex-col justify-center bg-card/5 border-t md:border-t-0 md:border-l border-white/5 overflow-y-auto">
-                      <div className={cn("inline-flex self-start px-3 py-1 rounded-full text-xs font-medium mb-4", activePoster.color)}>
-                        Marketing Asset
-                      </div>
-                      <h2 className="text-2xl md:text-3xl font-bold mb-4">{activePoster.title}</h2>
-                      <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                        {activePoster.description}
-                      </p>
-                      <div className="mt-8 pt-6 border-t border-white/10">
-                        <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Designed for</p>
-                        <p className="font-semibold text-sm md:text-base">PXPLab / Ignition</p>
-                      </div>
+                    <DialogTitle className="text-2xl md:text-3xl font-bold mb-4">{activePoster.title}</DialogTitle>
+                    <DialogDescription className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                      {activePoster.description}
+                    </DialogDescription>
+                    <div className="mt-8 pt-6 border-t border-white/10">
+                      <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Designed for</p>
+                      <p className="font-semibold text-sm md:text-base">PXPLab / Ignition</p>
                     </div>
                   </div>
-                </DialogContent>
-              </Dialog>
-            </div>
+                </div>
+              </DialogContent>
+            </Dialog>
 
             {/* Indicators */}
             <div className="flex justify-center gap-2 mt-6 flex-wrap px-4">
