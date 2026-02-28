@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
-import { ExternalLink, Wrench, Zap, TrendingUp, Target, Bot } from "lucide-react";
+import { ExternalLink, Wrench, Zap, TrendingUp, Target, Bot, Globe, Cpu, MapPin, Users } from "lucide-react";
 
 export default function QuickFix() {
   const features = [
@@ -122,6 +122,66 @@ export default function QuickFix() {
                   <p className="text-sm font-medium text-muted-foreground italic">
                     "Building QuickFix provided hands-on experience in full-stack development, startup operations, and the importance of focused execution."
                   </p>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          {/* QuickFix Info Page Showcase */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <Card className="hover-card glass">
+              <CardContent className="p-6 sm:p-8">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold mb-2 flex items-center gap-2">
+                      🌍 QuickFix Info Page
+                      <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">
+                        Showcase Site
+                      </span>
+                    </h3>
+                    <p className="text-sm text-muted-foreground">Company portfolio with interactive 3D Earth animation</p>
+                  </div>
+                  <a 
+                    href="https://quick-fix-info.vercel.app" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors text-sm"
+                  >
+                    Visit Site <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+
+                <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
+                  A sleek, dark-themed company info page designed to present QuickFix's vision, technology stack, franchise model, and coverage — featuring an interactive 3D Earth globe for city-by-city expansion visualization.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {[
+                    { icon: <Globe className="w-5 h-5 text-primary/70" />, title: "Interactive 3D Earth", desc: "Draggable globe showing live coverage zones" },
+                    { icon: <Cpu className="w-5 h-5 text-primary/70" />, title: "AI Diagnostics & Tech Stack", desc: "Showcasing proprietary dispatch and diagnostic engine" },
+                    { icon: <MapPin className="w-5 h-5 text-primary/70" />, title: "Franchise Expansion Model", desc: "One system, infinite locations — scalable by design" },
+                    { icon: <Users className="w-5 h-5 text-primary/70" />, title: "Clean Minimal UI", desc: "Dark aesthetic with smooth scroll animations" },
+                  ].map((item, i) => (
+                    <motion.div
+                      key={item.title}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.3 + i * 0.1 }}
+                      className="flex items-start gap-3 p-3 rounded-lg bg-secondary/20"
+                    >
+                      <div className="flex-shrink-0 mt-1">{item.icon}</div>
+                      <div>
+                        <h4 className="font-medium text-sm mb-1">{item.title}</h4>
+                        <p className="text-xs text-muted-foreground">{item.desc}</p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
