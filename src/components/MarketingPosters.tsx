@@ -15,6 +15,8 @@ import systemsBeatEffort from "@/assets/posters/systems-beat-effort.png";
 import buildBeyond from "@/assets/posters/build-beyond.png";
 import ignitionMembers from "@/assets/posters/ignition-members.png";
 import ignitionQuality from "@/assets/posters/ignition-quality.png";
+import thinkBeforeBuild from "@/assets/posters/think-before-build.png";
+import miniBuildChallenge from "@/assets/posters/mini-build-challenge.png";
 
 interface Poster {
   id: number;
@@ -94,6 +96,20 @@ const posters: Poster[] = [
     title: "Quality First",
     description: "A community focused on quality over quantity. No unnecessary noise.",
     color: "bg-orange-600/10 text-orange-600"
+  },
+  {
+    id: 11,
+    src: thinkBeforeBuild,
+    title: "Think Before You Build",
+    description: "Research, validate, and architect before writing a single line of code. Reliable, actionable, scalable, and future-ready.",
+    color: "bg-blue-500/10 text-blue-500"
+  },
+  {
+    id: 12,
+    src: miniBuildChallenge,
+    title: "Mini Build Challenge",
+    description: "Ignition's 7-day build challenge. Build small, build unique, build sharp — and get featured on the Ignition website.",
+    color: "bg-red-500/10 text-red-500"
   }
 ];
 export default function MarketingPosters() {
