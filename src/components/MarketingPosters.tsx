@@ -17,6 +17,8 @@ import ignitionMembers from "@/assets/posters/ignition-members.png";
 import ignitionQuality from "@/assets/posters/ignition-quality.png";
 import thinkBeforeBuild from "@/assets/posters/think-before-build.png";
 import miniBuildChallenge from "@/assets/posters/mini-build-challenge.png";
+import promptToPrototype from "@/assets/posters/prompt-to-prototype.png";
+import ignitionShare from "@/assets/posters/ignition-share.png";
 
 interface Poster {
   id: number;
@@ -110,6 +112,20 @@ const posters: Poster[] = [
     title: "Mini Build Challenge",
     description: "Ignition's 7-day build challenge. Build small, build unique, build sharp — and get featured on the Ignition website.",
     color: "bg-red-500/10 text-red-500"
+  },
+  {
+    id: 13,
+    src: promptToPrototype,
+    title: "Prompt to Prototype",
+    description: "Building AI products from prompts to full systems. An IgnitePedia drop for the AI era — out now.",
+    color: "bg-orange-500/10 text-orange-500"
+  },
+  {
+    id: 14,
+    src: ignitionShare,
+    title: "Share Ignition",
+    description: "If you care about AI, builders, and startups — join Ignition in AI Era. Let's build a valuable community together.",
+    color: "bg-blue-600/10 text-blue-600"
   }
 ];
 export default function MarketingPosters() {
