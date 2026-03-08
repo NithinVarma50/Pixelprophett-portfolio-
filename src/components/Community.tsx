@@ -81,7 +81,7 @@ export default function Community() {
                         Founder & Community Admin
                       </span>
                     </h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground mb-1">2000+ Member AI & Tech Community</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground mb-1">3000+ Member AI & Tech Community</p>
                     <p className="text-xs text-primary/70 flex items-center gap-1">
                       🚀 Active & Growing
                     </p>
@@ -89,7 +89,7 @@ export default function Community() {
                 </div>
 
                 <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed">
-                  Manage a 2000+ member community for AI enthusiasts, engineers, entrepreneurs, and creators to share knowledge, 
+                  Manage a 3000+ member community for AI enthusiasts, engineers, entrepreneurs, and creators to share knowledge, 
                   collaborate, and grow their networks in the rapidly evolving AI landscape.
                 </p>
 
