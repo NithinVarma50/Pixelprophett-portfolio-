@@ -19,6 +19,8 @@ import thinkBeforeBuild from "@/assets/posters/think-before-build.png";
 import miniBuildChallenge from "@/assets/posters/mini-build-challenge.png";
 import promptToPrototype from "@/assets/posters/prompt-to-prototype.png";
 import ignitionShare from "@/assets/posters/ignition-share.png";
+import hackathonBlue from "@/assets/posters/hackathon-blue.png";
+import hackathonGradient from "@/assets/posters/hackathon-gradient.png";
 
 interface Poster {
   id: number;
@@ -126,6 +128,20 @@ const posters: Poster[] = [
     title: "Share Ignition",
     description: "If you care about AI, builders, and startups — join Ignition in AI Era. Let's build a valuable community together.",
     color: "bg-blue-600/10 text-blue-600"
+  },
+  {
+    id: 15,
+    src: hackathonBlue,
+    title: "Hackathon Announcement",
+    description: "Ignition in AI Era × NxtGenSec — Hackathon coming soon. Build the future with the community.",
+    color: "bg-indigo-500/10 text-indigo-500"
+  },
+  {
+    id: 16,
+    src: hackathonGradient,
+    title: "Hackathon Teaser",
+    description: "A bold visual teaser for the upcoming Ignition × NxtGenSec hackathon. Coming soon — build the future.",
+    color: "bg-rose-500/10 text-rose-500"
   }
 ];
 export default function MarketingPosters() {
