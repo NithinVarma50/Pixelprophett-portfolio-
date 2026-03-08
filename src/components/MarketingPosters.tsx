@@ -21,6 +21,7 @@ import promptToPrototype from "@/assets/posters/prompt-to-prototype.png";
 import ignitionShare from "@/assets/posters/ignition-share.png";
 import hackathonBlue from "@/assets/posters/hackathon-blue.png";
 import hackathonGradient from "@/assets/posters/hackathon-gradient.png";
+import hackathonRegistration from "@/assets/posters/hackathon-registration.png";
 
 interface Poster {
   id: number;
