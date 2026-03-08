@@ -143,6 +143,13 @@ const posters: Poster[] = [
     title: "Hackathon Teaser",
     description: "A bold visual teaser for the upcoming Ignition × NxtGenSec hackathon. Coming soon — build the future.",
     color: "bg-rose-500/10 text-rose-500"
+  },
+  {
+    id: 17,
+    src: hackathonRegistration,
+    title: "Hackathon Registration",
+    description: "Ignition × NxtGenSec Hackathon — March 15–18. Cash prizes, certificates, and premium AI tools for top performers. Registrations are open!",
+    color: "bg-blue-700/10 text-blue-700"
   }
 ];
 export default function MarketingPosters() {
