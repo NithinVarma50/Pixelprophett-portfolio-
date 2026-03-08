@@ -72,17 +72,20 @@ export default function Community() {
           >
             <Card className="hover-card glass mb-6">
               <CardContent className="p-4 sm:p-8">
-                <div className="mb-3 sm:mb-4">
-                  <h3 className="text-lg sm:text-2xl font-bold mb-2 flex flex-col sm:flex-row items-start sm:items-center gap-2">
-                    <span>🤖 Ignition in AI Era</span>
-                    <span className="text-xs sm:text-sm bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full">
-                      Founder & Community Admin
-                    </span>
-                  </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground mb-1">2000+ Member AI & Tech Community</p>
-                  <p className="text-xs text-primary/70 flex items-center gap-1">
-                    🚀 Active & Growing
-                  </p>
+                <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                  <img src={ignitionLogo} alt="Ignition in AI Era" className="h-14 sm:h-16 w-auto rounded-lg" />
+                  <div>
+                    <h3 className="text-lg sm:text-2xl font-bold mb-1 flex flex-col sm:flex-row items-start sm:items-center gap-2">
+                      <span>Ignition in AI Era</span>
+                      <span className="text-xs sm:text-sm bg-primary/20 text-primary px-2 py-1 rounded-full">
+                        Founder & Community Admin
+                      </span>
+                    </h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground mb-1">2000+ Member AI & Tech Community</p>
+                    <p className="text-xs text-primary/70 flex items-center gap-1">
+                      🚀 Active & Growing
+                    </p>
+                  </div>
                 </div>
 
                 <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed">
