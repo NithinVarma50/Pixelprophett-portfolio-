@@ -19,6 +19,8 @@ import thinkBeforeBuild from "@/assets/posters/think-before-build.png";
 import miniBuildChallenge from "@/assets/posters/mini-build-challenge.png";
 import promptToPrototype from "@/assets/posters/prompt-to-prototype.png";
 import ignitionShare from "@/assets/posters/ignition-share.png";
+import hackathonBlue from "@/assets/posters/hackathon-blue.png";
+import hackathonGradient from "@/assets/posters/hackathon-gradient.png";
 
 interface Poster {
   id: number;
