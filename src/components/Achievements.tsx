@@ -16,7 +16,7 @@ const achievements = [
   },
   {
     title: "AI Community Founder",
-    description: "Founded and manage 'Ignition in AI Era' - a 2000+ member community for AI enthusiasts, engineers, and entrepreneurs",
+    description: "Founded and manage 'Ignition in AI Era' - a 3000+ member community for AI enthusiasts, engineers, and entrepreneurs",
     icon: <Users className="w-8 h-8 text-blue-500" />
   },
   {
