@@ -81,7 +81,7 @@ export default function Community() {
                         Founder & Community Admin
                       </span>
                     </h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground mb-1">2000+ Member AI & Tech Community</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground mb-1">3000+ Member AI & Tech Community</p>
                     <p className="text-xs text-primary/70 flex items-center gap-1">
                       🚀 Active & Growing
                     </p>
