@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
 import { ExternalLink, Users, MessageCircle, Trophy, Calendar, Target, Lightbulb } from "lucide-react";
+import ignitionLogo from "@/assets/ignition-logo.png";
 
 export default function Community() {
   const initiatives = [
