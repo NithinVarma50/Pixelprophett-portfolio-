@@ -151,6 +151,13 @@ const posters: Poster[] = [
     title: "Hackathon Registration",
     description: "Ignition × NxtGenSec Hackathon — March 15–18. Cash prizes, certificates, and premium AI tools for top performers. Registrations are open!",
     color: "bg-blue-700/10 text-blue-700"
+  },
+  {
+    id: 18,
+    src: hackathonRegTomorrow,
+    title: "Hackathon — Registrations Tomorrow",
+    description: "AI Hackathon by Ignition × NxtGenSec — March 15–18. Cash prizes up to ₹5000, certificates for all, and premium AI tools for top performers. Register at ignitioninaiera.space.",
+    color: "bg-yellow-500/10 text-yellow-500"
   }
 ];
 export default function MarketingPosters() {
