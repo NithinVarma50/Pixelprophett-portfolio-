@@ -22,6 +22,7 @@ import ignitionShare from "@/assets/posters/ignition-share.png";
 import hackathonBlue from "@/assets/posters/hackathon-blue.png";
 import hackathonGradient from "@/assets/posters/hackathon-gradient.png";
 import hackathonRegistration from "@/assets/posters/hackathon-registration.png";
+import hackathonRegTomorrow from "@/assets/posters/hackathon-registrations-tomorrow.png";
 
 interface Poster {
   id: number;
@@ -150,6 +151,13 @@ const posters: Poster[] = [
     title: "Hackathon Registration",
     description: "Ignition × NxtGenSec Hackathon — March 15–18. Cash prizes, certificates, and premium AI tools for top performers. Registrations are open!",
     color: "bg-blue-700/10 text-blue-700"
+  },
+  {
+    id: 18,
+    src: hackathonRegTomorrow,
+    title: "Hackathon — Registrations Tomorrow",
+    description: "AI Hackathon by Ignition × NxtGenSec — March 15–18. Cash prizes up to ₹5000, certificates for all, and premium AI tools for top performers. Register at ignitioninaiera.space.",
+    color: "bg-yellow-500/10 text-yellow-500"
   }
 ];
 export default function MarketingPosters() {
