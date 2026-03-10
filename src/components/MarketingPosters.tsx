@@ -175,6 +175,13 @@ const posters: Poster[] = [
     title: "Dream Big",
     description: "The Ignition AI Hackathon has begun. Believe in your ideas, start building, and dream big. Push your limits and create something extraordinary.",
     color: "bg-orange-500/10 text-orange-500"
+  },
+  {
+    id: 21,
+    src: ignitionLinkedin,
+    title: "Now on LinkedIn",
+    description: "Ignition in AI Era is now on LinkedIn. Follow, connect, and build with a growing community of AI builders and founders.",
+    color: "bg-blue-500/10 text-blue-500"
   }
 ];
 export default function MarketingPosters() {
