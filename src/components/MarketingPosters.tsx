@@ -25,6 +25,7 @@ import hackathonRegistration from "@/assets/posters/hackathon-registration.png";
 import hackathonRegTomorrow from "@/assets/posters/hackathon-registrations-tomorrow.png";
 import hackathonRegsOpen from "@/assets/posters/hackathon-registrations-open.png";
 import hackathonDreamBig from "@/assets/posters/hackathon-dream-big.png";
+import ignitionLinkedin from "@/assets/posters/ignition-linkedin.png";
 
 interface Poster {
   id: number;
@@ -174,6 +175,13 @@ const posters: Poster[] = [
     title: "Dream Big",
     description: "The Ignition AI Hackathon has begun. Believe in your ideas, start building, and dream big. Push your limits and create something extraordinary.",
     color: "bg-orange-500/10 text-orange-500"
+  },
+  {
+    id: 21,
+    src: ignitionLinkedin,
+    title: "Now on LinkedIn",
+    description: "Ignition in AI Era is now on LinkedIn. Follow, connect, and build with a growing community of AI builders and founders.",
+    color: "bg-blue-500/10 text-blue-500"
   }
 ];
 export default function MarketingPosters() {
