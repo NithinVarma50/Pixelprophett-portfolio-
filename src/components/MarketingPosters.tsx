@@ -25,6 +25,7 @@ import hackathonRegistration from "@/assets/posters/hackathon-registration.png";
 import hackathonRegTomorrow from "@/assets/posters/hackathon-registrations-tomorrow.png";
 import hackathonRegsOpen from "@/assets/posters/hackathon-registrations-open.png";
 import hackathonDreamBig from "@/assets/posters/hackathon-dream-big.png";
+import ignitionLinkedin from "@/assets/posters/ignition-linkedin.png";
 
 interface Poster {
   id: number;
