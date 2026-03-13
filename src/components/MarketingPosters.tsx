@@ -199,6 +199,13 @@ const posters: Poster[] = [
     title: "Find Your Glorious Purpose",
     description: "Ignition in AI Era × NxtGenSec AI Hackathon — 4 days to go. Find your glorious purpose and build something extraordinary.",
     color: "bg-amber-600/10 text-amber-600"
+  },
+  {
+    id: 24,
+    src: hackathonDreamBigOrange,
+    title: "Dream Big — Register Now",
+    description: "Ignition in AI Era × NxtGenSec AI Hackathon — March 15. Dream big, register now, and build the future at ignitioninaiera.space.",
+    color: "bg-orange-600/10 text-orange-600"
   }
 ];
 export default function MarketingPosters() {

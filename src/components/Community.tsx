@@ -164,7 +164,7 @@ export default function Community() {
                     <p>• Weekly activities to boost engagement</p>
                     <p>• Startup pitch opportunities & personal brand building</p>
                     <p>• Planned hackathons with prize money</p>
-                    <p>• Discord server for enhanced collaboration</p>
+                    <p>• 2 WhatsApp communities for enhanced collaboration</p>
                   </div>
                   <p className="text-xs sm:text-sm font-medium text-primary/90 italic leading-relaxed">
                     "Building bridges between AI enthusiasts and fostering a culture of innovation, collaboration, and mutual growth."
