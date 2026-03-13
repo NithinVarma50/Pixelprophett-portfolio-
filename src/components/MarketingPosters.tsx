@@ -28,6 +28,7 @@ import hackathonDreamBig from "@/assets/posters/hackathon-dream-big.png";
 import ignitionLinkedin from "@/assets/posters/ignition-linkedin.png";
 import hackathonIdeasBuild from "@/assets/posters/hackathon-ideas-build.jpg";
 import hackathonGloriousPurpose from "@/assets/posters/hackathon-glorious-purpose.png";
+import hackathonDreamBigOrange from "@/assets/posters/hackathon-dream-big-orange.png";
 
 interface Poster {
   id: number;
