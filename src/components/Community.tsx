@@ -95,7 +95,7 @@ export default function Community() {
 
                 <div className="bg-primary/10 border border-primary/30 rounded-lg p-2.5 sm:p-3 mb-4 sm:mb-6">
                   <p className="text-xs sm:text-sm text-foreground font-medium">
-                    💡 Want to join? Visit our website for WhatsApp and Discord links!
+                    💡 Want to join? Visit our website for WhatsApp community links!
                   </p>
                 </div>
 
