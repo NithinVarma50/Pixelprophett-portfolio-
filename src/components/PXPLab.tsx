@@ -77,7 +77,7 @@ export default function PXPLab() {
               </div>
               <div>
                 <h3 className="text-lg sm:text-xl font-semibold">Digital Studio</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground font-serif">Me & Koushik</p>
+                <p className="text-xs sm:text-sm text-muted-foreground font-serif">Nithinvarma</p>
               </div>
             </div>
 
