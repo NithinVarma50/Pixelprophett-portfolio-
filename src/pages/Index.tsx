@@ -142,6 +142,7 @@ const Index = () => {
       <FreelanceProject />
       <PXPLab />
       <Community />
+      <Hackathon />
       <GameShowcase />
       <Achievements />
       <Conclusion />
