@@ -33,6 +33,11 @@ const achievements = [
     title: "Outskill Gen AI Program Completion",
     description: "Successfully completed the comprehensive Outskill Gen AI course and all workshops, mastering advanced AI concepts and gaining hands-on experience with cutting-edge AI technologies",
     icon: <GraduationCap className="w-8 h-8 text-indigo-500" />
+  },
+  {
+    title: "Ignition AI Hackathon — Founder & Lead",
+    description: "Led and executed a large-scale AI & Cybersecurity Hackathon under Ignition in AI Era × NxtGenSec with 106+ registered teams, 50 premium registrations, and 19 problem statements across 6 domains. A 3-day build + evaluation hackathon bringing together builders, students, and innovators.",
+    icon: <Trophy className="w-8 h-8 text-primary" />
   }
 ];
 
