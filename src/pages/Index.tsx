@@ -18,6 +18,7 @@ import FreelanceProject from "@/components/FreelanceProject";
 import Standard from "@/components/Standard";
 import PXPLab from "@/components/PXPLab";
 import Community from "@/components/Community";
+import Hackathon from "@/components/Hackathon";
 import GameShowcase from "@/components/GameShowcase";
 import Achievements from "@/components/Achievements";
 import Conclusion from "@/components/Conclusion";
