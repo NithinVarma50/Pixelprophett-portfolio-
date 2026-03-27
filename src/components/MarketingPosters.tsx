@@ -257,12 +257,12 @@ export default function MarketingPosters() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12 text-center"
+          className="mb-8 sm:mb-12 text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 font-display">
             Marketing <span className="text-primary">Gallery</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-2">
             Visual storytelling designed to convert. A collection of marketing assets
             created for various campaigns and brand identities.
           </p>
