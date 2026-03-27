@@ -326,7 +326,7 @@ export default function MarketingPosters() {
 
           {/* Description Panel */}
           <div className="w-full lg:w-2/5 flex flex-col justify-center">
-            <div className="glass-card p-6 md:p-8 rounded-2xl border border-white/10 bg-secondary/10 backdrop-blur-sm relative overflow-hidden min-h-[250px] lg:min-h-[300px] flex flex-col justify-center h-full">
+            <div className="glass-card p-4 sm:p-6 md:p-8 rounded-2xl border border-white/10 bg-secondary/10 backdrop-blur-sm relative overflow-hidden min-h-[200px] sm:min-h-[250px] lg:min-h-[300px] flex flex-col justify-center h-full">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={selectedIndex}
