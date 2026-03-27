@@ -54,11 +54,11 @@ export default function QuickFix() {
           >
             <Card className="hover-card glass mb-6 sm:mb-8">
               <CardContent className="p-6 sm:p-8">
-                <div className="flex items-start justify-between mb-4">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold mb-2 flex items-center gap-2">
+                    <h3 className="text-xl sm:text-2xl font-bold mb-2 flex flex-wrap items-center gap-2">
                       🚗 QuickFix
-                      <span className="text-sm bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded-full">
+                      <span className="text-xs bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded-full">
                         Co-Founder
                       </span>
                     </h3>
@@ -71,7 +71,7 @@ export default function QuickFix() {
                     href="https://quic-fix.vercel.app" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors text-sm"
+                    className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors text-sm shrink-0"
                   >
                     Visit Website <ExternalLink className="w-4 h-4" />
                   </a>
