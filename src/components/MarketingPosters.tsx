@@ -339,10 +339,10 @@ export default function MarketingPosters() {
                   <div className={cn("inline-flex self-start px-3 py-1 rounded-full text-xs font-medium mb-4", activePoster.color)}>
                     Asset {activePoster.id} of {posters.length}
                   </div>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-white">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-white">
                     {activePoster.title}
                   </h3>
-                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
                     {activePoster.description}
                   </p>
                 </motion.div>
