@@ -52,12 +52,12 @@ export default function Crunchd() {
           viewport={{ once: true }}
         >
           <Card className="backdrop-blur-sm bg-card/50 border-primary/20 hover:border-primary/40 transition-all duration-300">
-            <CardContent className="p-6 md:p-8">
+            <CardContent className="p-4 sm:p-6 md:p-8">
               <div className="flex items-center gap-3 mb-6">
-                <img src={crunchdLogo} alt="CRUNCHD logo" className="w-12 h-12 rounded-xl object-cover" />
+                <img src={crunchdLogo} alt="CRUNCHD logo" className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl object-cover" />
                 <div>
-                  <h3 className="text-2xl font-bold">CRUNCHD</h3>
-                  <p className="text-sm text-muted-foreground">Personal Project • Built for Fun • 2025</p>
+                  <h3 className="text-xl sm:text-2xl font-bold">CRUNCHD</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Personal Project • Built for Fun • 2025</p>
                 </div>
               </div>
 
