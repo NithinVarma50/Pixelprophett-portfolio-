@@ -279,7 +279,7 @@ export default function MarketingPosters() {
               <div className="flex w-full h-full">
                 {posters.map((poster) => (
                   <div
-                    className="flex-[0_0_100%] min-w-0 flex items-center justify-center p-6 h-full relative"
+                    className="flex-[0_0_100%] min-w-0 flex items-center justify-center p-3 sm:p-6 h-full relative"
                     key={poster.id}
                   >
                     <img
