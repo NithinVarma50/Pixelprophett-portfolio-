@@ -306,7 +306,7 @@ export default function MarketingPosters() {
               className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white backdrop-blur-md hover:bg-black hover:scale-110 transition-all z-10"
               aria-label="Next poster"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
             </button>
             {/* Indicators */}
             <div className="flex justify-center gap-2 mt-6 flex-wrap px-4">
