@@ -85,12 +85,12 @@ export default function Crunchd() {
                 </p>
               </div>
 
-              <div className="mb-8">
-                <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                  <Zap className="w-5 h-5 text-primary" />
+              <div className="mb-6 sm:mb-8">
+                <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 flex items-center gap-2">
+                  <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                   Key Features
                 </h4>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {features.map((feature, index) => (
                     <motion.div
                       key={index}
