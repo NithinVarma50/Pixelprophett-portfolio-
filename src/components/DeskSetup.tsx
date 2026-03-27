@@ -30,19 +30,17 @@ const DeskSetup = () => {
           >
             <Card className="hover-card glass mb-6 sm:mb-8">
               <CardContent className="p-6 sm:p-8">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-bold mb-2 flex items-center gap-2">
-                      🖥️ Command Center
-                      <span className="text-sm bg-primary/20 text-primary px-2 py-1 rounded-full">
-                        Personal Space
-                      </span>
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-1">My Learning & Building Hub</p>
-                    <p className="text-xs text-primary/70 flex items-center gap-1">
-                      💻 Where Ideas Come to Life
-                    </p>
-                  </div>
+                <div className="mb-4">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-2 flex flex-wrap items-center gap-2">
+                    🖥️ Command Center
+                    <span className="text-xs sm:text-sm bg-primary/20 text-primary px-2 py-1 rounded-full">
+                      Personal Space
+                    </span>
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-1">My Learning & Building Hub</p>
+                  <p className="text-xs text-primary/70 flex items-center gap-1">
+                    💻 Where Ideas Come to Life
+                  </p>
                 </div>
 
                 <div className="grid lg:grid-cols-2 gap-8 items-start">
