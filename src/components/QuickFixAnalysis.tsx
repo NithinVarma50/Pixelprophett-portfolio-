@@ -57,7 +57,7 @@ export default function QuickFixAnalysis() {
           >
             <Card className="hover-card glass mb-6">
               <CardContent className="p-6 sm:p-8">
-                <div className="flex items-start justify-between mb-6">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-6">
                   <div className="flex-1">
                     <h3 className="text-xl sm:text-2xl font-bold mb-3">
                       Strategic Business Foundation
@@ -70,7 +70,7 @@ export default function QuickFixAnalysis() {
                     href="https://www.notion.so/QuickFix-Business-Analysis-Comprehensive-Market-and-Operational-Assessment-2199ce8d0b5f8017ac89e07ba6c0820e?source=copy_link" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm font-medium ml-4"
+                    className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm font-medium shrink-0"
                   >
                     View Full Analysis <ExternalLink className="w-4 h-4" />
                   </a>
