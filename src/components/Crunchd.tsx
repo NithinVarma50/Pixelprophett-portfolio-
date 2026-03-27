@@ -37,10 +37,10 @@ export default function Crunchd() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4 text-foreground">
             CRUNCHD
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
             Street Food Café UI Concept
           </p>
         </motion.div>
@@ -52,12 +52,12 @@ export default function Crunchd() {
           viewport={{ once: true }}
         >
           <Card className="backdrop-blur-sm bg-card/50 border-primary/20 hover:border-primary/40 transition-all duration-300">
-            <CardContent className="p-6 md:p-8">
+            <CardContent className="p-4 sm:p-6 md:p-8">
               <div className="flex items-center gap-3 mb-6">
-                <img src={crunchdLogo} alt="CRUNCHD logo" className="w-12 h-12 rounded-xl object-cover" />
+                <img src={crunchdLogo} alt="CRUNCHD logo" className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl object-cover" />
                 <div>
-                  <h3 className="text-2xl font-bold">CRUNCHD</h3>
-                  <p className="text-sm text-muted-foreground">Personal Project • Built for Fun • 2025</p>
+                  <h3 className="text-xl sm:text-2xl font-bold">CRUNCHD</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Personal Project • Built for Fun • 2025</p>
                 </div>
               </div>
 
@@ -73,24 +73,24 @@ export default function Crunchd() {
                 </a>
               </div>
 
-              <div className="prose prose-invert max-w-none mb-8">
-                <p className="text-foreground/80 leading-relaxed mb-4">
+              <div className="prose prose-invert max-w-none mb-6 sm:mb-8">
+                <p className="text-sm sm:text-base text-foreground/80 leading-relaxed mb-3 sm:mb-4">
                   CRUNCHD is a Gen-Z street food café website concept built as a UI and frontend exploration project in my free time. The project focuses on visual structure, layout experimentation, and interactive design, with an emphasis on bold presentation and scroll-driven sections.
                 </p>
-                <p className="text-foreground/80 leading-relaxed mb-4">
+                <p className="text-sm sm:text-base text-foreground/80 leading-relaxed mb-3 sm:mb-4">
                   The website uses a poster-style layout approach, prioritizing clear visual hierarchy, spacing, and color systems over traditional page structures. The goal was to design a clean, engaging interface while maintaining a fast and responsive frontend setup.
                 </p>
-                <p className="text-foreground/80 leading-relaxed">
+                <p className="text-sm sm:text-base text-foreground/80 leading-relaxed">
                   A polished concept website that demonstrates frontend execution, UI structure, and design exploration without client or business constraints.
                 </p>
               </div>
 
-              <div className="mb-8">
-                <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                  <Zap className="w-5 h-5 text-primary" />
+              <div className="mb-6 sm:mb-8">
+                <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 flex items-center gap-2">
+                  <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                   Key Features
                 </h4>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {features.map((feature, index) => (
                     <motion.div
                       key={index}

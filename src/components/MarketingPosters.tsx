@@ -257,12 +257,12 @@ export default function MarketingPosters() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12 text-center"
+          className="mb-8 sm:mb-12 text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 font-display">
             Marketing <span className="text-primary">Gallery</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-2">
             Visual storytelling designed to convert. A collection of marketing assets
             created for various campaigns and brand identities.
           </p>
@@ -279,7 +279,7 @@ export default function MarketingPosters() {
               <div className="flex w-full h-full">
                 {posters.map((poster) => (
                   <div
-                    className="flex-[0_0_100%] min-w-0 flex items-center justify-center p-6 h-full relative"
+                    className="flex-[0_0_100%] min-w-0 flex items-center justify-center p-3 sm:p-6 h-full relative"
                     key={poster.id}
                   >
                     <img
@@ -296,17 +296,17 @@ export default function MarketingPosters() {
             {/* Navigation Controls */}
             <button
               onClick={scrollPrev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white backdrop-blur-md hover:bg-black hover:scale-110 transition-all z-10"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white backdrop-blur-md hover:bg-black hover:scale-110 transition-all z-10"
               aria-label="Previous poster"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
             </button>
             <button
               onClick={scrollNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white backdrop-blur-md hover:bg-black hover:scale-110 transition-all z-10"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white backdrop-blur-md hover:bg-black hover:scale-110 transition-all z-10"
               aria-label="Next poster"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
             </button>
             {/* Indicators */}
             <div className="flex justify-center gap-2 mt-6 flex-wrap px-4">
@@ -326,7 +326,7 @@ export default function MarketingPosters() {
 
           {/* Description Panel */}
           <div className="w-full lg:w-2/5 flex flex-col justify-center">
-            <div className="glass-card p-6 md:p-8 rounded-2xl border border-white/10 bg-secondary/10 backdrop-blur-sm relative overflow-hidden min-h-[250px] lg:min-h-[300px] flex flex-col justify-center h-full">
+            <div className="glass-card p-4 sm:p-6 md:p-8 rounded-2xl border border-white/10 bg-secondary/10 backdrop-blur-sm relative overflow-hidden min-h-[200px] sm:min-h-[250px] lg:min-h-[300px] flex flex-col justify-center h-full">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={selectedIndex}
@@ -339,10 +339,10 @@ export default function MarketingPosters() {
                   <div className={cn("inline-flex self-start px-3 py-1 rounded-full text-xs font-medium mb-4", activePoster.color)}>
                     Asset {activePoster.id} of {posters.length}
                   </div>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-white">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-white">
                     {activePoster.title}
                   </h3>
-                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
                     {activePoster.description}
                   </p>
                 </motion.div>
