@@ -73,14 +73,14 @@ export default function Crunchd() {
                 </a>
               </div>
 
-              <div className="prose prose-invert max-w-none mb-8">
-                <p className="text-foreground/80 leading-relaxed mb-4">
+              <div className="prose prose-invert max-w-none mb-6 sm:mb-8">
+                <p className="text-sm sm:text-base text-foreground/80 leading-relaxed mb-3 sm:mb-4">
                   CRUNCHD is a Gen-Z street food café website concept built as a UI and frontend exploration project in my free time. The project focuses on visual structure, layout experimentation, and interactive design, with an emphasis on bold presentation and scroll-driven sections.
                 </p>
-                <p className="text-foreground/80 leading-relaxed mb-4">
+                <p className="text-sm sm:text-base text-foreground/80 leading-relaxed mb-3 sm:mb-4">
                   The website uses a poster-style layout approach, prioritizing clear visual hierarchy, spacing, and color systems over traditional page structures. The goal was to design a clean, engaging interface while maintaining a fast and responsive frontend setup.
                 </p>
-                <p className="text-foreground/80 leading-relaxed">
+                <p className="text-sm sm:text-base text-foreground/80 leading-relaxed">
                   A polished concept website that demonstrates frontend execution, UI structure, and design exploration without client or business constraints.
                 </p>
               </div>
