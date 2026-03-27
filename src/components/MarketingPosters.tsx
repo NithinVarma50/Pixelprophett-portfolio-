@@ -296,7 +296,7 @@ export default function MarketingPosters() {
             {/* Navigation Controls */}
             <button
               onClick={scrollPrev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white backdrop-blur-md hover:bg-black hover:scale-110 transition-all z-10"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white backdrop-blur-md hover:bg-black hover:scale-110 transition-all z-10"
               aria-label="Previous poster"
             >
               <ChevronLeft className="w-6 h-6" />
