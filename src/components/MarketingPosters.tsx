@@ -31,6 +31,9 @@ import hackathonGloriousPurpose from "@/assets/posters/hackathon-glorious-purpos
 import hackathonDreamBigOrange from "@/assets/posters/hackathon-dream-big-orange.png";
 import ignitionCommunityPoster from "@/assets/posters/ignition-community-poster.png";
 import aiMarketingPlaybook from "@/assets/posters/ai-marketing-playbook.png";
+import ignitionBuildOpportunity from "@/assets/posters/ignition-build-opportunity.png";
+import ignitionCofounders from "@/assets/posters/ignition-cofounders.png";
+import claudeCodeLeaked from "@/assets/posters/claude-code-leaked.png";
 
 interface Poster {
   id: number;
@@ -222,6 +225,27 @@ const posters: Poster[] = [
     title: "AI Marketing Playbook",
     description: "IgnitePedia Drop 2026 — AI Marketing Playbook. Built for builders who want attention. From invisible to distributed.",
     color: "bg-red-600/10 text-red-600"
+  },
+  {
+    id: 27,
+    src: ignitionBuildOpportunity,
+    title: "Build Opportunity",
+    description: "Don't wait for opportunity. Build it — with people who are doing the same. Ignition in AI Era.",
+    color: "bg-orange-600/10 text-orange-600"
+  },
+  {
+    id: 28,
+    src: ignitionCofounders,
+    title: "Find Your Co-Founders",
+    description: "Ignition in AI Era — 3000+ builders. Find your co-founders and build together.",
+    color: "bg-amber-500/10 text-amber-500"
+  },
+  {
+    id: 29,
+    src: claudeCodeLeaked,
+    title: "Claude Code Leaked",
+    description: "Massive AI leak — 512,000+ lines of Anthropic's Claude Code system source code exposed. Read on IgnitePedia.",
+    color: "bg-fuchsia-500/10 text-fuchsia-500"
   }
 ];
 export default function MarketingPosters() {
