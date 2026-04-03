@@ -31,6 +31,9 @@ import hackathonGloriousPurpose from "@/assets/posters/hackathon-glorious-purpos
 import hackathonDreamBigOrange from "@/assets/posters/hackathon-dream-big-orange.png";
 import ignitionCommunityPoster from "@/assets/posters/ignition-community-poster.png";
 import aiMarketingPlaybook from "@/assets/posters/ai-marketing-playbook.png";
+import ignitionBuildOpportunity from "@/assets/posters/ignition-build-opportunity.png";
+import ignitionCofounders from "@/assets/posters/ignition-cofounders.png";
+import claudeCodeLeaked from "@/assets/posters/claude-code-leaked.png";
 
 interface Poster {
   id: number;
