@@ -34,6 +34,7 @@ import aiMarketingPlaybook from "@/assets/posters/ai-marketing-playbook.png";
 import ignitionBuildOpportunity from "@/assets/posters/ignition-build-opportunity.png";
 import ignitionCofounders from "@/assets/posters/ignition-cofounders.png";
 import claudeCodeLeaked from "@/assets/posters/claude-code-leaked.png";
+import openaiDistribution from "@/assets/posters/openai-distribution-tbpn.png";
 
 interface Poster {
   id: number;
@@ -246,6 +247,13 @@ const posters: Poster[] = [
     title: "Claude Code Leaked",
     description: "Massive AI leak — 512,000+ lines of Anthropic's Claude Code system source code exposed. Read on IgnitePedia.",
     color: "bg-fuchsia-500/10 text-fuchsia-500"
+  },
+  {
+    id: 30,
+    src: openaiDistribution,
+    title: "Why OpenAI Bet on Distribution",
+    description: "IgnitePedia presents — The TBPN Case Study. Breaking down why OpenAI acquired The Big Picture Network and why distribution matters more than ever.",
+    color: "bg-emerald-600/10 text-emerald-600"
   }
 ];
 export default function MarketingPosters() {
