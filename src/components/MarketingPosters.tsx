@@ -34,6 +34,7 @@ import aiMarketingPlaybook from "@/assets/posters/ai-marketing-playbook.png";
 import ignitionBuildOpportunity from "@/assets/posters/ignition-build-opportunity.png";
 import ignitionCofounders from "@/assets/posters/ignition-cofounders.png";
 import claudeCodeLeaked from "@/assets/posters/claude-code-leaked.png";
+import openaiDistribution from "@/assets/posters/openai-distribution-tbpn.png";
 
 interface Poster {
   id: number;
