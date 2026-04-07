@@ -20,6 +20,7 @@ import PXPLab from "@/components/PXPLab";
 import Community from "@/components/Community";
 import Hackathon from "@/components/Hackathon";
 import GameShowcase from "@/components/GameShowcase";
+import SpankUrLaptop from "@/components/SpankUrLaptop";
 import Achievements from "@/components/Achievements";
 import Conclusion from "@/components/Conclusion";
 
@@ -144,6 +145,7 @@ const Index = () => {
       <Community />
       <Hackathon />
       <GameShowcase />
+      <SpankUrLaptop />
       <Achievements />
       <Conclusion />
 
