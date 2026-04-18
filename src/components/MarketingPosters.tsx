@@ -35,6 +35,8 @@ import ignitionBuildOpportunity from "@/assets/posters/ignition-build-opportunit
 import ignitionCofounders from "@/assets/posters/ignition-cofounders.png";
 import claudeCodeLeaked from "@/assets/posters/claude-code-leaked.png";
 import openaiDistribution from "@/assets/posters/openai-distribution-tbpn.png";
+import ignite1Percent from "@/assets/posters/ignite-1-percent.png";
+import stayBuildingTwin from "@/assets/posters/stay-building-twin.png";
 
 interface Poster {
   id: number;
@@ -254,6 +256,20 @@ const posters: Poster[] = [
     title: "Why OpenAI Bet on Distribution",
     description: "IgnitePedia presents — The TBPN Case Study. Breaking down why OpenAI acquired The Big Picture Network and why distribution matters more than ever.",
     color: "bg-emerald-600/10 text-emerald-600"
+  },
+  {
+    id: 31,
+    src: ignite1Percent,
+    title: "Ignite 1% — Not Everyone Gets In",
+    description: "Ignite 1% is a curated tier inside Ignition in AI Era. Apply for free, we review your profile, and only pay ₹67 if selected. Limited to 100 members. Apply at forms.gle/oh1SmxnBWpYVaPcKA.",
+    color: "bg-blue-500/10 text-blue-500"
+  },
+  {
+    id: 32,
+    src: stayBuildingTwin,
+    title: "Stay Building, Twin",
+    description: "Ignition in AI Era — a reminder to keep shipping. Stay building, twin. The era belongs to those who don't stop.",
+    color: "bg-zinc-400/10 text-zinc-400"
   }
 ];
 export default function MarketingPosters() {
