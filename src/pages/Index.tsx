@@ -16,6 +16,7 @@ import QuickFix from "@/components/QuickFix";
 import QuickFixAnalysis from "@/components/QuickFixAnalysis";
 import FreelanceProject from "@/components/FreelanceProject";
 import Standard from "@/components/Standard";
+import OrbisLaunchpad from "@/components/OrbisLaunchpad";
 import PXPLab from "@/components/PXPLab";
 import Community from "@/components/Community";
 import Hackathon from "@/components/Hackathon";
@@ -137,15 +138,16 @@ const Index = () => {
       <Projects />
       <Crunchd />
       <Standard />
+      <OrbisLaunchpad />
       <Athena />
       <QuickFix />
       <QuickFixAnalysis />
       <FreelanceProject />
       <PXPLab />
-      <Community />
-      <Hackathon />
       <GameShowcase />
       <SpankUrLaptop />
+      <Community />
+      <Hackathon />
       <Achievements />
       <Conclusion />
 
