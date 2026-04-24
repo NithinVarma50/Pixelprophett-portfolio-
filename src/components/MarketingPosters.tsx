@@ -37,6 +37,9 @@ import claudeCodeLeaked from "@/assets/posters/claude-code-leaked.png";
 import openaiDistribution from "@/assets/posters/openai-distribution-tbpn.png";
 import ignite1Percent from "@/assets/posters/ignite-1-percent.png";
 import stayBuildingTwin from "@/assets/posters/stay-building-twin.png";
+import beAddictedBuilding from "@/assets/posters/be-addicted-building.png";
+import claudeMythos from "@/assets/posters/claude-mythos.jpg";
+import igniteCreativeNotLinear from "@/assets/posters/ignite-creative-not-linear.jpg";
 
 interface Poster {
   id: number;
@@ -270,6 +273,27 @@ const posters: Poster[] = [
     title: "Stay Building, Twin",
     description: "Ignition in AI Era — a reminder to keep shipping. Stay building, twin. The era belongs to those who don't stop.",
     color: "bg-zinc-400/10 text-zinc-400"
+  },
+  {
+    id: 33,
+    src: beAddictedBuilding,
+    title: "Be Addicted to Building Your Future",
+    description: "Join IGNITE 1% by Ignition in AI Era — a curated circle for builders, creators & future leaders. High-value networking, real opportunities, exclusive resources & meaningful collaborations. Not a group. A movement.",
+    color: "bg-amber-400/10 text-amber-400"
+  },
+  {
+    id: 34,
+    src: claudeMythos,
+    title: "Claude Mythos: The Quiet AI Giant",
+    description: "Ignitepedia Drop — a premium research document exploring why Anthropic & Claude are suddenly everywhere. The model they don't want you to try. The future isn't public. Yet.",
+    color: "bg-red-600/10 text-red-500"
+  },
+  {
+    id: 35,
+    src: igniteCreativeNotLinear,
+    title: "Ignite 1% — The Creative Isn't Linear",
+    description: "Not for everyone. For the ones who actually want to build. Learn. Build. Connect. Ignite.",
+    color: "bg-orange-500/10 text-orange-500"
   }
 ];
 export default function MarketingPosters() {
