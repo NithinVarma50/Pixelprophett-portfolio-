@@ -40,6 +40,8 @@ import stayBuildingTwin from "@/assets/posters/stay-building-twin.png";
 import beAddictedBuilding from "@/assets/posters/be-addicted-building.png";
 import claudeMythos from "@/assets/posters/claude-mythos.jpg";
 import igniteCreativeNotLinear from "@/assets/posters/ignite-creative-not-linear.jpg";
+import aiBubbleOrShift from "@/assets/posters/ai-bubble-or-shift.png";
+import ignitepediaZine from "@/assets/posters/ignitepedia-zine.png";
 
 interface Poster {
   id: number;
@@ -294,6 +296,20 @@ const posters: Poster[] = [
     title: "Ignite 1% — The Creative Isn't Linear",
     description: "Not for everyone. For the ones who actually want to build. Learn. Build. Connect. Ignite.",
     color: "bg-orange-500/10 text-orange-500"
+  },
+  {
+    id: 36,
+    src: aiBubbleOrShift,
+    title: "AI Bubble or Biggest Shift Since the Internet?",
+    description: "Ignitepedia Drop — a data-backed, balanced deep dive into AI: the hype, the numbers, the reality, and what it means for you. 15+ sections, real data from top global reports, balanced bubble vs revolution signals, and actionable takeaways for builders & learners.",
+    color: "bg-orange-600/10 text-orange-500"
+  },
+  {
+    id: 37,
+    src: ignitepediaZine,
+    title: "Ignitepedia — Explore. Learn. Ignite.",
+    description: "AI research papers, playbooks & startup guides — 100% free for everyone. The Ignition in AI Era zine, hand-lettered on neon pages, made for builders who actually read.",
+    color: "bg-lime-400/10 text-lime-400"
   }
 ];
 export default function MarketingPosters() {
