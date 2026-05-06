@@ -42,6 +42,10 @@ import claudeMythos from "@/assets/posters/claude-mythos.jpg";
 import igniteCreativeNotLinear from "@/assets/posters/ignite-creative-not-linear.jpg";
 import aiBubbleOrShift from "@/assets/posters/ai-bubble-or-shift.png";
 import ignitepediaZine from "@/assets/posters/ignitepedia-zine.png";
+import aiVault from "@/assets/posters/ai-vault.png";
+import joinIgnite1Percent from "@/assets/posters/join-ignite-1-percent.png";
+import igniteYourFuture from "@/assets/posters/ignite-your-future.png";
+import bePartOf1Percent from "@/assets/posters/be-part-of-1-percent.png";
 
 interface Poster {
   id: number;
@@ -310,6 +314,34 @@ const posters: Poster[] = [
     title: "Ignitepedia — Explore. Learn. Ignite.",
     description: "AI research papers, playbooks & startup guides — 100% free for everyone. The Ignition in AI Era zine, hand-lettered on neon pages, made for builders who actually read.",
     color: "bg-lime-400/10 text-lime-400"
+  },
+  {
+    id: 38,
+    src: aiVault,
+    title: "AI Vault — Just Dropped",
+    description: "Your ultimate AI resource vault. 30+ free AI tools, prompt engineering pack, premium website design prompts, GitHub goldmine, 1000+ n8n workflows, Claude skills packs, AntiGravity skill pack, curated learning resources, and founder shortcuts. ₹199 — one-time access, lifetime value.",
+    color: "bg-sky-500/10 text-sky-400"
+  },
+  {
+    id: 39,
+    src: joinIgnite1Percent,
+    title: "Join Ignite 1%",
+    description: "Most groups go silent after you join. Inside Ignite 1%, members are already discussing startups, open-source, AI tools, and collaborations. We didn't build a group — we built momentum. Cohort 1 closes soon. Apply at forms.gle/oh1SmxnBWpYVaPcKA.",
+    color: "bg-blue-600/10 text-blue-500"
+  },
+  {
+    id: 40,
+    src: igniteYourFuture,
+    title: "Ignite Your Future in the AI Era",
+    description: "Ignition in AI Era — Learn. Build. Connect. Grow. Together. Knowledge resources, strong community, build & innovate, grow your future, and exclusive opportunities.",
+    color: "bg-orange-500/10 text-orange-500"
+  },
+  {
+    id: 41,
+    src: bePartOf1Percent,
+    title: "Ignite 1% — Be Part of the 1%",
+    description: "A curated circle of builders, creators, and founders driven to create impact and shape the future. Exclusive community, premium resources, networking & collaborations, growth & opportunities. Ignite 1% access — ₹112. Ignite 1% + AI Vault Pack — ₹199. Only 9 slots left.",
+    color: "bg-zinc-500/10 text-zinc-300"
   }
 ];
 export default function MarketingPosters() {
