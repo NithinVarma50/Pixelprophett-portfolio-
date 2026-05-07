@@ -46,6 +46,7 @@ import aiVault from "@/assets/posters/ai-vault.png";
 import joinIgnite1Percent from "@/assets/posters/join-ignite-1-percent.png";
 import igniteYourFuture from "@/assets/posters/ignite-your-future.png";
 import bePartOf1Percent from "@/assets/posters/be-part-of-1-percent.png";
+import gamingBiggestIndustry from "@/assets/posters/gaming-biggest-industry.png";
 
 interface Poster {
   id: number;
@@ -342,6 +343,13 @@ const posters: Poster[] = [
     title: "Ignite 1% — Be Part of the 1%",
     description: "A curated circle of builders, creators, and founders driven to create impact and shape the future. Exclusive community, premium resources, networking & collaborations, growth & opportunities. Ignite 1% access — ₹112. Ignite 1% + AI Vault Pack — ₹199. Only 9 slots left.",
     color: "bg-zinc-500/10 text-zinc-300"
+  },
+  {
+    id: 42,
+    src: gamingBiggestIndustry,
+    title: "Gaming Is Quietly Becoming One of the Biggest Industries on Earth",
+    description: "Ignitepedia New Drop — a deep research document uncovering how gaming is reshaping economies, culture, technology & the future. Global market insights, platform shift analysis, opportunities for builders, India's rise & future outlook, and trends & data 2026–2035. Free for everyone. Knowledge that builds.",
+    color: "bg-blue-500/10 text-blue-400"
   }
 ];
 export default function MarketingPosters() {
