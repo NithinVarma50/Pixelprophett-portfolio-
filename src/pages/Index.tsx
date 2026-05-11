@@ -9,7 +9,6 @@ import { initMobileOptimizations } from "@/lib/mobile-optimization";
 import About from "@/components/About";
 import MarketingPosters from "@/components/MarketingPosters";
 import Crunchd from "@/components/Crunchd";
-import Athena from "@/components/Athena";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import QuickFix from "@/components/QuickFix";
@@ -139,7 +138,6 @@ const Index = () => {
       <Crunchd />
       <Standard />
       <OrbisLaunchpad />
-      <Athena />
       <QuickFix />
       <QuickFixAnalysis />
       <FreelanceProject />
