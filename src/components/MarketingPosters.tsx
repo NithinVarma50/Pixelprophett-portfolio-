@@ -47,6 +47,10 @@ import joinIgnite1Percent from "@/assets/posters/join-ignite-1-percent.png";
 import igniteYourFuture from "@/assets/posters/ignite-your-future.png";
 import bePartOf1Percent from "@/assets/posters/be-part-of-1-percent.png";
 import gamingBiggestIndustry from "@/assets/posters/gaming-biggest-industry.png";
+import igniteTheFutureBuilder from "@/assets/posters/ignite-the-future-builder.png";
+import ignitepedia12ResearchDrops from "@/assets/posters/ignitepedia-12-research-drops.jpg";
+import bestValueForBuilders from "@/assets/posters/best-value-for-builders.png";
+import agentBossPlaybook from "@/assets/posters/agent-boss-playbook.png";
 
 interface Poster {
   id: number;
@@ -350,6 +354,34 @@ const posters: Poster[] = [
     title: "Gaming Is Quietly Becoming One of the Biggest Industries on Earth",
     description: "Ignitepedia New Drop — a deep research document uncovering how gaming is reshaping economies, culture, technology & the future. Global market insights, platform shift analysis, opportunities for builders, India's rise & future outlook, and trends & data 2026–2035. Free for everyone. Knowledge that builds.",
     color: "bg-blue-500/10 text-blue-400"
+  },
+  {
+    id: 43,
+    src: igniteTheFutureBuilder,
+    title: "Ignite the Future — A Builder Ecosystem",
+    description: "Ignition in AI Era — Build. Learn. Connect. Ignitepedia research drops, AI Vault tools & resources, Agent Boss playbooks & systems, Ignition Arena hackathons, Ignite 1% private builder circle, and a community to collaborate & grow. Be part of the movement. Be part of the future.",
+    color: "bg-red-600/10 text-red-500"
+  },
+  {
+    id: 44,
+    src: ignitepedia12ResearchDrops,
+    title: "12+ Research Drops — All for Free",
+    description: "A growing open research ecosystem for builders, founders, creators, students & future-focused minds. AI research papers, market analysis, AI workflow systems, prompt engineering, case studies, startup playbooks, agentic AI deep-dives, gaming industry analysis & productivity frameworks. Real research. Raw insights. Zero paywalls.",
+    color: "bg-red-500/10 text-red-400"
+  },
+  {
+    id: 45,
+    src: bestValueForBuilders,
+    title: "The Best Value for Builders",
+    description: "Two systems. One unfair advantage. AI Vault + The Agent Boss Playbook — buy both & get 20% off. ₹239 (was ₹298), one-time payment, lifetime access. Bonus guide: The Complete AI Builder Operating System — how to use both as one unified AI-native workflow.",
+    color: "bg-stone-400/10 text-stone-300"
+  },
+  {
+    id: 46,
+    src: agentBossPlaybook,
+    title: "How Top 1% Builders Actually Use AI",
+    description: "Ignitepedia Exclusive — The Agent Boss Playbook. A leaked operating manual for the AI-native era. Agent Boss framework, Pokémon trainer analogy, AI team structures, multi-agent workflows. ₹99 one-time access, lifetime value. Not a beginner guide. Not a top-10 prompts list. This is how the top 1% actually operate.",
+    color: "bg-lime-500/10 text-lime-400"
   }
 ];
 export default function MarketingPosters() {
