@@ -51,6 +51,8 @@ import igniteTheFutureBuilder from "@/assets/posters/ignite-the-future-builder.p
 import ignitepedia12ResearchDrops from "@/assets/posters/ignitepedia-12-research-drops.jpg";
 import bestValueForBuilders from "@/assets/posters/best-value-for-builders.png";
 import agentBossPlaybook from "@/assets/posters/agent-boss-playbook.png";
+import learnConnectBuildTogether from "@/assets/posters/learn-connect-build-together.png";
+import learnFutureIgnitepedia from "@/assets/posters/learn-future-ignitepedia.png";
 
 interface Poster {
   id: number;
@@ -382,6 +384,20 @@ const posters: Poster[] = [
     title: "How Top 1% Builders Actually Use AI",
     description: "Ignitepedia Exclusive — The Agent Boss Playbook. A leaked operating manual for the AI-native era. Agent Boss framework, Pokémon trainer analogy, AI team structures, multi-agent workflows. ₹99 one-time access, lifetime value. Not a beginner guide. Not a top-10 prompts list. This is how the top 1% actually operate.",
     color: "bg-lime-500/10 text-lime-400"
+  },
+  {
+    id: 47,
+    src: learnConnectBuildTogether,
+    title: "Learn, Connect & Build Together",
+    description: "The more you learn, connect & build together, the more you grow together. Why join Ignition in AI Era — future-focused research drops, exclusive premium resources, private builder community, hackathons & build events, AI tools, workflows & automations, network with builders & founders, discussions that actually matter, learn, collaborate & build together. Join the ecosystem. Build the future.",
+    color: "bg-lime-400/10 text-lime-300"
+  },
+  {
+    id: 48,
+    src: learnFutureIgnitepedia,
+    title: "You Can Learn the Future — But Not Without Signal",
+    description: "Welcome to Ignitepedia — built for builders, founders, developers, creators & curious minds trying to understand where AI, technology, startups, and the internet are heading next. Ignitepedia (Free): deep research drops on AI shifts, future tech, gaming, internet culture, startup opportunities, creator economy. Ignitepedia Exclusive: AI Vault & The Agent Boss Playbook. Most people casually use AI. Builders learn how to leverage it.",
+    color: "bg-orange-500/10 text-orange-400"
   }
 ];
 export default function MarketingPosters() {
