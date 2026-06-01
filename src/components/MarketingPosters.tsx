@@ -53,6 +53,7 @@ import bestValueForBuilders from "@/assets/posters/best-value-for-builders.png";
 import agentBossPlaybook from "@/assets/posters/agent-boss-playbook.png";
 import learnConnectBuildTogether from "@/assets/posters/learn-connect-build-together.png";
 import learnFutureIgnitepedia from "@/assets/posters/learn-future-ignitepedia.png";
+import ignitepediaInternetAgentic from "@/assets/posters/ignitepedia-internet-agentic.png";
 
 interface Poster {
   id: number;
@@ -398,6 +399,13 @@ const posters: Poster[] = [
     title: "You Can Learn the Future — But Not Without Signal",
     description: "Welcome to Ignitepedia — built for builders, founders, developers, creators & curious minds trying to understand where AI, technology, startups, and the internet are heading next. Ignitepedia (Free): deep research drops on AI shifts, future tech, gaming, internet culture, startup opportunities, creator economy. Ignitepedia Exclusive: AI Vault & The Agent Boss Playbook. Most people casually use AI. Builders learn how to leverage it.",
     color: "bg-orange-500/10 text-orange-400"
+  },
+  {
+    id: 49,
+    src: ignitepediaInternetAgentic,
+    title: "The Internet Is Quietly Becoming Agentic",
+    description: "Ignitepedia Featured Document — How AI Agents May Become the Next Users of the Internet. A deep dive into the next evolution of the internet. Research. Insights. Opportunities. The future belongs to builders.",
+    color: "bg-red-600/10 text-red-500"
   }
 ];
 export default function MarketingPosters() {
