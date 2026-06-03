@@ -54,6 +54,7 @@ import agentBossPlaybook from "@/assets/posters/agent-boss-playbook.png";
 import learnConnectBuildTogether from "@/assets/posters/learn-connect-build-together.png";
 import learnFutureIgnitepedia from "@/assets/posters/learn-future-ignitepedia.png";
 import ignitepediaInternetAgentic from "@/assets/posters/ignitepedia-internet-agentic.png";
+import howToBuildStartupAiEra from "@/assets/posters/how-to-build-startup-ai-era.jpg";
 
 interface Poster {
   id: number;
@@ -405,6 +406,13 @@ const posters: Poster[] = [
     src: ignitepediaInternetAgentic,
     title: "The Internet Is Quietly Becoming Agentic",
     description: "Ignitepedia Featured Document — How AI Agents May Become the Next Users of the Internet. A deep dive into the next evolution of the internet. Research. Insights. Opportunities. The future belongs to builders.",
+    color: "bg-red-600/10 text-red-500"
+  },
+  {
+    id: 50,
+    src: howToBuildStartupAiEra,
+    title: "How to Build a Startup in the AI Era",
+    description: "Announcing a new community event — June 14, 2026. From Idea → MVP → Customers → Growth. The startup playbook is changing: AI enables builders to validate ideas faster, build MVPs quicker, reach customers more efficiently, and scale with resources once reserved for large teams. Designed for Students, Builders, Aspiring Founders, Developers, Creators & AI Enthusiasts. Expect hands-on AI workshops, expert & founder sessions, startup building frameworks, networking, certificates & AI platform benefits. Organized by Ignition in AI Era × Student Tech, in collaboration with Wasabi AI × Marketing Rizz. More details and registrations coming soon — ignitioninaiera.space",
     color: "bg-red-600/10 text-red-500"
   }
 ];
