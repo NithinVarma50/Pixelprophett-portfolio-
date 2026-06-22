@@ -1,5 +1,5 @@
 import { TiltedCard } from "./ui/tilted-card";
-import profilePhoto from "@/assets/nithin-varma.jpg.asset.json";
+import profilePhoto from "@/assets/profile.jpg";
 
 export default function PersonalCard() {
   const overlayContent = (
@@ -18,7 +18,7 @@ export default function PersonalCard() {
   return (
     <div className="flex justify-center items-center">
       <TiltedCard
-        imageSrc={profilePhoto.url}
+        imageSrc={profilePhoto}
         altText="Nithin Varma"
         captionText="Nithin Varma - Polymath & Innovator"
         containerHeight="350px"
