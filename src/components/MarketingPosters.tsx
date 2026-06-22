@@ -55,6 +55,13 @@ import learnConnectBuildTogether from "@/assets/posters/learn-connect-build-toge
 import learnFutureIgnitepedia from "@/assets/posters/learn-future-ignitepedia.png";
 import ignitepediaInternetAgentic from "@/assets/posters/ignitepedia-internet-agentic.png";
 import howToBuildStartupAiEra from "@/assets/posters/how-to-build-startup-ai-era.jpg";
+import whyStartupsBuilderProgram from "@/assets/posters/why-startups-builder-program.jpg";
+import readyToBuildFutureChair from "@/assets/posters/ready-to-build-future-chair.jpg";
+import buildLaunchStartupsLocker from "@/assets/posters/build-launch-startups-locker.jpg";
+import buildLaunchStartupsWithAi from "@/assets/posters/build-launch-startups-with-ai.jpg";
+import registrations615Celebration from "@/assets/posters/registrations-615-celebration.jpg";
+import ignite1PercentSiliconValley from "@/assets/posters/ignite-1-percent-silicon-valley.jpg";
+import ignitepediaUltimateBuilderResource from "@/assets/posters/ignitepedia-ultimate-builder-resource.jpg";
 
 interface Poster {
   id: number;
@@ -414,6 +421,55 @@ const posters: Poster[] = [
     title: "How to Build a Startup in the AI Era",
     description: "Announcing a new community event — June 14, 2026. From Idea → MVP → Customers → Growth. The startup playbook is changing: AI enables builders to validate ideas faster, build MVPs quicker, reach customers more efficiently, and scale with resources once reserved for large teams. Designed for Students, Builders, Aspiring Founders, Developers, Creators & AI Enthusiasts. Expect hands-on AI workshops, expert & founder sessions, startup building frameworks, networking, certificates & AI platform benefits. Organized by Ignition in AI Era × Student Tech, in collaboration with Wasabi AI × Marketing Rizz. More details and registrations coming soon — ignitioninaiera.space",
     color: "bg-red-600/10 text-red-500"
+  },
+  {
+    id: 51,
+    src: whyStartupsBuilderProgram,
+    title: "Why Startups? Your Journey Starts Here",
+    description: "Build & Launch — FREE 4-Sunday Builder Program. 14 June → 05 July 2026. Learn → Build → Launch → Pitch → Win. Get Manus AI credits, premium AI resources, hands-on workshops, startup frameworks, certificate of participation & startup showcase. Top performers get into Ignite 1%. Organized by Ignitepedia, Wasabi AI & Manus AI. Community partners: NxtGenSec, Student Tech & Careers. Register: luma.com/owvaawyf · blsa.vercel.app",
+    color: "bg-red-600/10 text-red-500"
+  },
+  {
+    id: 52,
+    src: readyToBuildFutureChair,
+    title: "Ready to Build Your Future?",
+    description: "Build & Launch Startups in the Age of AI. 4-weekend program starting Sunday June 14 — registrations close June 13. Only a few days left! 100% Free · Premium Resources · Certificate. Top performers get Ignite 1% entry. Register: luma.com/owvaawyf",
+    color: "bg-blue-500/10 text-blue-400"
+  },
+  {
+    id: 53,
+    src: buildLaunchStartupsLocker,
+    title: "Build & Launch Startups in the Age of AI",
+    description: "4-Week Builder Program. Schedule: 14 June — Idea → MVP, 21 June — Marketing, Content & Growth, 28 June — Fundraising & Startup Readiness, 05 July — Startup Finals. What you'll get: Manus AI credits, premium AI resources & tools, workshops & hands-on learning, startup frameworks & templates, certificate of participation, startup showcase opportunity. Top performers may receive an invitation to Ignite 1% — a curated community of ambitious builders & founders. Who can join: students, developers, creators, designers, AI enthusiasts & aspiring founders. Organisers: Ignitepedia (by Ignition in AI Era), Wasabi AI, Manus AI. Partners: Student Hub, Student Tech and Career, NxtGenSec. Register: luma.com/owvaawyf",
+    color: "bg-blue-600/10 text-blue-400"
+  },
+  {
+    id: 54,
+    src: buildLaunchStartupsWithAi,
+    title: "Build & Launch Startups With AI",
+    description: "Ignitepedia (by Ignition in AI Era) × Wasabi AI × Manus AI presents — Idea to Impact. Build the Future. Organized by Ignitepedia × Wasabi AI × Manus AI. Community Partners: Student Hub × Student Tech & Career × NxtGenSec × Legion. Media Partner: AI Startup Impact. What you'll get: Manus AI Subscription Credits (for selected participants), premium AI resources & startup tools, hands-on workshops, startup frameworks & templates, certificate of participation, startup showcase opportunities, access to a growing builder ecosystem, find co-founders, teammates & collaborators, top performers may receive entry into Ignite 1%. Schedule: 14 June — Idea→MVP · 21 June — Marketing, Content & Growth · 28 June — Fundraising & Startup Readiness · 05 July — Startup Finals. 100% Online · Completely Free. Register: luma.com/owvaawyf",
+    color: "bg-blue-700/10 text-blue-500"
+  },
+  {
+    id: 55,
+    src: registrations615Celebration,
+    title: "615+ Registrations — Thank You, Builders",
+    description: "Build & Launch Startups With AI is a 4-Sunday online program designed to help you turn ideas into real startups. Learn. Build. Launch. Pitch. Win. We're excited to celebrate 615+ registrations. Thank you to every builder who took the first step. Your energy, ideas & passion are what make this journey special. Let's build, learn & launch together.",
+    color: "bg-red-500/10 text-red-500"
+  },
+  {
+    id: 56,
+    src: ignite1PercentSiliconValley,
+    title: "Ignite 1% — Your Silicon Valley in Your Pocket",
+    description: "Handpicked. High Impact. Top 1%. Ignite 1% by Ignition in AI Era. Top People · Real Connections · Bigger Impact. Build · Learn · Launch · Scale. Elite community of builders & founders, exclusive opportunities & early access, collaborate · grow · level up, be among the top 1% who make it happen. Spots are limited. Selection is intentional. Apply now: forms.gle/QQA8vx1j5wprjy4T7",
+    color: "bg-orange-600/10 text-orange-500"
+  },
+  {
+    id: 57,
+    src: ignitepediaUltimateBuilderResource,
+    title: "Ignitepedia Exclusive — The Ultimate Builder's Resource Pack",
+    description: "The complete operating system for builders who want to design better products, ship faster, and earn real money from what they build — with AI as the primary tool. 14 Resources (curated & verified June 2026) · 2 Parts (Toolkit + Monetization Playbook) · 40+ Links (GitHub, OSS, tools, platforms) · 1 Goal (Build great things. Earn from them.). Includes The AI Website Selling Playbook — how to earn 10,000–50,000/month selling AI-built websites to local businesses. Published June 2026 · Ignition in the AI Era · ignitioninaiera.space",
+    color: "bg-yellow-400/10 text-yellow-300"
   }
 ];
 export default function MarketingPosters() {
