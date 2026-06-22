@@ -18,7 +18,7 @@ export default function PersonalCard() {
   return (
     <div className="flex justify-center items-center">
       <TiltedCard
-        imageSrc={profilePhoto}
+        imageSrc={profilePhoto.url}
         altText="Nithin Varma"
         captionText="Nithin Varma - Polymath & Innovator"
         containerHeight="350px"
