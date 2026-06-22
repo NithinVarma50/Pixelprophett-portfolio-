@@ -1,5 +1,3 @@
-
-import nithinPhoto from "@/assets/nithin-varma.jpg.asset.json";
 import { motion } from "framer-motion";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
