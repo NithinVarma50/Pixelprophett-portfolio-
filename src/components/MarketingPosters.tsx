@@ -73,6 +73,7 @@ const virtualSharkTank = virtualSharkTankAsset.url;
 const sunday3Fundraising = sunday3FundraisingAsset.url;
 const sunday3WasabiAic = sunday3WasabiAicAsset.url;
 const finalTwoSundaysGrand = finalTwoSundaysGrandAsset.url;
+const incubationFundraisingStartupReadiness = incubationFundraisingStartupReadinessAsset.url;
 
 interface Poster {
   id: number;
