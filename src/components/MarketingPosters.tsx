@@ -67,11 +67,13 @@ import virtualSharkTankAsset from "@/assets/posters/virtual-shark-tank.png.asset
 import sunday3FundraisingAsset from "@/assets/posters/sunday3-fundraising.png.asset.json";
 import sunday3WasabiAicAsset from "@/assets/posters/sunday3-wasabi-aic.png.asset.json";
 import finalTwoSundaysGrandAsset from "@/assets/posters/final-two-sundays-grand.png.asset.json";
+import incubationFundraisingStartupReadinessAsset from "@/assets/posters/incubation-fundraising-startup-readiness.png.asset.json";
 const ignite1PercentZine = ignite1PercentZineAsset.url;
 const virtualSharkTank = virtualSharkTankAsset.url;
 const sunday3Fundraising = sunday3FundraisingAsset.url;
 const sunday3WasabiAic = sunday3WasabiAicAsset.url;
 const finalTwoSundaysGrand = finalTwoSundaysGrandAsset.url;
+const incubationFundraisingStartupReadiness = incubationFundraisingStartupReadinessAsset.url;
 
 interface Poster {
   id: number;
@@ -515,6 +517,13 @@ const posters: Poster[] = [
     title: "The Final Two Sundays Are Going to Be GRAND",
     description: "Build and Launch Startups with AI. Learn Faster — practical AI frameworks to accelerate your learning. Build Smarter — real products and MVPs using AI workflows. Launch Stronger — go from idea to launch with proven strategies and playbooks. Think Bigger — explore opportunities and stay ahead of the curve. Join us this Sunday. Register: luma.com/owvaawyf",
     color: "bg-red-500/10 text-red-400"
+  },
+  {
+    id: 63,
+    src: incubationFundraisingStartupReadiness,
+    title: "Incubation, Fundraising & Startup Readiness",
+    description: "Sunday, June 28, 2026 · 10:30 AM. A power-packed session with ATAL Incubation Centre — GGSIPU to help you understand incubation, fundraising strategies, and pitch preparation from industry experts. Learn. Prepare. Raise. Grow. Brought to you by Ignitepedia × Wasabi AI × Manus. Free registration at luma.com/owvaawyf.",
+    color: "bg-yellow-500/10 text-yellow-400"
   }
 ];
 export default function MarketingPosters() {
