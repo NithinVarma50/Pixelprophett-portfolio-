@@ -67,6 +67,7 @@ import virtualSharkTankAsset from "@/assets/posters/virtual-shark-tank.png.asset
 import sunday3FundraisingAsset from "@/assets/posters/sunday3-fundraising.png.asset.json";
 import sunday3WasabiAicAsset from "@/assets/posters/sunday3-wasabi-aic.png.asset.json";
 import finalTwoSundaysGrandAsset from "@/assets/posters/final-two-sundays-grand.png.asset.json";
+import incubationFundraisingStartupReadinessAsset from "@/assets/posters/incubation-fundraising-startup-readiness.png.asset.json";
 const ignite1PercentZine = ignite1PercentZineAsset.url;
 const virtualSharkTank = virtualSharkTankAsset.url;
 const sunday3Fundraising = sunday3FundraisingAsset.url;
