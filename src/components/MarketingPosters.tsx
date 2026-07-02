@@ -62,6 +62,16 @@ import buildLaunchStartupsWithAi from "@/assets/posters/build-launch-startups-wi
 import registrations615Celebration from "@/assets/posters/registrations-615-celebration.jpg";
 import ignite1PercentSiliconValley from "@/assets/posters/ignite-1-percent-silicon-valley.jpg";
 import ignitepediaUltimateBuilderResource from "@/assets/posters/ignitepedia-ultimate-builder-resource.jpg";
+import ignite1PercentZineAsset from "@/assets/posters/ignite-1percent-zine.png.asset.json";
+import virtualSharkTankAsset from "@/assets/posters/virtual-shark-tank.png.asset.json";
+import sunday3FundraisingAsset from "@/assets/posters/sunday3-fundraising.png.asset.json";
+import sunday3WasabiAicAsset from "@/assets/posters/sunday3-wasabi-aic.png.asset.json";
+import finalTwoSundaysGrandAsset from "@/assets/posters/final-two-sundays-grand.png.asset.json";
+const ignite1PercentZine = ignite1PercentZineAsset.url;
+const virtualSharkTank = virtualSharkTankAsset.url;
+const sunday3Fundraising = sunday3FundraisingAsset.url;
+const sunday3WasabiAic = sunday3WasabiAicAsset.url;
+const finalTwoSundaysGrand = finalTwoSundaysGrandAsset.url;
 
 interface Poster {
   id: number;
@@ -470,6 +480,41 @@ const posters: Poster[] = [
     title: "Ignitepedia Exclusive — The Ultimate Builder's Resource Pack",
     description: "The complete operating system for builders who want to design better products, ship faster, and earn real money from what they build — with AI as the primary tool. 14 Resources (curated & verified June 2026) · 2 Parts (Toolkit + Monetization Playbook) · 40+ Links (GitHub, OSS, tools, platforms) · 1 Goal (Build great things. Earn from them.). Includes The AI Website Selling Playbook — how to earn 10,000–50,000/month selling AI-built websites to local businesses. Published June 2026 · Ignition in the AI Era · ignitioninaiera.space",
     color: "bg-yellow-400/10 text-yellow-300"
+  },
+  {
+    id: 58,
+    src: ignite1PercentZine,
+    title: "Ignite 1% — Built for Builders",
+    description: "The top 1% don't wait for opportunities, they build them. A hand-drawn zine-style manifesto for Ignite 1% by Ignition in AI Era. Surround yourself with builders, not watchers. Join a curated community of ambitious builders — collaborate, learn, build, turn ideas into startups. Student Founder Offer: ₹112 → ₹67 for verified students. Only 4 student slots. Apply: forms.gle/vfRBpNXXxnaW6E23A",
+    color: "bg-yellow-500/10 text-yellow-400"
+  },
+  {
+    id: 59,
+    src: virtualSharkTank,
+    title: "Virtual Shark Tank — Pitch to Real Incubators",
+    description: "Opportunities don't wait. Neither should you. Pitch your startup in Virtual Shark Tank in front of real incubators from Atal Incubation Centre — GGSIPU. Pitch live, defend your vision, receive expert feedback, and take your first step into the startup ecosystem. 100% free · Sunday, July 5, 2026 · 10:00 AM onwards · Virtual. Limited spots. Big opportunities.",
+    color: "bg-red-600/10 text-red-500"
+  },
+  {
+    id: 60,
+    src: sunday3Fundraising,
+    title: "Sunday 3 — Fundraising & Startup Readiness",
+    description: "Learn. Build. Grow. A high-impact session with Atal Incubation Centre — GGSIPU on fundraising, pitch decks, and startup growth. Learn from the best, build investor-ready ideas, and grow your startup. This Sunday · 3:00 PM – 5:30 PM · Online (Google Meet). Free Manus AI credits for every registered participant. Powered by Ignitepedia × Wasabi AI × Manus. Be the 1%.",
+    color: "bg-orange-500/10 text-orange-400"
+  },
+  {
+    id: 61,
+    src: sunday3WasabiAic,
+    title: "Sunday 3 — Wasabi AI × Ignition in AI Era",
+    description: "Bringing India's innovation powerhouse to empower the next generation of founders. A high-impact session with Atal Incubation Centre — GGSIPU to help you build, prepare, and raise with confidence. Covers Investor Perspective, Pitch Deck Mastery, Founder Story, and Startup Readiness — plus Incubation & Mentorship, Funding Readiness, and Ecosystem Connect. Register: luma.com/owvaawyf",
+    color: "bg-amber-700/10 text-amber-500"
+  },
+  {
+    id: 62,
+    src: finalTwoSundaysGrand,
+    title: "The Final Two Sundays Are Going to Be GRAND",
+    description: "Build and Launch Startups with AI. Learn Faster — practical AI frameworks to accelerate your learning. Build Smarter — real products and MVPs using AI workflows. Launch Stronger — go from idea to launch with proven strategies and playbooks. Think Bigger — explore opportunities and stay ahead of the curve. Join us this Sunday. Register: luma.com/owvaawyf",
+    color: "bg-red-500/10 text-red-400"
   }
 ];
 export default function MarketingPosters() {
