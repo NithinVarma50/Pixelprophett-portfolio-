@@ -68,6 +68,13 @@ import sunday3Fundraising from "@/assets/posters/sunday3-fundraising.png";
 import sunday3WasabiAic from "@/assets/posters/sunday3-wasabi-aic.png";
 import finalTwoSundaysGrand from "@/assets/posters/final-two-sundays-grand.png";
 import incubationFundraisingStartupReadiness from "@/assets/posters/incubation-fundraising-startup-readiness.png";
+import ignitionArenaChallenge001 from "@/assets/posters/ignition-arena-challenge-001.png";
+import founderySwipeConnectBuild from "@/assets/posters/foundery-swipe-connect-build.png";
+import founderySocialNetwork from "@/assets/posters/foundery-social-network.png";
+import founderyStopSwipingDates from "@/assets/posters/foundery-stop-swiping-dates.png";
+import arenaSnoozeYouLose from "@/assets/posters/arena-snooze-you-lose.png";
+import yourChallengeYourLegacy from "@/assets/posters/your-challenge-your-legacy.png";
+import arenaMissThisRegretLater from "@/assets/posters/arena-miss-this-regret-later.png";
 
 
 interface Poster {
@@ -519,6 +526,55 @@ const posters: Poster[] = [
     title: "Incubation, Fundraising & Startup Readiness",
     description: "Sunday, June 28, 2026 · 10:30 AM. A power-packed session with ATAL Incubation Centre — GGSIPU to help you understand incubation, fundraising strategies, and pitch preparation from industry experts. Learn. Prepare. Raise. Grow. Brought to you by Ignitepedia × Wasabi AI × Manus. Free registration at luma.com/owvaawyf.",
     color: "bg-yellow-500/10 text-yellow-400"
+  },
+  {
+    id: 64,
+    src: ignitionArenaChallenge001,
+    title: "Ignition Arena — Challenge #001: Build a Weather App",
+    description: "Build. Submit. Win. Ignition Arena Challenge #001 — Build a Weather App. Submission deadline extended to 13th July, 11:59 PM (IST). Judging on 14th July, winner announced 15th July. Winner receives: Exclusive Limited Edition Arena Champion Badge on Foundery Profile, FREE access to the next Ignitepedia Exclusive Premium Document, and #1 position on the Ignition Arena Leaderboard. One challenge. One winner. Register & submit at ignitioninaiera.space/arena.",
+    color: "bg-red-500/10 text-red-500"
+  },
+  {
+    id: 65,
+    src: founderySwipeConnectBuild,
+    title: "Foundery — Swipe. Connect. Build.",
+    description: "Ignition in AI Era presents Foundery — your next co-founder could be just one swipe away. Swipe & Connect: discover founders and builders. Projects: create a project, find your team, or join exciting projects and build real startups. Ignitepedia: explore research papers, guides, case studies and AI resources — now with like & comment. One profile. One ecosystem. Swipe & connect with founders, create or join startup projects, like & comment on Ignitepedia, build your public builder identity. Foundery is in Beta. Join the builders. Build the future.",
+    color: "bg-orange-600/10 text-orange-500"
+  },
+  {
+    id: 66,
+    src: founderySocialNetwork,
+    title: "Foundery — The Social Network for Founders & Builders",
+    description: "Swipe. Connect. Build together. Your next co-founder could be just one swipe away. Foundery — only on Ignition in AI Era.",
+    color: "bg-zinc-400/10 text-zinc-200"
+  },
+  {
+    id: 67,
+    src: founderyStopSwipingDates,
+    title: "Stop Swiping for Dates. Start Swiping for Co-Founders.",
+    description: "Found your team. Build your empire. Foundery — only on Ignition in AI Era.",
+    color: "bg-zinc-500/10 text-zinc-300"
+  },
+  {
+    id: 68,
+    src: arenaSnoozeYouLose,
+    title: "Life Update: You Snooze, You Lose",
+    description: "Last day tomorrow. Don't miss out. Ignition Arena Challenge #001 — final call to submit.",
+    color: "bg-orange-500/10 text-orange-400"
+  },
+  {
+    id: 69,
+    src: yourChallengeYourLegacy,
+    title: "Your Challenge. Your Legacy.",
+    description: "One build today. Be the one that every builder remembers. Ignition Arena Challenge #001 — Build a Weather App. Deadline: Sat, 11th July. Ends soon. Join now before it's too late at ignitioninaiera.space/arena.",
+    color: "bg-red-600/10 text-red-500"
+  },
+  {
+    id: 70,
+    src: arenaMissThisRegretLater,
+    title: "Ignition Arena Challenge #001 — Miss This. Regret Later.",
+    description: "Build a Weather App. Not just another project. This is your moment. Opportunities like this don't knock twice. Your future self is watching you build. Judged on UI/UX, Functionality, Innovation & Overall Quality. The winner gets: Limited Edition Arena Champion Badge on Foundery Profile, FREE access to our next Ignitepedia Exclusive Premium Document, #1 Position on Ignition Arena Leaderboard, and Featured Across Ignition in AI Era Ecosystem. Submission deadline: Friday, 11th July, 11:59 PM (IST). One challenge. One winner. Build something extraordinary. Join at ignitioninaiera.space/arena.",
+    color: "bg-red-500/10 text-red-400"
   }
 ];
 export default function MarketingPosters() {
