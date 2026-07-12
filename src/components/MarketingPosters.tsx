@@ -68,6 +68,13 @@ import sunday3Fundraising from "@/assets/posters/sunday3-fundraising.png";
 import sunday3WasabiAic from "@/assets/posters/sunday3-wasabi-aic.png";
 import finalTwoSundaysGrand from "@/assets/posters/final-two-sundays-grand.png";
 import incubationFundraisingStartupReadiness from "@/assets/posters/incubation-fundraising-startup-readiness.png";
+import ignitionArenaChallenge001 from "@/assets/posters/ignition-arena-challenge-001.png";
+import founderySwipeConnectBuild from "@/assets/posters/foundery-swipe-connect-build.png";
+import founderySocialNetwork from "@/assets/posters/foundery-social-network.png";
+import founderyStopSwipingDates from "@/assets/posters/foundery-stop-swiping-dates.png";
+import arenaSnoozeYouLose from "@/assets/posters/arena-snooze-you-lose.png";
+import yourChallengeYourLegacy from "@/assets/posters/your-challenge-your-legacy.png";
+import arenaMissThisRegretLater from "@/assets/posters/arena-miss-this-regret-later.png";
 
 
 interface Poster {
