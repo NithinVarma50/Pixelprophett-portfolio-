@@ -62,18 +62,13 @@ import buildLaunchStartupsWithAi from "@/assets/posters/build-launch-startups-wi
 import registrations615Celebration from "@/assets/posters/registrations-615-celebration.jpg";
 import ignite1PercentSiliconValley from "@/assets/posters/ignite-1-percent-silicon-valley.jpg";
 import ignitepediaUltimateBuilderResource from "@/assets/posters/ignitepedia-ultimate-builder-resource.jpg";
-import ignite1PercentZineAsset from "@/assets/posters/ignite-1percent-zine.png.asset.json";
-import virtualSharkTankAsset from "@/assets/posters/virtual-shark-tank.png.asset.json";
-import sunday3FundraisingAsset from "@/assets/posters/sunday3-fundraising.png.asset.json";
-import sunday3WasabiAicAsset from "@/assets/posters/sunday3-wasabi-aic.png.asset.json";
-import finalTwoSundaysGrandAsset from "@/assets/posters/final-two-sundays-grand.png.asset.json";
-import incubationFundraisingStartupReadinessAsset from "@/assets/posters/incubation-fundraising-startup-readiness.png.asset.json";
-const ignite1PercentZine = ignite1PercentZineAsset.url;
-const virtualSharkTank = virtualSharkTankAsset.url;
-const sunday3Fundraising = sunday3FundraisingAsset.url;
-const sunday3WasabiAic = sunday3WasabiAicAsset.url;
-const finalTwoSundaysGrand = finalTwoSundaysGrandAsset.url;
-const incubationFundraisingStartupReadiness = incubationFundraisingStartupReadinessAsset.url;
+import ignite1PercentZine from "@/assets/posters/ignite-1percent-zine.png";
+import virtualSharkTank from "@/assets/posters/virtual-shark-tank.png";
+import sunday3Fundraising from "@/assets/posters/sunday3-fundraising.png";
+import sunday3WasabiAic from "@/assets/posters/sunday3-wasabi-aic.png";
+import finalTwoSundaysGrand from "@/assets/posters/final-two-sundays-grand.png";
+import incubationFundraisingStartupReadiness from "@/assets/posters/incubation-fundraising-startup-readiness.png";
+
 
 interface Poster {
   id: number;
