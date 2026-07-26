@@ -75,6 +75,9 @@ import founderyStopSwipingDates from "@/assets/posters/foundery-stop-swiping-dat
 import arenaSnoozeYouLose from "@/assets/posters/arena-snooze-you-lose.png";
 import yourChallengeYourLegacy from "@/assets/posters/your-challenge-your-legacy.png";
 import arenaMissThisRegretLater from "@/assets/posters/arena-miss-this-regret-later.png";
+import ignitionNews from "@/assets/posters/ignition-news.png";
+import ignitionSearchSmartBuilders from "@/assets/posters/ignition-search-smart-builders.png";
+import startupOs2026 from "@/assets/posters/startup-os-2026.png";
 
 
 interface Poster {
@@ -575,6 +578,27 @@ const posters: Poster[] = [
     title: "Ignition Arena Challenge #001 — Miss This. Regret Later.",
     description: "Build a Weather App. Not just another project. This is your moment. Opportunities like this don't knock twice. Your future self is watching you build. Judged on UI/UX, Functionality, Innovation & Overall Quality. The winner gets: Limited Edition Arena Champion Badge on Foundery Profile, FREE access to our next Ignitepedia Exclusive Premium Document, #1 Position on Ignition Arena Leaderboard, and Featured Across Ignition in AI Era Ecosystem. Submission deadline: Friday, 11th July, 11:59 PM (IST). One challenge. One winner. Build something extraordinary. Join at ignitioninaiera.space/arena.",
     color: "bg-red-500/10 text-red-400"
+  },
+  {
+    id: 71,
+    src: ignitionNews,
+    title: "Ignition News — The News That Builds Tomorrow",
+    description: "Curated for builders. Updated daily. Built for the future. Stay ahead or get left behind. AI, Startups, Business, Technology, Finance, Research — all in one place. Breaking updates, smart search, save to read later, company pages, trending now, and daily briefs. Don't miss what matters. Opportunities don't wait — neither should you. Explore now at ignitioninaiera.space/knowledge/news.",
+    color: "bg-yellow-500/10 text-yellow-400"
+  },
+  {
+    id: 72,
+    src: ignitionSearchSmartBuilders,
+    title: "Ignition Search — For Smart Builders",
+    description: "Don't get left behind. AI Overview, Live Search Results, Multiple Sources, Builder Impact, All in One Place. Information today. Advantage tomorrow. Explore now at ignitioninaiera.space/knowledge/news.",
+    color: "bg-orange-500/10 text-orange-400"
+  },
+  {
+    id: 73,
+    src: startupOs2026,
+    title: "Startup OS 2026 — Every Founder's Edge Is the First Move",
+    description: "New Ignitepedia Exclusive. The Complete Operating System for AI-Native Founders. 20 In-Depth Sections, 90+ AI Tools, 100 AI Prompts, 250+ Resources, 8 Actionable Checklists, and $500K+ in Free Credits. Everything you need to build, launch, and scale your startup in the AI era. Price: ₹269. Get your copy now at ignitioninaiera.space/exclusive.",
+    color: "bg-red-500/10 text-red-500"
   }
 ];
 export default function MarketingPosters() {
