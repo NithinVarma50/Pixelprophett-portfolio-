@@ -1,5 +1,5 @@
 import { defineTool } from "@lovable.dev/mcp-js";
-import { personalInfo } from "@/data/personal-info";
+import { personalInfo } from "../../data/personal-info";
 
 const projects = [
   { title: "Brain Candy", category: "Education", description: "An innovative education platform designed to enhance learning experiences." },

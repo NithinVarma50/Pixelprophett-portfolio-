@@ -1,5 +1,5 @@
 import { defineTool } from "@lovable.dev/mcp-js";
-import { personalInfo } from "@/data/personal-info";
+import { personalInfo } from "../../data/personal-info";
 
 export default defineTool({
   name: "get_contact",
