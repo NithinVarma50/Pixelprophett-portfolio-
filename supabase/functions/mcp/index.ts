@@ -7,7 +7,39 @@ import { defineMcp } from "npm:@lovable.dev/mcp-js@0.24.0";
 
 // src/lib/mcp/tools/get-about.ts
 import { defineTool } from "npm:@lovable.dev/mcp-js@0.24.0";
-import { personalInfo } from "npm:@/data/personal-info";
+var personalInfo = {
+  basics: {
+    name: "Nithin Varma",
+    age: "17",
+    birthDate: "May 4, 2007",
+    email: "varmanithin029@gmail.com",
+    phone: "9381904726",
+    location: "India"
+  },
+  education: {
+    current: "BBA in Business Analytics",
+    institution: "Tapasya Degree College",
+    graduationYear: "2026",
+    collegeTime: "9:00 AM to 2:00 PM",
+    skills: ["Data Science", "Business Analytics", "MS Excel", "Business Problem-Solving"]
+  },
+  achievements: [
+    "Organizing Innovators Den event at college",
+    "Participated in Shark Tank event with startup pitch",
+    "Created multiple startup ideas across industries",
+    "Founded and manage 'Ignition in AI Era' - 2000+ member community",
+    "Launched Discord server for enhanced community collaboration"
+  ],
+  interests: [
+    "Entrepreneurship",
+    "Business Innovation",
+    "Technology",
+    "Fitness",
+    "Badminton",
+    "Jump rope exercises"
+  ],
+  goals: "To become a great entrepreneur and billionaire, building and scaling groundbreaking businesses that disrupt industries."
+};
 var get_about_default = defineTool({
   name: "get_about",
   title: "Get about Nithin Varma",
@@ -22,7 +54,6 @@ var get_about_default = defineTool({
 
 // src/lib/mcp/tools/list-projects.ts
 import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.24.0";
-import { personalInfo as personalInfo2 } from "npm:@/data/personal-info";
 var projects = [
   { title: "Brain Candy", category: "Education", description: "An innovative education platform designed to enhance learning experiences." },
   { title: "BrainCandy AI Study Assistant", category: "AI & Education", description: "An AI-powered study assistant that helps students with learning and productivity." },
@@ -50,14 +81,7 @@ var list_projects_default = defineTool2({
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({
-    content: [
-      {
-        type: "text",
-        text: `${projects.length} projects on the portfolio (source list of names also available on the profile): ${personalInfo2.projects.join(", ")}
-
-${JSON.stringify(projects, null, 2)}`
-      }
-    ],
+    content: [{ type: "text", text: JSON.stringify(projects, null, 2) }],
     structuredContent: { projects }
   })
 });
@@ -106,7 +130,11 @@ var list_skills_default = defineTool3({
 
 // src/lib/mcp/tools/get-contact.ts
 import { defineTool as defineTool4 } from "npm:@lovable.dev/mcp-js@0.24.0";
-import { personalInfo as personalInfo3 } from "npm:@/data/personal-info";
+var contact = {
+  email: "varmanithin029@gmail.com",
+  phone: "9381904726",
+  location: "India"
+};
 var get_contact_default = defineTool4({
   name: "get_contact",
   title: "Get contact info",
@@ -117,16 +145,12 @@ var get_contact_default = defineTool4({
     content: [
       {
         type: "text",
-        text: `Email: ${personalInfo3.basics.email}
-Phone: ${personalInfo3.basics.phone}
-Location: ${personalInfo3.basics.location}`
+        text: `Email: ${contact.email}
+Phone: ${contact.phone}
+Location: ${contact.location}`
       }
     ],
-    structuredContent: {
-      email: personalInfo3.basics.email,
-      phone: personalInfo3.basics.phone,
-      location: personalInfo3.basics.location
-    }
+    structuredContent: contact
   })
 });
 

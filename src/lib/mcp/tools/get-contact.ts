@@ -1,5 +1,10 @@
 import { defineTool } from "@lovable.dev/mcp-js";
-import { personalInfo } from "../../data/personal-info";
+
+const contact = {
+  email: "varmanithin029@gmail.com",
+  phone: "9381904726",
+  location: "India",
+};
 
 export default defineTool({
   name: "get_contact",
@@ -11,13 +16,9 @@ export default defineTool({
     content: [
       {
         type: "text",
-        text: `Email: ${personalInfo.basics.email}\nPhone: ${personalInfo.basics.phone}\nLocation: ${personalInfo.basics.location}`,
+        text: `Email: ${contact.email}\nPhone: ${contact.phone}\nLocation: ${contact.location}`,
       },
     ],
-    structuredContent: {
-      email: personalInfo.basics.email,
-      phone: personalInfo.basics.phone,
-      location: personalInfo.basics.location,
-    },
+    structuredContent: contact,
   }),
 });

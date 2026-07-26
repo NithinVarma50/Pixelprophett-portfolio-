@@ -1,5 +1,4 @@
 import { defineTool } from "@lovable.dev/mcp-js";
-import { personalInfo } from "../../data/personal-info";
 
 const projects = [
   { title: "Brain Candy", category: "Education", description: "An innovative education platform designed to enhance learning experiences." },
@@ -29,12 +28,7 @@ export default defineTool({
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({
-    content: [
-      {
-        type: "text",
-        text: `${projects.length} projects on the portfolio (source list of names also available on the profile): ${personalInfo.projects.join(", ")}\n\n${JSON.stringify(projects, null, 2)}`,
-      },
-    ],
+    content: [{ type: "text", text: JSON.stringify(projects, null, 2) }],
     structuredContent: { projects },
   }),
 });
